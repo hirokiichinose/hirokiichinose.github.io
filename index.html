@@ -17,23 +17,19 @@
 <!-- ============================================================
      NAVIGATION
      ============================================================ -->
-
 <nav>
   <span class="nav-logo" onclick="showPage('home')">Hiroki Ichinose</span>
-
   <ul class="nav-links" id="main-nav">
-    <li><a onclick="showPage('home')"  id="nav-home">Home</a></li>
-    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
-    <li><a onclick="showPage('film')"  id="nav-film">Dance on Film</a></li>
-    <li><a onclick="showPage('stage')" id="nav-stage">Dance on Stage</a></li>
-    <li><a onclick="showPage('past')"  id="nav-past">Past Works</a></li>
+    <li><a onclick="showPage('home')"    id="nav-home">Home</a></li>
+    <li><a onclick="showPage('about')"   id="nav-about">About</a></li>
+    <li><a onclick="showPage('film')"    id="nav-film">Dance on Film</a></li>
+    <li><a onclick="showPage('stage')"   id="nav-stage">Dance on Stage</a></li>
+    <li><a onclick="showPage('past')"    id="nav-past">Past Works</a></li>
     <li><a onclick="showPage('archive')" id="nav-archive-link" style="color:#bbb;">
-      <!-- lock icon -->
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:5px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
       Archive
     </a></li>
   </ul>
-
   <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -43,13 +39,10 @@
 <!-- ============================================================
      HOME
      ============================================================ -->
-
 <div class="page active" id="page-home">
   <div class="hero">
-
     <!--
-      TO ADD YOUR VIDEO:
-      Replace the placeholder div below with:
+      TO ADD YOUR SHOWREEL VIDEO replace the div below with:
       <video autoplay muted loop playsinline>
         <source src="videos/showreel.mp4" type="video/mp4">
       </video>
@@ -58,16 +51,13 @@
       <div class="hero-placeholder-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
       </div>
-      <p>Place your showreel video here</p>
+      <p>Place your showreel video here — videos/showreel.mp4</p>
     </div>
-
     <div class="hero-overlay"></div>
-
     <div class="hero-text">
       <h1>Hiroki Ichinose</h1>
       <p>Choreographer &nbsp;·&nbsp; Dance on film &amp; stage</p>
     </div>
-
     <div class="scroll-cue">
       <div class="scroll-cue-line"></div>
       <span>Scroll</span>
@@ -79,52 +69,38 @@
 <!-- ============================================================
      ABOUT
      ============================================================ -->
-
 <div class="page" id="page-about">
   <div class="section-inner">
-
     <span class="section-eyebrow">About</span>
     <h1 class="section-heading">Hiroki Ichinose</h1>
 
     <div class="about-grid">
-      <!-- Bio -->
       <div class="about-body">
-        <p class="about-tagline">
-          A choreographer working at the intersection of movement, screen, and space.
-        </p>
-
+        <p class="about-tagline">A choreographer working at the intersection of movement, screen, and space.</p>
         <p>
-          Write your biography here. Describe your practice — what drives you,
-          where you've trained and worked, what questions your work keeps returning to.
-          This paragraph should feel like the most considered sentence you'd say
-          if someone asked you to introduce yourself at an opening.
+          Write your biography here — what drives you, where you have trained and worked,
+          what questions your work keeps returning to. This should feel like the most considered
+          thing you would say if someone asked you to introduce yourself at an opening.
         </p>
-
         <p>
-          A second paragraph can expand on collaborators, institutions, commissions,
-          or residencies. Keep it factual and warm — a list of achievements written
-          as prose rather than bullet points.
+          A second paragraph can expand on collaborators, institutions, commissions, or
+          residencies — achievements written as prose, not bullet points.
         </p>
-
         <p>
-          A third paragraph, if needed, for context about your current direction
-          or upcoming projects.
+          A third paragraph for your current direction or upcoming projects.
         </p>
-
         <div class="about-meta">
           <p>Based in &mdash; City, Country</p>
           <p>Contact &mdash; <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a></p>
         </div>
       </div>
 
-      <!-- Portrait image or video -->
       <div class="media-block">
         <!--
-          TO ADD YOUR PHOTO:
-          Replace the placeholder content inside this div with:
+          TO ADD YOUR PORTRAIT PHOTO:
           <img src="images/about/portrait.jpg" alt="Hiroki Ichinose" />
 
-          TO USE A VIDEO INSTEAD:
+          OR A VIDEO:
           <video autoplay muted loop playsinline>
             <source src="videos/portrait.mp4" type="video/mp4">
           </video>
@@ -132,45 +108,40 @@
         <div class="play-circle">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
-        <span class="media-block-label">Portrait / video</span>
+        <span class="media-block-label">Portrait — images/about/portrait.jpg</span>
       </div>
     </div>
 
     <hr class="divider" />
 
-    <!-- As a dancer -->
     <div class="dancer-section">
       <span class="section-eyebrow">As a dancer</span>
-      <h2 class="section-heading" style="font-size:28px; margin-bottom:2.5rem;">Performance practice</h2>
-
+      <h2 class="section-heading" style="font-size:28px;margin-bottom:2.5rem;">Performance practice</h2>
       <div class="dancer-grid">
         <div>
           <p>
-            This section is dedicated to your life as a performer. Describe your training,
-            the companies or directors you've worked with, and how your performing experience
-            informs your choreographic eye.
+            Describe your life as a performer here — your training, the companies you have danced with
+            (GoteborgsOperans Danskompani and others), and how performing informs your choreographic eye.
           </p>
           <p>
-            A second paragraph about specific performance highlights — productions,
-            festivals, or formative collaborations that shaped your movement language.
+            A second paragraph on specific performance highlights, festivals, or formative collaborations
+            that shaped your movement language.
           </p>
         </div>
-
         <div class="media-block-wide">
           <!--
             TO ADD PERFORMANCE FOOTAGE:
             <video autoplay muted loop playsinline>
-              <source src="videos/performance.mp4" type="video/mp4">
+              <source src="videos/dancer.mp4" type="video/mp4">
             </video>
           -->
           <div class="play-circle">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <span class="media-block-label">Performance footage</span>
+          <span class="media-block-label">Performance footage — videos/dancer.mp4</span>
         </div>
       </div>
     </div>
-
   </div>
 
   <footer>
@@ -181,91 +152,63 @@
 
 
 <!-- ============================================================
-     DANCE ON FILM
+     DANCE ON FILM — gallery
      ============================================================ -->
-
 <div class="page" id="page-film">
   <div class="section-inner">
-
     <span class="section-eyebrow">Work</span>
     <h1 class="section-heading">Dance on Film</h1>
-    <p class="section-intro">
-      Screen works — films made for the camera, site-specific video,
-      and collaborative projects with filmmakers and artists.
-    </p>
+    <p class="section-intro">Screen works — films made for the camera, site-specific video, and collaborative projects with filmmakers and artists.</p>
 
     <div class="gallery-grid">
 
-      <!--
-        TO ADD A WORK:
-        Copy one .gallery-item block and fill in:
-        - Replace the .gallery-item-placeholder with: <img class="gallery-item-media" src="images/film/your-image.jpg" alt="Title">
-        - Update the title and year/duration inside .gallery-item-overlay
-      -->
-
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showWork('red-fate')">
+        <!--
+          TO ADD THUMBNAIL IMAGE:
+          <img class="gallery-item-media" src="images/film/red-fate.jpg" alt="Red Fate" />
+        -->
         <div class="gallery-item-placeholder">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
         <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2024 &nbsp;&middot;&nbsp; 12 min</p>
+          <h3>Red Fate</h3>
+          <p>2024 &nbsp;&middot;&nbsp; Dance Film</p>
         </div>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showWork('upcoming-ane-brun')">
         <div class="gallery-item-placeholder" style="background:#efefed;">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
         <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2024 &nbsp;&middot;&nbsp; 8 min</p>
+          <h3>Untitled — Ane Brun</h3>
+          <p>Premiering August 26, 2027</p>
         </div>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" style="background:#eaeae8;">
+        <!--  Add more film works here  -->
         <div class="gallery-item-placeholder" style="background:#eaeae8;">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
         <div class="gallery-item-overlay">
           <h3>Piece Title</h3>
-          <p>2023 &nbsp;&middot;&nbsp; 20 min</p>
+          <p>Year &nbsp;&middot;&nbsp; Duration</p>
         </div>
       </div>
 
-      <div class="gallery-item">
+      <div class="gallery-item" style="background:#e8e8e6;">
         <div class="gallery-item-placeholder" style="background:#e8e8e6;">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
         <div class="gallery-item-overlay">
           <h3>Piece Title</h3>
-          <p>2023 &nbsp;&middot;&nbsp; 15 min</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-item-placeholder" style="background:#f2f2f0;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2022 &nbsp;&middot;&nbsp; 5 min</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-item-placeholder" style="background:#ebebea;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2021 &nbsp;&middot;&nbsp; 10 min</p>
+          <p>Year &nbsp;&middot;&nbsp; Duration</p>
         </div>
       </div>
 
     </div>
   </div>
-
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
     <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
@@ -274,84 +217,52 @@
 
 
 <!-- ============================================================
-     DANCE ON STAGE
+     DANCE ON STAGE — gallery
      ============================================================ -->
-
 <div class="page" id="page-stage">
   <div class="section-inner">
-
     <span class="section-eyebrow">Work</span>
     <h1 class="section-heading">Dance on Stage</h1>
-    <p class="section-intro">
-      Live works made for theatres, site-specific spaces, and festivals —
-      solo and ensemble pieces, and large-scale productions.
-    </p>
+    <p class="section-intro">Live works made for theatres, site-specific spaces, and festivals — solo and ensemble pieces, and large-scale productions.</p>
 
     <div class="gallery-grid">
 
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showWork('red')">
+        <!--
+          TO ADD THUMBNAIL:
+          <img class="gallery-item-media" src="images/stage/red.jpg" alt="Red" />
+        -->
+        <div class="gallery-item-placeholder">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Red</h3>
+          <p>Orsolina28 Art Foundation</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="showWork('lay-him-quietly')">
+        <div class="gallery-item-placeholder" style="background:#efefed;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Lay Him Quietly</h3>
+          <p>2026 &nbsp;&middot;&nbsp; Ostgotateatern</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" style="background:#eaeae8;">
         <div class="gallery-item-placeholder" style="background:#eaeae8;">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
         <div class="gallery-item-overlay">
           <h3>Piece Title</h3>
-          <p>2024 &nbsp;&middot;&nbsp; Venue Name</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-item-placeholder">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2024 &nbsp;&middot;&nbsp; Venue Name</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-item-placeholder" style="background:#efefed;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2023 &nbsp;&middot;&nbsp; Venue Name</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-item-placeholder" style="background:#e8e8e6;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2023 &nbsp;&middot;&nbsp; Venue Name</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-item-placeholder" style="background:#f2f2f0;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2022 &nbsp;&middot;&nbsp; Venue Name</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-item-placeholder" style="background:#ebebea;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>2021 &nbsp;&middot;&nbsp; Venue Name</p>
+          <p>Year &nbsp;&middot;&nbsp; Venue</p>
         </div>
       </div>
 
     </div>
   </div>
-
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
     <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
@@ -362,94 +273,46 @@
 <!-- ============================================================
      PAST WORKS
      ============================================================ -->
-
 <div class="page" id="page-past">
   <div class="section-inner">
-
     <span class="section-eyebrow">Archive</span>
     <h1 class="section-heading">Past Works</h1>
-    <p class="section-intro">
-      An archive of earlier pieces — formative works that shaped the practice.
-    </p>
+    <p class="section-intro">An archive of earlier pieces — formative works that shaped the practice.</p>
 
     <div class="past-list">
 
-      <!--
-        TO ADD A PAST WORK:
-        Copy one .past-item block and fill in:
-        - Replace the placeholder SVG with: <img src="images/past/your-image.jpg" alt="Title" />
-        - Update title, year/venue, and description
-      -->
-
-      <div class="past-item">
+      <div class="past-item" onclick="showWork('together-we-cry')">
         <div class="past-thumb">
+          <!--
+            TO ADD THUMBNAIL:
+            <img src="images/past/together-we-cry.jpg" alt="Together We Cry" />
+          -->
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
         <div class="past-info">
-          <h3>Piece Title</h3>
-          <p class="past-meta">2019 &nbsp;&middot;&nbsp; Venue or Context</p>
-          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
+          <h3>Together We Cry</h3>
+          <p class="past-meta">GoteborgsOperans Danskompani &nbsp;&middot;&nbsp; World of Volvo</p>
+          <p>An immersive, time-limited experience exploring how emotion is performed, consumed, and aestheticized in the digital age.</p>
         </div>
       </div>
 
-      <div class="past-item">
+      <div class="past-item" onclick="showWork('margot')">
         <div class="past-thumb">
+          <!--
+            TO ADD THUMBNAIL:
+            <img src="images/past/margot.jpg" alt="Margot" />
+          -->
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
         </div>
         <div class="past-info">
-          <h3>Piece Title</h3>
-          <p class="past-meta">2018 &nbsp;&middot;&nbsp; Venue or Context</p>
-          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
-        </div>
-      </div>
-
-      <div class="past-item">
-        <div class="past-thumb">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="past-info">
-          <h3>Piece Title</h3>
-          <p class="past-meta">2017 &nbsp;&middot;&nbsp; Venue or Context</p>
-          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
-        </div>
-      </div>
-
-      <div class="past-item">
-        <div class="past-thumb">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="past-info">
-          <h3>Piece Title</h3>
-          <p class="past-meta">2016 &nbsp;&middot;&nbsp; Venue or Context</p>
-          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
-        </div>
-      </div>
-
-      <div class="past-item">
-        <div class="past-thumb">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="past-info">
-          <h3>Piece Title</h3>
-          <p class="past-meta">2015 &nbsp;&middot;&nbsp; Venue or Context</p>
-          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
-        </div>
-      </div>
-
-      <div class="past-item">
-        <div class="past-thumb">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="past-info">
-          <h3>Piece Title</h3>
-          <p class="past-meta">2014 &nbsp;&middot;&nbsp; Venue or Context</p>
-          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
+          <h3>Margot</h3>
+          <p class="past-meta">GoteborgsOperans Danskompani Studio</p>
+          <p>Created for GoteborgsOperans Danskompani studio sharing performance. Collaboration with Victor Ketelslegers.</p>
         </div>
       </div>
 
     </div>
   </div>
-
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
     <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
@@ -460,10 +323,8 @@
 <!-- ============================================================
      FULL ARCHIVE (password protected)
      ============================================================ -->
-
 <div class="page" id="page-archive">
 
-  <!-- Lock screen -->
   <div class="lock-screen" id="lock-screen">
     <div class="lock-card">
       <div class="lock-icon">
@@ -480,10 +341,8 @@
     </div>
   </div>
 
-  <!-- Archive content (shown after unlock) -->
   <div id="archive-content" style="display:none;">
     <div class="archive-inner">
-
       <div class="archive-header">
         <h1>Full archive</h1>
         <button class="archive-lock-btn" onclick="lockArchive()">
@@ -499,76 +358,590 @@
         <button class="filter-btn active" onclick="filterArchive('all', this)">All works</button>
         <button class="filter-btn" onclick="filterArchive('film', this)">Film</button>
         <button class="filter-btn" onclick="filterArchive('stage', this)">Stage</button>
-        <button class="filter-btn" onclick="filterArchive('past', this)">Archive</button>
+        <button class="filter-btn" onclick="filterArchive('past', this)">Past</button>
       </div>
 
       <div class="archive-grid">
 
-        <!--
-          TO ADD A FULL WORK:
-          Copy one .archive-item block and fill in:
-          - Set data-cat to "film", "stage", or "past"
-          - Replace the placeholder SVG with a thumbnail image or video preview
-          - Update title and meta
-        -->
-
         <div class="archive-item" data-cat="film">
           <div class="archive-thumb">
+            <!--  <img src="images/film/red-fate.jpg" alt="Red Fate" />  -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <h3>Film Title</h3>
-          <p>2024 &nbsp;&middot;&nbsp; Film &nbsp;&middot;&nbsp; 12 min</p>
+          <h3>Red Fate</h3>
+          <p>Dance Film &nbsp;&middot;&nbsp; 2024</p>
         </div>
 
-        <div class="archive-item" data-cat="stage">
+        <div class="archive-item" data-cat="film">
           <div class="archive-thumb" style="background:#efefed;">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <h3>Stage Title</h3>
-          <p>2024 &nbsp;&middot;&nbsp; Stage &nbsp;&middot;&nbsp; Venue Name</p>
+          <h3>Untitled — Ane Brun</h3>
+          <p>Dance Film &nbsp;&middot;&nbsp; Premiering 2027</p>
         </div>
 
-        <div class="archive-item" data-cat="film">
+        <div class="archive-item" data-cat="stage">
           <div class="archive-thumb" style="background:#eaeae8;">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <h3>Film Title</h3>
-          <p>2023 &nbsp;&middot;&nbsp; Film &nbsp;&middot;&nbsp; 8 min</p>
+          <h3>Red</h3>
+          <p>Stage &nbsp;&middot;&nbsp; Orsolina28</p>
         </div>
 
         <div class="archive-item" data-cat="stage">
           <div class="archive-thumb" style="background:#e8e8e6;">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <h3>Stage Title</h3>
-          <p>2023 &nbsp;&middot;&nbsp; Stage &nbsp;&middot;&nbsp; Venue Name</p>
+          <h3>Lay Him Quietly</h3>
+          <p>Stage &nbsp;&middot;&nbsp; 2026</p>
         </div>
 
         <div class="archive-item" data-cat="past">
           <div class="archive-thumb" style="background:#f2f2f0;">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <h3>Archive Title</h3>
-          <p>2019 &nbsp;&middot;&nbsp; Past work</p>
+          <h3>Together We Cry</h3>
+          <p>Past work &nbsp;&middot;&nbsp; GoteborgsOperans</p>
         </div>
 
         <div class="archive-item" data-cat="past">
           <div class="archive-thumb" style="background:#ebebea;">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <h3>Archive Title</h3>
-          <p>2018 &nbsp;&middot;&nbsp; Past work</p>
+          <h3>Margot</h3>
+          <p>Past work &nbsp;&middot;&nbsp; GoteborgsOperans</p>
         </div>
 
       </div>
     </div>
-
     <footer>
       <p>&copy; 2025 Hiroki Ichinose</p>
       <p style="color:#ccc;">Private archive — restricted access</p>
     </footer>
   </div>
+</div>
 
+
+<!-- ============================================================
+     WORK DETAIL: RED FATE
+     ============================================================ -->
+<div class="page work-detail" id="page-red-fate">
+  <div class="work-hero">
+    <!--
+      TO ADD TRAILER VIDEO:
+      <video autoplay muted loop playsinline>
+        <source src="videos/red-fate-trailer.mp4" type="video/mp4">
+      </video>
+
+      OR A STILL IMAGE:
+      <img src="images/film/red-fate-hero.jpg" alt="Red Fate" />
+    -->
+    <div class="work-hero-placeholder">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <p>Trailer — videos/red-fate-trailer.mp4</p>
+    </div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('film')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Film
+    </button>
+
+    <div class="work-title-block">
+      <h1>Red Fate</h1>
+      <span class="work-type">Dance Film &nbsp;&middot;&nbsp; 2024</span>
+    </div>
+
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p>RED FATE began as RED, a stage work by choreographer Hiroki Ichinose, which premiered at Orsolina28. Filmmaker Natasha Mynhier reimagined it as a dance film shot on location in Moncalvo, Italy.</p>
+          <p>Both artists — he Japanese American, she Singaporean American — draw on their multicultural roots to reflect on the women who shaped them and partnerships formed when cultures meet. Featuring acclaimed dancers Madoka Kariya and Victor Ketelslegers, alongside Ichinose, the film entwines the Japanese legend of Akai Ito (the Red String of Fate) with a narrative of entanglement, loss of self, and the resilience found in balance rather than control.</p>
+          <p>In bringing the stage work to cinema, the film crafts an emotional meditation on fate, female empowerment, and modern partnership.</p>
+        </div>
+
+        <div class="work-press">
+          <!-- Add press quotes here if available -->
+        </div>
+
+        <div class="work-images">
+          <h4>Images</h4>
+          <div class="work-image-grid">
+            <!--
+              TO ADD IMAGES replace each placeholder with:
+              <div class="work-image-grid-item"><img src="images/film/red-fate-1.jpg" alt="Red Fate" /></div>
+            -->
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <dl>
+            <dt>Director</dt><dd>Natasha Mynheir</dd>
+            <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
+            <dt>Dancers</dt><dd>Madoka Kariya, Victor Ketelslegers, Hiroki Ichinose</dd>
+            <dt>Director of Photography</dt><dd>Brooke Mueller</dd>
+            <dt>Executive Producers</dt><dd>Hiroki Ichinose, Madoka Kariya</dd>
+            <dt>Editor</dt><dd>Eli James</dd>
+            <dt>Original Music</dt><dd>Nicoletta Nomicou</dd>
+            <dt>Costumes</dt><dd>CHANEL</dd>
+            <dt>Colorist</dt><dd>Walter Volpatto</dd>
+            <dt>Visual Effects</dt><dd>Byron Nash</dd>
+            <dt>Art Director</dt><dd>Isabelle Najera</dd>
+            <dt>Production</dt><dd>37/LAINES production</dd>
+            <dt>Music</dt>
+            <dd>
+              "RED FATE" — written &amp; produced by Nicoletta Nomicou. Vocals: Nicoletta Nomicou. Violin &amp; Viola: Stefan L Smith.<br><br>
+              "Fates Apart" — written by Nicoletta Nomicou. Piano: Nicoletta Nomicou. Cello: Alex Mansou. Score Mixer: Noah Hubbell.<br><br>
+              "Who Knows Where the Time Goes (Live)" — written by Sandy Denny. Performed by Moses Sumney. Used by permission of the artist.
+            </dd>
+          </dl>
+        </div>
+
+        <div class="work-supporters">
+          <h4>Supported by</h4>
+          <div class="supporter-logos">
+            <!--
+              TO ADD LOGOS:
+              <img class="supporter-logo" src="images/logos/chanel.png" alt="CHANEL" />
+              <img class="supporter-logo" src="images/logos/orsolina28.png" alt="Orsolina28 Art Foundation" />
+            -->
+            <div class="supporter-logo-placeholder">CHANEL</div>
+            <div class="supporter-logo-placeholder">Orsolina28 Art Foundation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     WORK DETAIL: UPCOMING — ANE BRUN
+     ============================================================ -->
+<div class="page work-detail" id="page-upcoming-ane-brun">
+  <div class="work-hero">
+    <!--
+      TO ADD IMAGE OR TRAILER:
+      <img src="images/film/ane-brun-hero.jpg" alt="Upcoming project with Ane Brun" />
+    -->
+    <div class="work-hero-placeholder">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <p>Image — images/film/ane-brun-hero.jpg</p>
+    </div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('film')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Film
+    </button>
+
+    <div class="work-title-block">
+      <span class="upcoming-badge">Upcoming</span>
+      <h1>Untitled</h1>
+      <span class="work-type">Dance Film &nbsp;&middot;&nbsp; Premiering August 26, 2027</span>
+    </div>
+
+    <div class="work-body">
+      <div class="work-description">
+        <p>A new dance film in collaboration with artist Ane Brun. Full details to be announced.</p>
+        <!--
+          TO ADD MORE INFO: replace the paragraph above with your description
+          TO ADD THE BALLOON RANGER LOGO:
+          <img src="images/logos/balloon-ranger.png" alt="Balloon Ranger" style="height:40px; margin-top:2rem; opacity:0.7;" />
+        -->
+      </div>
+      <div class="work-sidebar">
+        <div class="work-supporters">
+          <h4>In collaboration with</h4>
+          <div class="supporter-logos">
+            <!--
+              <img class="supporter-logo" src="images/logos/balloon-ranger.png" alt="Balloon Ranger" />
+            -->
+            <div class="supporter-logo-placeholder">Balloon Ranger</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     WORK DETAIL: RED (stage)
+     ============================================================ -->
+<div class="page work-detail" id="page-red">
+  <div class="work-hero">
+    <!--
+      TO ADD TRAILER OR IMAGE:
+      <video autoplay muted loop playsinline><source src="videos/red-trailer.mp4" type="video/mp4"></video>
+      OR: <img src="images/stage/red-hero.jpg" alt="Red" />
+    -->
+    <div class="work-hero-placeholder">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <p>Trailer — videos/red-trailer.mp4</p>
+    </div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('stage')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Stage
+    </button>
+
+    <div class="work-title-block">
+      <h1>Red</h1>
+      <span class="work-type">Stage Work &nbsp;&middot;&nbsp; Orsolina28 Art Foundation</span>
+    </div>
+
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p>Red is a choreographic work that explores the concept of destiny through the lens of Eastern and Western cultural paradigms, taking inspiration from the Japanese folk legend Akai Ito — "The Red String of Fate." In this story, an invisible red thread connects destined individuals across time and space; a metaphor that serves as the foundation for this work.</p>
+          <p>Rather than employing the thread as a simple narrative device, Red transforms it into a symbol of the invisible connections that link bodies, cultures, and temporalities. The choreography inhabits the space where gesture becomes story, and myth becomes a site of negotiation between collective memory and personal identity.</p>
+          <p>The work navigates themes of fate, autonomy, intergenerational responsibility, and belonging in a globalized world. Performed by Madoka Kariya (Nederlands Dans Theater), Hiroki Ichinose (GoteborgsOperans Danskompani), Victor Ketelslegers (GoteborgsOperans Danskompani), and featuring music by Moses Sumney.</p>
+          <p>The work was co-produced by Orsolina 28 Art Foundation and supported and costumed by CHANEL. It was reimagined into a dance film by director Natasha Mynheir, and excerpts have been presented at the New National Theater in Tokyo and Hyogo Performing Arts Center.</p>
+        </div>
+
+        <div class="work-press">
+          <h4>Press Highlights</h4>
+          <div class="press-quotes">
+            <div class="press-quote">
+              <blockquote>"The red thread of destiny led us to beauty."</blockquote>
+              <cite>ELLE Italia</cite>
+            </div>
+            <div class="press-quote">
+              <blockquote>"The creation of Ichinose, vibrant and subtly political, explores the contrasts between destiny and responsibility."</blockquote>
+              <cite>Marie Claire Italia</cite>
+            </div>
+            <div class="press-quote">
+              <blockquote>"A breathtaking choreographic exploration by Japanese-American artist Hiroki Ichinose."</blockquote>
+              <cite>Mia Le Journal</cite>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-images">
+          <h4>Images</h4>
+          <div class="work-image-grid">
+            <!--
+              TO ADD IMAGES:
+              <div class="work-image-grid-item"><img src="images/stage/red-1.jpg" alt="Red" /></div>
+            -->
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <dl>
+            <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
+            <dt>Artists</dt><dd>Madoka Kariya, Victor Ketelslegers, Hiroki Ichinose</dd>
+            <dt>Additional Collaborators</dt><dd>Natasha Mynheir, Brooke Mueller</dd>
+            <dt>Sound Mixing</dt><dd>Ivo Mateus</dd>
+            <dt>Music</dt><dd>Ebb Tide (Houston &amp; Dorsey), Piel (Arca), Who Knows Where the Time Goes (Moses Sumney)</dd>
+          </dl>
+        </div>
+
+        <div class="work-supporters">
+          <h4>Supported by</h4>
+          <div class="supporter-logos">
+            <!--
+              <img class="supporter-logo" src="images/logos/chanel.png" alt="CHANEL" />
+              <img class="supporter-logo" src="images/logos/orsolina28.png" alt="Orsolina28 Art Foundation" />
+            -->
+            <div class="supporter-logo-placeholder">CHANEL</div>
+            <div class="supporter-logo-placeholder">Orsolina28 Art Foundation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     WORK DETAIL: LAY HIM QUIETLY
+     ============================================================ -->
+<div class="page work-detail" id="page-lay-him-quietly">
+  <div class="work-hero">
+    <!--
+      TO ADD TRAILER OR IMAGE:
+      <video autoplay muted loop playsinline><source src="videos/lay-him-quietly-trailer.mp4" type="video/mp4"></video>
+      OR: <img src="images/stage/lay-him-quietly-hero.jpg" alt="Lay Him Quietly" />
+    -->
+    <div class="work-hero-placeholder">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <p>Trailer — videos/lay-him-quietly-trailer.mp4</p>
+    </div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('stage')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Stage
+    </button>
+
+    <div class="work-title-block">
+      <h1>Lay Him Quietly</h1>
+      <span class="work-type">Stage Work &nbsp;&middot;&nbsp; Premiered May 6, 2026 &nbsp;&middot;&nbsp; Ostgotateatern Stora Teatern</span>
+    </div>
+
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p>Lay Him Quietly has emerged from a deeply personal place. While it is not an autobiography, it is undeniably shaped by how Ichinose moves through the world as a queer Asian male and by the experiences that have informed his understanding of self, identity, and connection.</p>
+          <p>This work holds fragments of memories, emotional landscapes, and moments that belong not only to him, but also to those who shaped him — and the histories carried within them are present here. It is an abstract weaving of relationships and intergenerational inheritances, of personal and collective experiences that live in the body.</p>
+          <p>These include the quiet burdens we carry — societal expectations, internalized narratives, and the subtle ways we learn to guard ourselves, often at the expense of our ability to love fully and accept who we are. For Ichinose, Lay Him Quietly is rooted in emotional states such as doubt, anger, tenderness, and suffocation — whether imposed by others or created within ourselves.</p>
+          <p>It asks how we sit with these feelings, how we express them, and how we continue to move through the world while carrying them. Like our emotions, life is often contradictory and unresolved. It asks us to soften, to release our defenses, and to meet ourselves with compassion.</p>
+          <p>Premiered May 6, 2026 at Ostgotateatern Stora Teatern as part of Riksteatern's REACT International Theater Festival.</p>
+        </div>
+
+        <div class="work-images">
+          <h4>Images</h4>
+          <div class="work-image-grid">
+            <!--
+              TO ADD IMAGES:
+              <div class="work-image-grid-item"><img src="images/stage/lay-him-quietly-1.jpg" alt="Lay Him Quietly" /></div>
+            -->
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <dl>
+            <dt>Choreography / Direction</dt><dd>Hiroki Ichinose</dd>
+            <dt>Director of Photography</dt><dd>Lucas Wallenberg</dd>
+            <dt>Dancers</dt><dd>Ninos Josef &amp; Hiroki Ichinose</dd>
+            <dt>Music Composition</dt><dd>Ivo Mateus</dd>
+            <dt>Costumes</dt><dd>Anh Sommar</dd>
+            <dt>Featured Music</dt><dd>"Dirty Windshield" by Ane Brun — recording made especially for this work</dd>
+            <dt>Colorist</dt><dd>Daniel Pherson</dd>
+            <dt>Grip</dt><dd>Marcus Faltmark</dd>
+            <dt>Additional Vocals</dt><dd>Ursula Urgeles</dd>
+            <dt>Light Design</dt><dd>Lin Persson</dd>
+            <dt>Dramaturg</dt><dd>Victor Ketelslegers</dd>
+            <dt>Co-produced by</dt><dd>Dansiöst, Riksteatern Norrköping, Kulturradet</dd>
+          </dl>
+        </div>
+
+        <div class="work-supporters">
+          <h4>Supported by</h4>
+          <div class="supporter-logos">
+            <!--
+              TO ADD LOGOS:
+              <img class="supporter-logo" src="images/logos/dansiost.png" alt="Dansiöst" />
+              <img class="supporter-logo" src="images/logos/kulturradet.png" alt="Kulturradet" />
+              <img class="supporter-logo" src="images/logos/riksteatern.png" alt="Riksteatern Norrköping" />
+              <img class="supporter-logo" src="images/logos/region-ostergotland.png" alt="Region Östergötland" />
+              <img class="supporter-logo" src="images/logos/embassy-sweden.png" alt="Embassy of Sweden in Washington" />
+              <img class="supporter-logo" src="images/logos/ostgotateatern.png" alt="Ostgotateatern" />
+            -->
+            <div class="supporter-logo-placeholder">Dansiöst</div>
+            <div class="supporter-logo-placeholder">Kulturradet</div>
+            <div class="supporter-logo-placeholder">Riksteatern Norrköping</div>
+            <div class="supporter-logo-placeholder">Region Östergötland</div>
+            <div class="supporter-logo-placeholder">Embassy of Sweden</div>
+            <div class="supporter-logo-placeholder">Ostgotateatern</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     WORK DETAIL: TOGETHER WE CRY
+     ============================================================ -->
+<div class="page work-detail" id="page-together-we-cry">
+  <div class="work-hero">
+    <!--
+      TO ADD VIDEO OR IMAGE:
+      <video autoplay muted loop playsinline><source src="videos/together-we-cry.mp4" type="video/mp4"></video>
+      OR: <img src="images/past/together-we-cry-hero.jpg" alt="Together We Cry" />
+    -->
+    <div class="work-hero-placeholder">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <p>Video — videos/together-we-cry.mp4</p>
+    </div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('past')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Past Works
+    </button>
+
+    <div class="work-title-block">
+      <h1>Together We Cry</h1>
+      <span class="work-type">GoteborgsOperans Danskompani &nbsp;&middot;&nbsp; World of Volvo</span>
+    </div>
+
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p>An immersive, time-limited experience exploring how emotion is performed, consumed, and aestheticized in the digital age. The work questions whether public digital expressions of vulnerability foster authentic connection or merely transforms emotion into aesthetic content in pursuit of visibility and validation.</p>
+        </div>
+
+        <div class="work-images">
+          <h4>Images</h4>
+          <div class="work-image-grid">
+            <!--
+              TO ADD IMAGES:
+              <div class="work-image-grid-item"><img src="images/past/twc-1.jpg" alt="Together We Cry" /></div>
+            -->
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <dl>
+            <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
+            <dt>Dancers</dt><dd>Valentin Durand, Da Young Kim, Iris Telting</dd>
+            <dt>Music</dt><dd>"I Want to Know What Love Is" — Amason</dd>
+            <dt>Production</dt><dd>A collaboration between GoteborgsOperans Danskompani &amp; World of Volvo</dd>
+          </dl>
+        </div>
+
+        <div class="work-supporters">
+          <h4>In collaboration with</h4>
+          <div class="supporter-logos">
+            <!--
+              <img class="supporter-logo" src="images/logos/world-of-volvo.png" alt="World of Volvo" />
+              <img class="supporter-logo" src="images/logos/goteborgsoperans.png" alt="GoteborgsOperans Danskompani" />
+            -->
+            <div class="supporter-logo-placeholder">World of Volvo</div>
+            <div class="supporter-logo-placeholder">GoteborgsOperans Danskompani</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     WORK DETAIL: MARGOT
+     ============================================================ -->
+<div class="page work-detail" id="page-margot">
+  <div class="work-hero">
+    <!--
+      TO ADD VIDEO OR IMAGE:
+      <video autoplay muted loop playsinline><source src="videos/margot.mp4" type="video/mp4"></video>
+      OR: <img src="images/past/margot-hero.jpg" alt="Margot" />
+    -->
+    <div class="work-hero-placeholder">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <p>Video — videos/margot.mp4</p>
+    </div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('past')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Past Works
+    </button>
+
+    <div class="work-title-block">
+      <h1>Margot</h1>
+      <span class="work-type">GoteborgsOperans Danskompani Studio</span>
+    </div>
+
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p>Created for GoteborgsOperans Danskompani studio sharing performance. A collaboration with Victor Ketelslegers.</p>
+          <!--  Add more description here if you have it  -->
+        </div>
+
+        <div class="work-images">
+          <h4>Images</h4>
+          <div class="work-image-grid">
+            <!--
+              TO ADD IMAGES:
+              <div class="work-image-grid-item"><img src="images/past/margot-1.jpg" alt="Margot" /></div>
+            -->
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <dl>
+            <dt>Created by</dt><dd>Hiroki Ichinose</dd>
+            <dt>Collaboration</dt><dd>Victor Ketelslegers</dd>
+            <dt>Production</dt><dd>GoteborgsOperans Danskompani</dd>
+          </dl>
+        </div>
+
+        <div class="work-supporters">
+          <h4>In collaboration with</h4>
+          <div class="supporter-logos">
+            <!--
+              <img class="supporter-logo" src="images/logos/goteborgsoperans.png" alt="GoteborgsOperans Danskompani" />
+            -->
+            <div class="supporter-logo-placeholder">GoteborgsOperans Danskompani</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
 </div>
 
 
