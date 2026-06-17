@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hiroki Ichinose — Choreographer</title>
+  <meta name="description" content="Hiroki Ichinose — choreographer working in dance on film and stage." />
+  <meta property="og:title" content="Hiroki Ichinose — Choreographer" />
+  <meta property="og:description" content="Dance on film and stage." />
+  <meta property="og:url" content="https://hirokiichinose.com" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+
+<nav>
+  <span class="nav-logo" onclick="showPage('home')">Hiroki Ichinose</span>
+
+  <ul class="nav-links" id="main-nav">
+    <li><a onclick="showPage('home')"  id="nav-home">Home</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('film')"  id="nav-film">Dance on Film</a></li>
+    <li><a onclick="showPage('stage')" id="nav-stage">Dance on Stage</a></li>
+    <li><a onclick="showPage('past')"  id="nav-past">Past Works</a></li>
+    <li><a onclick="showPage('archive')" id="nav-archive-link" style="color:#bbb;">
+      <!-- lock icon -->
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:5px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      Archive
+    </a></li>
+  </ul>
+
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+
+<!-- ============================================================
+     HOME
+     ============================================================ -->
+
+<div class="page active" id="page-home">
+  <div class="hero">
+
+    <!--
+      TO ADD YOUR VIDEO:
+      Replace the placeholder div below with:
+      <video autoplay muted loop playsinline>
+        <source src="videos/showreel.mp4" type="video/mp4">
+      </video>
+    -->
+    <div class="hero-placeholder">
+      <div class="hero-placeholder-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <p>Place your showreel video here</p>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-text">
+      <h1>Hiroki Ichinose</h1>
+      <p>Choreographer &nbsp;·&nbsp; Dance on film &amp; stage</p>
+    </div>
+
+    <div class="scroll-cue">
+      <div class="scroll-cue-line"></div>
+      <span>Scroll</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+
+<div class="page" id="page-about">
+  <div class="section-inner">
+
+    <span class="section-eyebrow">About</span>
+    <h1 class="section-heading">Hiroki Ichinose</h1>
+
+    <div class="about-grid">
+      <!-- Bio -->
+      <div class="about-body">
+        <p class="about-tagline">
+          A choreographer working at the intersection of movement, screen, and space.
+        </p>
+
+        <p>
+          Write your biography here. Describe your practice — what drives you,
+          where you've trained and worked, what questions your work keeps returning to.
+          This paragraph should feel like the most considered sentence you'd say
+          if someone asked you to introduce yourself at an opening.
+        </p>
+
+        <p>
+          A second paragraph can expand on collaborators, institutions, commissions,
+          or residencies. Keep it factual and warm — a list of achievements written
+          as prose rather than bullet points.
+        </p>
+
+        <p>
+          A third paragraph, if needed, for context about your current direction
+          or upcoming projects.
+        </p>
+
+        <div class="about-meta">
+          <p>Based in &mdash; City, Country</p>
+          <p>Contact &mdash; <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a></p>
+        </div>
+      </div>
+
+      <!-- Portrait image or video -->
+      <div class="media-block">
+        <!--
+          TO ADD YOUR PHOTO:
+          Replace the placeholder content inside this div with:
+          <img src="images/about/portrait.jpg" alt="Hiroki Ichinose" />
+
+          TO USE A VIDEO INSTEAD:
+          <video autoplay muted loop playsinline>
+            <source src="videos/portrait.mp4" type="video/mp4">
+          </video>
+        -->
+        <div class="play-circle">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="media-block-label">Portrait / video</span>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- As a dancer -->
+    <div class="dancer-section">
+      <span class="section-eyebrow">As a dancer</span>
+      <h2 class="section-heading" style="font-size:28px; margin-bottom:2.5rem;">Performance practice</h2>
+
+      <div class="dancer-grid">
+        <div>
+          <p>
+            This section is dedicated to your life as a performer. Describe your training,
+            the companies or directors you've worked with, and how your performing experience
+            informs your choreographic eye.
+          </p>
+          <p>
+            A second paragraph about specific performance highlights — productions,
+            festivals, or formative collaborations that shaped your movement language.
+          </p>
+        </div>
+
+        <div class="media-block-wide">
+          <!--
+            TO ADD PERFORMANCE FOOTAGE:
+            <video autoplay muted loop playsinline>
+              <source src="videos/performance.mp4" type="video/mp4">
+            </video>
+          -->
+          <div class="play-circle">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <span class="media-block-label">Performance footage</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     DANCE ON FILM
+     ============================================================ -->
+
+<div class="page" id="page-film">
+  <div class="section-inner">
+
+    <span class="section-eyebrow">Work</span>
+    <h1 class="section-heading">Dance on Film</h1>
+    <p class="section-intro">
+      Screen works — films made for the camera, site-specific video,
+      and collaborative projects with filmmakers and artists.
+    </p>
+
+    <div class="gallery-grid">
+
+      <!--
+        TO ADD A WORK:
+        Copy one .gallery-item block and fill in:
+        - Replace the .gallery-item-placeholder with: <img class="gallery-item-media" src="images/film/your-image.jpg" alt="Title">
+        - Update the title and year/duration inside .gallery-item-overlay
+      -->
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2024 &nbsp;&middot;&nbsp; 12 min</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#efefed;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2024 &nbsp;&middot;&nbsp; 8 min</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#eaeae8;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2023 &nbsp;&middot;&nbsp; 20 min</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#e8e8e6;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2023 &nbsp;&middot;&nbsp; 15 min</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#f2f2f0;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2022 &nbsp;&middot;&nbsp; 5 min</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#ebebea;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2021 &nbsp;&middot;&nbsp; 10 min</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     DANCE ON STAGE
+     ============================================================ -->
+
+<div class="page" id="page-stage">
+  <div class="section-inner">
+
+    <span class="section-eyebrow">Work</span>
+    <h1 class="section-heading">Dance on Stage</h1>
+    <p class="section-intro">
+      Live works made for theatres, site-specific spaces, and festivals —
+      solo and ensemble pieces, and large-scale productions.
+    </p>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#eaeae8;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2024 &nbsp;&middot;&nbsp; Venue Name</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2024 &nbsp;&middot;&nbsp; Venue Name</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#efefed;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2023 &nbsp;&middot;&nbsp; Venue Name</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#e8e8e6;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2023 &nbsp;&middot;&nbsp; Venue Name</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#f2f2f0;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2022 &nbsp;&middot;&nbsp; Venue Name</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-placeholder" style="background:#ebebea;">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="gallery-item-overlay">
+          <h3>Piece Title</h3>
+          <p>2021 &nbsp;&middot;&nbsp; Venue Name</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     PAST WORKS
+     ============================================================ -->
+
+<div class="page" id="page-past">
+  <div class="section-inner">
+
+    <span class="section-eyebrow">Archive</span>
+    <h1 class="section-heading">Past Works</h1>
+    <p class="section-intro">
+      An archive of earlier pieces — formative works that shaped the practice.
+    </p>
+
+    <div class="past-list">
+
+      <!--
+        TO ADD A PAST WORK:
+        Copy one .past-item block and fill in:
+        - Replace the placeholder SVG with: <img src="images/past/your-image.jpg" alt="Title" />
+        - Update title, year/venue, and description
+      -->
+
+      <div class="past-item">
+        <div class="past-thumb">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="past-info">
+          <h3>Piece Title</h3>
+          <p class="past-meta">2019 &nbsp;&middot;&nbsp; Venue or Context</p>
+          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
+        </div>
+      </div>
+
+      <div class="past-item">
+        <div class="past-thumb">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="past-info">
+          <h3>Piece Title</h3>
+          <p class="past-meta">2018 &nbsp;&middot;&nbsp; Venue or Context</p>
+          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
+        </div>
+      </div>
+
+      <div class="past-item">
+        <div class="past-thumb">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="past-info">
+          <h3>Piece Title</h3>
+          <p class="past-meta">2017 &nbsp;&middot;&nbsp; Venue or Context</p>
+          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
+        </div>
+      </div>
+
+      <div class="past-item">
+        <div class="past-thumb">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="past-info">
+          <h3>Piece Title</h3>
+          <p class="past-meta">2016 &nbsp;&middot;&nbsp; Venue or Context</p>
+          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
+        </div>
+      </div>
+
+      <div class="past-item">
+        <div class="past-thumb">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="past-info">
+          <h3>Piece Title</h3>
+          <p class="past-meta">2015 &nbsp;&middot;&nbsp; Venue or Context</p>
+          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
+        </div>
+      </div>
+
+      <div class="past-item">
+        <div class="past-thumb">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <div class="past-info">
+          <h3>Piece Title</h3>
+          <p class="past-meta">2014 &nbsp;&middot;&nbsp; Venue or Context</p>
+          <p>A brief description of this work — its subject, its scale, who it was made with or for.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     FULL ARCHIVE (password protected)
+     ============================================================ -->
+
+<div class="page" id="page-archive">
+
+  <!-- Lock screen -->
+  <div class="lock-screen" id="lock-screen">
+    <div class="lock-card">
+      <div class="lock-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+      </div>
+      <h2>Full archive</h2>
+      <p>Complete recordings of all works.<br>Enter the password to access.</p>
+      <input type="password" id="pw-input" placeholder="Password" autocomplete="current-password" />
+      <button onclick="checkPassword()">Enter</button>
+      <p class="lock-error" id="pw-error">Incorrect password — please try again.</p>
+    </div>
+  </div>
+
+  <!-- Archive content (shown after unlock) -->
+  <div id="archive-content" style="display:none;">
+    <div class="archive-inner">
+
+      <div class="archive-header">
+        <h1>Full archive</h1>
+        <button class="archive-lock-btn" onclick="lockArchive()">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+          Lock
+        </button>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterArchive('all', this)">All works</button>
+        <button class="filter-btn" onclick="filterArchive('film', this)">Film</button>
+        <button class="filter-btn" onclick="filterArchive('stage', this)">Stage</button>
+        <button class="filter-btn" onclick="filterArchive('past', this)">Archive</button>
+      </div>
+
+      <div class="archive-grid">
+
+        <!--
+          TO ADD A FULL WORK:
+          Copy one .archive-item block and fill in:
+          - Set data-cat to "film", "stage", or "past"
+          - Replace the placeholder SVG with a thumbnail image or video preview
+          - Update title and meta
+        -->
+
+        <div class="archive-item" data-cat="film">
+          <div class="archive-thumb">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <h3>Film Title</h3>
+          <p>2024 &nbsp;&middot;&nbsp; Film &nbsp;&middot;&nbsp; 12 min</p>
+        </div>
+
+        <div class="archive-item" data-cat="stage">
+          <div class="archive-thumb" style="background:#efefed;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <h3>Stage Title</h3>
+          <p>2024 &nbsp;&middot;&nbsp; Stage &nbsp;&middot;&nbsp; Venue Name</p>
+        </div>
+
+        <div class="archive-item" data-cat="film">
+          <div class="archive-thumb" style="background:#eaeae8;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <h3>Film Title</h3>
+          <p>2023 &nbsp;&middot;&nbsp; Film &nbsp;&middot;&nbsp; 8 min</p>
+        </div>
+
+        <div class="archive-item" data-cat="stage">
+          <div class="archive-thumb" style="background:#e8e8e6;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <h3>Stage Title</h3>
+          <p>2023 &nbsp;&middot;&nbsp; Stage &nbsp;&middot;&nbsp; Venue Name</p>
+        </div>
+
+        <div class="archive-item" data-cat="past">
+          <div class="archive-thumb" style="background:#f2f2f0;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <h3>Archive Title</h3>
+          <p>2019 &nbsp;&middot;&nbsp; Past work</p>
+        </div>
+
+        <div class="archive-item" data-cat="past">
+          <div class="archive-thumb" style="background:#ebebea;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <h3>Archive Title</h3>
+          <p>2018 &nbsp;&middot;&nbsp; Past work</p>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Hiroki Ichinose</p>
+      <p style="color:#ccc;">Private archive — restricted access</p>
+    </footer>
+  </div>
+
+</div>
+
+
+<script src="js/main.js"></script>
+</body>
+</html>
