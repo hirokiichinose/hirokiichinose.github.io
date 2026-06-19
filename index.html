@@ -133,6 +133,46 @@
       font-size:.78rem; color:#777; margin-top:.4rem; letter-spacing:.04em;
     }
 
+    /* ── Horizontal project list ── */
+    .horiz-list { margin-top:2.5rem; border-top:1px solid rgba(255,255,255,.1); }
+    .horiz-row {
+      display:grid;
+      grid-template-columns:140px 1fr auto;
+      align-items:center;
+      gap:2rem;
+      padding:1.2rem 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      cursor:pointer;
+      transition:background .2s, padding .2s;
+    }
+    .horiz-row:hover { background:rgba(255,255,255,.03); padding-left:.8rem; padding-right:.8rem; }
+    .horiz-thumb {
+      position:relative;
+      width:140px; height:90px;
+      overflow:hidden; flex-shrink:0;
+    }
+    .horiz-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .horiz-badge {
+      position:absolute; bottom:.4rem; left:.4rem;
+      background:rgba(0,0,0,.65); color:#ccc;
+      font-size:.65rem; letter-spacing:.1em;
+      padding:.2rem .45rem; text-transform:uppercase;
+    }
+    .horiz-info h3 { margin:0 0 .25rem; font-size:1rem; font-weight:400; color:#fff; }
+    .horiz-info p  { margin:0; font-size:.8rem; color:#888; letter-spacing:.03em; }
+    .horiz-arrow   { color:#555; font-size:1.1rem; flex-shrink:0; transition:color .2s; }
+    .horiz-row:hover .horiz-arrow { color:#fff; }
+    @media(max-width:600px) {
+      .horiz-row { grid-template-columns:100px 1fr auto; gap:1rem; }
+      .horiz-thumb { width:100px; height:65px; }
+    }
+
+    /* ── CV page two-col ── */
+    @media(max-width:800px) {
+      #page-cv .section-inner > div { grid-template-columns:1fr !important; }
+      #page-cv .section-inner > div > div:last-child { display:none; }
+    }
+
     /* ── Supporter logos ── */
     .supporter-logos { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; margin-top:.6rem; }
     .supporter-logo { height:36px; width:auto; max-width:90px; object-fit:contain; opacity:.75; filter:grayscale(30%); }
@@ -254,38 +294,40 @@
       </div>
     </div>
 
+
     <hr class="divider" />
 
+    <!-- DANCE SECTION -->
     <div class="dancer-section">
       <span class="section-eyebrow">As a dancer</span>
-      <h2 class="section-heading" style="font-size:28px;margin-bottom:2.5rem;">Dance Experience</h2>
+      <h2 class="section-heading" style="font-size:28px;margin-bottom:2rem;">Dance Experience</h2>
 
-      <div class="dancer-grid" style="margin-bottom:3rem;">
-        <div>
-          <p>
-            A permanent artist with GoteborgsOperans Danskompani since 2018, Hiroki has performed creations by some of the world's leading choreographers — among them Crystal Pite, Sharon Eyal, Alexander Ekman, Hofesh Shechter, and Damien Jalet. He has also worked as a guest artist with Grand Théâtre de Genève/Eastman and Iceland Dance Company, and previously as a soloist with Ballet Staatstheater Nuremberg.
-          </p>
-          <p>
-            His performing life feeds directly into his choreographic practice — an understanding of the body as both instrument and subject, shaped by years of working at the intersection of physical rigor and artistic inquiry.
-          </p>
-        </div>
-        <!-- Vimeo: Dance Performances -->
-        <div class="media-block-wide" style="padding:0;background:#000;overflow:hidden;">
-          <div style="padding:56.25% 0 0 0;position:relative;">
-            <iframe
-              src="https://player.vimeo.com/video/1039232539"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
-              title="Dance Performances — Hiroki Ichinose">
-            </iframe>
-          </div>
-        </div>
+      <div style="margin-bottom:2rem;">
+        <p>
+          A permanent artist with GöteborgsOperans Danskompani since 2018, Hiroki has performed creations by some of the world's leading choreographers — among them Crystal Pite, Sharon Eyal, Alexander Ekman, Hofesh Shechter, and Damien Jalet. He has also worked as a guest artist with Grand Théâtre de Genève/Eastman and Iceland Dance Company, and previously as a soloist with Ballet Staatstheater Nuremberg.
+        </p>
+        <p>
+          His performing life feeds directly into his choreographic practice — an understanding of the body as both instrument and subject, shaped by years of working at the intersection of physical rigor and artistic inquiry.
+        </p>
       </div>
 
-      <!-- YouTube: Dance on Camera -->
+      <!-- Wide performance video -->
+      <div style="padding:56.25% 0 0 0;position:relative;background:#000;margin-bottom:4rem;">
+        <iframe
+          src="https://www.youtube.com/embed/suNWipGhVbg"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          title="Dance Performances — Hiroki Ichinose">
+        </iframe>
+      </div>
+
+      <!-- Dance on Camera -->
       <div style="margin-bottom:4rem;">
-        <span class="section-eyebrow" style="margin-bottom:1.2rem;display:block;">Dance on Camera</span>
+        <span class="section-eyebrow" style="margin-bottom:.8rem;display:block;">Dance on Camera</span>
+        <p style="margin-bottom:1.5rem;max-width:640px;">
+          Alongside his stage practice, Hiroki is available for dance on camera, commercial, and film projects — bringing precision, physical intelligence, and years of experience working in front of the lens with some of the world's leading directors and choreographers.
+        </p>
         <div style="padding:56.25% 0 0 0;position:relative;background:#000;">
           <iframe
             src="https://www.youtube.com/embed/EEvSzZvO_rQ"
@@ -297,149 +339,11 @@
         </div>
       </div>
 
-      <!-- DANCE EXPERIENCE -->
-      <div class="cv-section">
-        <p class="cv-section-title">Dance Experience</p>
-
-        <div class="cv-entry">
-          <span class="cv-year">2018 — Present</span>
-          <div class="cv-info">
-            <h4>GoteborgsOperans Danskompani</h4>
-            <p class="cv-role">Permanent Artist &nbsp;&middot;&nbsp; Sweden</p>
-            <p>Under the Direction of Katrin Hall. Creations by Alexander Ekman, Sharon Eyal, Crystal Pite, Damien Jalet, Hofesh Shechter, Johan Inger, Emma Portner, Bobbi Jean Smith / Or Schraiber, Kenneth Kvarnström, Maxine Doyle, Alan Lucien Øyen, Roy Assaf, Guy and Roni, Paul Blackman / Christine Gouzelis, Wang Ramirez.</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2025</span>
-          <div class="cv-info">
-            <h4>Grand Théâtre de Genève / Eastman</h4>
-            <p class="cv-role">Guest Artist &nbsp;&middot;&nbsp; Switzerland</p>
-            <p>Pelléas et Mélisande by Sidi Larbi Cherkaoui, Damien Jalet, Marina Abramović.</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2025</span>
-          <div class="cv-info">
-            <h4>Iceland Dance Company</h4>
-            <p class="cv-role">Guest Artist &nbsp;&middot;&nbsp; Iceland</p>
-            <p>Under the Direction of Lovísa Ósk Gunnarsdóttir.</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2015 — 2018</span>
-          <div class="cv-info">
-            <h4>Ballet Staatstheater Nuremberg</h4>
-            <p class="cv-role">Soloist &nbsp;&middot;&nbsp; Germany</p>
-            <p>Under the Direction of Goyo Montero.</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2013 — 2015</span>
-          <div class="cv-info">
-            <h4>Freelance</h4>
-            <p>Aszure Barton and Artists, Kyle Abraham / A.I.M, Rashaun Mitchell.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- SPECIAL PROJECTS -->
-      <div class="cv-section">
-        <p class="cv-section-title">Special Projects</p>
-
-
-        <div class="cv-entry">
-          <span class="cv-year">2023</span>
-          <div class="cv-info">
-            <h4>Ane Brun 20th Anniversary Tour</h4>
-            <p class="cv-role">Movement Director</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2023</span>
-          <div class="cv-info">
-            <h4>Hand in the Fire — Music Video</h4>
-            <p class="cv-role">Movement Collaborator / Featured Dancer</p>
-            <p>Ane Brun / Shruti Ganguli.</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2022</span>
-          <div class="cv-info">
-            <h4>Frisco — Music Video</h4>
-            <p class="cv-role">Movement Collaborator / Featured Dancer</p>
-            <p>Little Dragon / Broke Int.</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2022</span>
-          <div class="cv-info">
-            <h4>Hammer (SVT)</h4>
-            <p class="cv-role">Dancer</p>
-            <p>Alexander Ekman, Directed by Tommy Pascal.</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2019</span>
-          <div class="cv-info">
-            <h4>ANIMA (Netflix)</h4>
-            <p class="cv-role">Dancer</p>
-            <p>Paul Thomas Anderson / Damien Jalet.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- EDUCATION -->
-      <div class="cv-section">
-        <p class="cv-section-title">Education</p>
-
-        <div class="cv-entry">
-          <span class="cv-year">2020</span>
-          <div class="cv-info">
-            <h4>Malmö University</h4>
-            <p class="cv-role">MA in Communications</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">2010 — 2013</span>
-          <div class="cv-info">
-            <h4>New York University, Tisch School of the Arts</h4>
-            <p class="cv-role">B.F.A with Honors</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- AWARDS -->
-      <div class="cv-section">
-        <p class="cv-section-title">Awards &amp; Accolades</p>
-
-  	<div class="cv-award">
-          <span class="cv-year">2026</span>
-          <h4>Dancer of the Year - Icelandic Griman Awards</h4>
-        </div>
-
-        <div class="cv-award">
-          <span class="cv-year">2023 / 2024 / 2025</span>
-          <h4>Mary Von Sydow Stipendium</h4>
-        </div>
-
-        <div class="cv-award">
-          <span class="cv-year">2025</span>
-          <h4>Choreographic Fellowship Call for Creation — Orsolina28</h4>
-        </div>
-
-        <div class="cv-award">
-          <span class="cv-year">2016</span>
-          <h4>Dance Magazine's "25 to Watch"</h4>
-        </div>
+      <!-- CV button -->
+      <div style="margin-bottom:3rem;">
+        <button class="fw-link-btn" onclick="showPage('cv')" style="font-size:.85rem;padding:.7rem 1.6rem;letter-spacing:.12em;">
+          CV &nbsp;&#8594;
+        </button>
       </div>
 
     </div>
@@ -447,7 +351,153 @@
 
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     CV PAGE
+     ============================================================ -->
+<div class="page" id="page-cv">
+  <div class="section-inner">
+
+    <button class="work-back" onclick="showPage('about')" style="margin-bottom:2.5rem;">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      About
+    </button>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+
+      <!-- Left: CV content -->
+      <div>
+        <span class="section-eyebrow">Curriculum Vitae</span>
+        <h1 class="section-heading">CV</h1>
+
+        <div class="cv-section">
+          <p class="cv-section-title">Dance Experience</p>
+          <div class="cv-entry">
+            <span class="cv-year">2018 — Present</span>
+            <div class="cv-info">
+              <h4>GoteborgsOperans Danskompani</h4>
+              <p class="cv-role">Permanent Artist &nbsp;&middot;&nbsp; Sweden</p>
+              <p>Under the Direction of Katrin Hall. Creations by Alexander Ekman, Sharon Eyal, Crystal Pite, Damien Jalet, Hofesh Shechter, Johan Inger, Emma Portner, Bobbi Jean Smith / Or Schraiber, Kenneth Kvarnström, Maxine Doyle, Alan Lucien Øyen, Roy Assaf, Guy and Roni, Paul Blackman / Christine Gouzelis, Wang Ramirez.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2025</span>
+            <div class="cv-info">
+              <h4>Grand Théâtre de Genève / Eastman</h4>
+              <p class="cv-role">Guest Artist &nbsp;&middot;&nbsp; Switzerland</p>
+              <p>Pelléas et Mélisande by Sidi Larbi Cherkaoui, Damien Jalet, Marina Abramović.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2025</span>
+            <div class="cv-info">
+              <h4>Iceland Dance Company</h4>
+              <p class="cv-role">Guest Artist &nbsp;&middot;&nbsp; Iceland</p>
+              <p>Under the Direction of Lovísa Ósk Gunnarsdóttir.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2015 — 2018</span>
+            <div class="cv-info">
+              <h4>Ballet Staatstheater Nuremberg</h4>
+              <p class="cv-role">Soloist &nbsp;&middot;&nbsp; Germany</p>
+              <p>Under the Direction of Goyo Montero.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2013 — 2015</span>
+            <div class="cv-info">
+              <h4>Freelance</h4>
+              <p>Aszure Barton and Artists, Kyle Abraham / A.I.M, Rashaun Mitchell.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <p class="cv-section-title">Special Projects</p>
+          <div class="cv-entry">
+            <span class="cv-year">2023</span>
+            <div class="cv-info">
+              <h4>Ane Brun 20th Anniversary Tour</h4>
+              <p class="cv-role">Movement Director</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2023</span>
+            <div class="cv-info">
+              <h4>Hand in the Fire — Music Video</h4>
+              <p class="cv-role">Movement Collaborator / Featured Dancer</p>
+              <p>Ane Brun / Shruti Ganguli.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2022</span>
+            <div class="cv-info">
+              <h4>Frisco — Music Video</h4>
+              <p class="cv-role">Movement Collaborator / Featured Dancer</p>
+              <p>Little Dragon / Broke Int.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2022</span>
+            <div class="cv-info">
+              <h4>Hammer (SVT)</h4>
+              <p class="cv-role">Dancer</p>
+              <p>Alexander Ekman, Directed by Tommy Pascal.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2019</span>
+            <div class="cv-info">
+              <h4>ANIMA (Netflix)</h4>
+              <p class="cv-role">Dancer</p>
+              <p>Paul Thomas Anderson / Damien Jalet.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <p class="cv-section-title">Education</p>
+          <div class="cv-entry">
+            <span class="cv-year">2020</span>
+            <div class="cv-info">
+              <h4>Malmö University</h4>
+              <p class="cv-role">MA in Communications</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <span class="cv-year">2010 — 2013</span>
+            <div class="cv-info">
+              <h4>New York University, Tisch School of the Arts</h4>
+              <p class="cv-role">B.F.A with Honors</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <p class="cv-section-title">Awards &amp; Accolades</p>
+          <div class="cv-award"><span class="cv-year">2026</span><h4>Dancer of the Year — Icelandic Griman Awards</h4></div>
+          <div class="cv-award"><span class="cv-year">2023 / 2024 / 2025</span><h4>Mary Von Sydow Stipendium</h4></div>
+          <div class="cv-award"><span class="cv-year">2025</span><h4>Choreographic Fellowship Call for Creation — Orsolina28</h4></div>
+          <div class="cv-award"><span class="cv-year">2016</span><h4>Dance Magazine's "25 to Watch"</h4></div>
+        </div>
+      </div>
+
+      <!-- Right: photo -->
+      <div style="position:sticky;top:5rem;">
+        <img src="images/about/artistic2.webp" alt="Hiroki Ichinose"
+          style="width:100%;object-fit:cover;display:block;" />
+      </div>
+
+    </div>
+  </div>
+  <footer style="margin-top:4rem;">
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
   </footer>
 </div>
 
@@ -459,56 +509,55 @@
   <div class="section-inner">
     <span class="section-eyebrow">Work</span>
     <h1 class="section-heading">Dance on Film</h1>
-    <p class="section-intro">Screen works — films made for the camera, site-specific video, and collaborative projects with filmmakers and artists.</p>
 
-    <div class="stage-grid">
+    <div class="horiz-list">
 
-      <!-- LAY HIM FILM -->
-      <div class="stage-card" onclick="showWork('lay-him-film')">
-        <div class="stage-card-image">
-          <img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly — The Film" style="width:100%;height:100%;object-fit:cover;" />
-          <div class="stage-card-wip">Work in Progress</div>
+      <div class="horiz-row" onclick="showWork('lay-him-film')">
+        <div class="horiz-thumb">
+          <img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly — The Film" />
+          <div class="horiz-badge">Work in Progress</div>
         </div>
-        <div class="stage-card-info">
+        <div class="horiz-info">
           <h3>Lay Him Quietly — The Film</h3>
-          <p>2026 &nbsp;&middot;&nbsp; Work in Progress</p>
+          <p>2026 &nbsp;&middot;&nbsp; <em>Work in Progress</em></p>
         </div>
+        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <!-- RED FATE -->
-      <div class="stage-card" onclick="showWork('red-fate')">
-        <div class="stage-card-image">
-          <img src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" style="width:100%;height:100%;object-fit:cover;" />
+      <div class="horiz-row" onclick="showWork('red-fate')">
+        <div class="horiz-thumb">
+          <img src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" />
         </div>
-        <div class="stage-card-info">
+        <div class="horiz-info">
           <h3>Red Fate</h3>
           <p>Dance Film &nbsp;&middot;&nbsp; Orsolina28 / CHANEL</p>
         </div>
+        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <!-- HOLD ME -->
-      <div class="stage-card" onclick="showWork('hold-me')">
-        <div class="stage-card-image">
-          <img src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" style="width:100%;height:100%;object-fit:cover;" />
-          <div class="stage-card-wip">Upcoming</div>
+      <div class="horiz-row" onclick="showWork('hold-me')">
+        <div class="horiz-thumb">
+          <img src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" />
+          <div class="horiz-badge">Upcoming</div>
         </div>
-        <div class="stage-card-info">
+        <div class="horiz-info">
           <h3>Hold Me</h3>
           <p>August 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
         </div>
+        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <!-- SLUSH -->
-      <div class="stage-card" onclick="showWork('slush')">
-        <div class="stage-card-image">
-          <img src="images/film/iceland/slush.webp" alt="Slush" style="width:100%;height:100%;object-fit:cover;"
+      <div class="horiz-row" onclick="showWork('slush')">
+        <div class="horiz-thumb">
+          <img src="images/film/iceland/slush.webp" alt="Slush"
             onerror="this.src='images/film/iceland/slush.jpg'" />
-          <div class="stage-card-wip">Upcoming</div>
+          <div class="horiz-badge">Upcoming</div>
         </div>
-        <div class="stage-card-info">
+        <div class="horiz-info">
           <h3>Slush</h3>
           <p>Fall 2026 &nbsp;&middot;&nbsp; Bjorgvin Sigurdarson</p>
         </div>
+        <span class="horiz-arrow">&#8594;</span>
       </div>
 
     </div>
@@ -518,6 +567,7 @@
     <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
   </footer>
 </div>
+
 
 
 <!-- ============================================================
@@ -776,72 +826,71 @@
 
 
 <!-- ============================================================
+
+<!-- ============================================================
      DANCE ON STAGE — gallery
      ============================================================ -->
 <div class="page" id="page-stage">
   <div class="section-inner">
     <span class="section-eyebrow">Work</span>
     <h1 class="section-heading">Dance on Stage</h1>
-    <p class="section-intro">Live works made for theatres, site-specific spaces, and festivals.</p>
 
-    <div class="stage-grid">
+    <div class="horiz-list">
 
-      <!-- LAY HIM QUIETLY -->
-      <div class="stage-card" onclick="showWork('lay-him-quietly')">
-        <div class="stage-card-image">
-          <img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" style="width:100%;height:100%;object-fit:cover;" />
+      <div class="horiz-row" onclick="showWork('lay-him-quietly')">
+        <div class="horiz-thumb">
+          <img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" />
         </div>
-        <div class="stage-card-info">
+        <div class="horiz-info">
           <h3>Lay Him Quietly</h3>
           <p>2026</p>
         </div>
+        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <!-- RED -->
-      <div class="stage-card" onclick="showWork('red')">
-        <div class="stage-card-image">
-          <img src="images/stage/red/redselects/r1.webp" alt="RED" style="width:100%;height:100%;object-fit:cover;" />
+      <div class="horiz-row" onclick="showWork('red')">
+        <div class="horiz-thumb">
+          <img src="images/stage/red/redselects/r1.webp" alt="RED" />
         </div>
-        <div class="stage-card-info">
+        <div class="horiz-info">
           <h3>RED</h3>
           <p>Orsolina28 Art Foundation &nbsp;&middot;&nbsp; CHANEL</p>
         </div>
+        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <!-- US MOVING ON -->
-      <div class="stage-card" onclick="showWork('us-moving-on')">
-        <div class="stage-card-image">
-          <img src="images/stage/us/idc.avif" alt="Us Moving On" style="width:100%;height:100%;object-fit:cover;" />
-          <div class="stage-card-wip">Work in Progress</div>
+      <div class="horiz-row" onclick="showWork('us-moving-on')">
+        <div class="horiz-thumb">
+          <img src="images/stage/us/idc.avif" alt="Us Moving On" />
+          <div class="horiz-badge">Work in Progress</div>
         </div>
-        <div class="stage-card-info">
+        <div class="horiz-info">
           <h3>Us Moving On</h3>
-          <p>2026 &nbsp;&middot;&nbsp; Iceland Dance Company</p>
+          <p>2026 &nbsp;&middot;&nbsp; Iceland Dance Company &nbsp;&middot;&nbsp; <em>Work in Progress</em></p>
         </div>
+        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <!-- SEARCH -->
-      <div class="stage-card" onclick="showWork('search')">
-        <div class="stage-card-image">
-          <img src="images/stage/search/s1.webp" alt="Search for something I didn't know I needed" style="width:100%;height:100%;object-fit:cover;" />
-          <div class="stage-card-wip">Work in Progress</div>
+      <div class="horiz-row" onclick="showWork('search')">
+        <div class="horiz-thumb">
+          <img src="images/stage/search/s1.webp" alt="Search" />
+          <div class="horiz-badge">Work in Progress</div>
         </div>
-        <div class="stage-card-info">
+        <div class="horiz-info">
           <h3>Search for Something I Didn't Know I Needed</h3>
-          <p>Maui, Hawai'i</p>
+          <p>Maui, Hawai'i &nbsp;&middot;&nbsp; <em>Work in Progress</em></p>
         </div>
+        <span class="horiz-arrow">&#8594;</span>
       </div>
 
     </div>
   </div>
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
   </footer>
 </div>
 
-
-<!-- ============================================================
      STAGE: LAY HIM QUIETLY
      ============================================================ -->
 <div class="page work-detail" id="page-lay-him-quietly">
