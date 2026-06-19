@@ -188,8 +188,8 @@
   <ul class="nav-links" id="main-nav">
     <li><a onclick="showPage('home')"    id="nav-home">Home</a></li>
     <li><a onclick="showPage('about')"   id="nav-about">About</a></li>
-    <li><a onclick="showPage('film')"    id="nav-film">Dance on Film</a></li>
     <li><a onclick="showPage('stage')"   id="nav-stage">Dance on Stage</a></li>
+    <li><a onclick="showPage('film')"    id="nav-film">Dance on Film</a></li>
     <li><a onclick="showPage('past')"      id="nav-past">Past Works</a></li>
     <li><a onclick="showPage('fullworks')" id="nav-fullworks" style="color:#bbb;">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:5px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
@@ -465,13 +465,9 @@
 
       <!-- LAY HIM FILM -->
       <div class="stage-card" onclick="showWork('lay-him-film')">
-        <div class="stage-card-video">
-          <div class="stage-video-wrap">
-            <iframe src="https://www.youtube.com/embed/i2dE9lAwQak?rel=0&modestbranding=1"
-              title="Lay Him Quietly — The Film" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
+        <div class="stage-card-image">
+          <img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly — The Film" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="stage-card-wip">Work in Progress</div>
         </div>
         <div class="stage-card-info">
           <h3>Lay Him Quietly — The Film</h3>
@@ -481,13 +477,8 @@
 
       <!-- RED FATE -->
       <div class="stage-card" onclick="showWork('red-fate')">
-        <div class="stage-card-video">
-          <div class="stage-video-wrap">
-            <iframe src="https://www.youtube.com/embed/cqoXQ_JgWjM?rel=0&modestbranding=1"
-              title="Red Fate" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
+        <div class="stage-card-image">
+          <img src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div class="stage-card-info">
           <h3>Red Fate</h3>
@@ -797,29 +788,19 @@
 
       <!-- LAY HIM QUIETLY -->
       <div class="stage-card" onclick="showWork('lay-him-quietly')">
-        <div class="stage-card-video">
-          <div class="stage-video-wrap">
-            <iframe src="https://www.youtube.com/embed/ia7qDYI0R5I?rel=0&modestbranding=1"
-              title="Lay Him Quietly" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
+        <div class="stage-card-image">
+          <img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div class="stage-card-info">
           <h3>Lay Him Quietly</h3>
-          <p>2026 &nbsp;&middot;&nbsp; Riksteatern / Ostgotateatern</p>
+          <p>2026</p>
         </div>
       </div>
 
       <!-- RED -->
       <div class="stage-card" onclick="showWork('red')">
-        <div class="stage-card-video">
-          <div class="stage-video-wrap">
-            <iframe src="https://www.youtube.com/embed/cvHRvl8ZslY?rel=0&modestbranding=1"
-              title="RED" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
+        <div class="stage-card-image">
+          <img src="images/stage/red/redselects/r1.webp" alt="RED" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div class="stage-card-info">
           <h3>RED</h3>
@@ -830,7 +811,7 @@
       <!-- US MOVING ON -->
       <div class="stage-card" onclick="showWork('us-moving-on')">
         <div class="stage-card-image">
-          <img src="images/stage/us/moving-placeholder.jpg" alt="Us Moving On" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="images/stage/us/idc.avif" alt="Us Moving On" style="width:100%;height:100%;object-fit:cover;" />
           <div class="stage-card-wip">Work in Progress</div>
         </div>
         <div class="stage-card-info">
@@ -1100,9 +1081,8 @@
      ============================================================ -->
 <div class="page work-detail" id="page-us-moving-on">
   <div class="work-hero" style="height:55vh;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Abandoned_storage_building%2C_Packard_Plant%2C_Detroit.jpg/1920px-Abandoned_storage_building%2C_Packard_Plant%2C_Detroit.jpg"
-      alt="Us Moving On"
-      style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(60%);" />
+    <img src="images/stage/us/idc.avif" alt="Us Moving On"
+      style="width:100%;height:100%;object-fit:cover;display:block;" />
     <div class="hero-overlay" style="background:rgba(0,0,0,.35);"></div>
   </div>
 
@@ -1114,7 +1094,7 @@
 
     <div class="work-title-block">
       <h1>Us Moving On</h1>
-      <span class="work-type">Iceland Dance Company &nbsp;&middot;&nbsp; Work in Progress</span>
+      <span class="work-type">Adaptations Dance Theater &nbsp;&middot;&nbsp; Work in Progress</span>
     </div>
 
     <div class="work-body">
