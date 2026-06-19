@@ -11,6 +11,172 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    /* ── Hero slideshow ── */
+    .hero { position:relative; width:100%; height:100vh; overflow:hidden; background:#000; }
+    .hero-slideshow { position:absolute; inset:0; }
+    .hero-slide {
+      position:absolute; inset:0;
+      background-size:cover; background-position:center;
+      opacity:0; transition:opacity 1.4s ease;
+    }
+    .hero-slide.active { opacity:1; }
+    .hero-overlay {
+      position:absolute; inset:0;
+      background:rgba(0,0,0,.38);
+    }
+    .hero-text {
+      position:absolute; inset:0;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center; color:#fff; z-index:2;
+      padding:0 1.5rem;
+    }
+    .hero-text h1 {
+      font-family:'Cormorant Garamond', 'Georgia', serif;
+      font-size:clamp(2.4rem, 6vw, 5.5rem);
+      font-weight:300; letter-spacing:.22em;
+      margin:0 0 .6rem; line-height:1.1;
+    }
+    .hero-tagline {
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:clamp(.85rem, 1.6vw, 1.15rem);
+      letter-spacing:.18em; font-weight:300;
+      margin:0; opacity:.85; text-transform:lowercase;
+    }
+    /* ── About meta ── */
+    .about-meta p { margin:.3rem 0; font-size:.9rem; }
+
+    /* ── Stage grid ── */
+    .stage-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap:2.5rem;
+      margin-top:2.5rem;
+    }
+    .stage-card {
+      cursor:pointer;
+      background:#0a0a0a;
+      border:1px solid rgba(255,255,255,.08);
+      transition:border-color .25s,transform .25s;
+    }
+    .stage-card:hover { border-color:rgba(255,255,255,.3); transform:translateY(-3px); }
+    .stage-card-video,
+    .stage-card-image { width:100%; aspect-ratio:16/9; overflow:hidden; position:relative; }
+    .stage-video-wrap { position:relative; width:100%; height:100%; pointer-events:none; }
+    .stage-video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .stage-card-wip {
+      position:absolute; top:.7rem; left:.7rem;
+      background:rgba(0,0,0,.65); color:#ddd;
+      font-size:.7rem; letter-spacing:.1em;
+      padding:.25rem .55rem; text-transform:uppercase;
+    }
+    .stage-card-info { padding:1rem 1.1rem 1.3rem; }
+    .stage-card-info h3 { margin:0 0 .3rem; font-size:1.05rem; font-weight:400; color:#fff; }
+    .stage-card-info p  { margin:0; font-size:.8rem; color:#888; letter-spacing:.04em; }
+
+    /* ── Work hero video (full-width embed) ── */
+    .work-hero-video { width:100%; background:#000; }
+    .work-hero-video-wrap {
+      position:relative; width:100%; padding-top:56.25%;
+    }
+    .work-hero-video-wrap iframe {
+      position:absolute; inset:0; width:100%; height:100%; border:0;
+    }
+
+    /* ── Work premiere line ── */
+    .work-premiere {
+      margin-top:1.5rem;
+      font-size:.85rem; letter-spacing:.05em;
+      color:#aaa; font-style:italic;
+    }
+    .work-upcoming-label {
+      font-size:1rem; letter-spacing:.06em;
+      color:#bbb; text-transform:uppercase;
+    }
+
+    /* ── Photo slider ── */
+    .work-slider {
+      position:relative; overflow:hidden;
+      margin-top:2.5rem;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .work-slider-track {
+      display:flex;
+      transition:transform .5s ease;
+    }
+    .work-slider-item {
+      min-width:100%; aspect-ratio:16/9; overflow:hidden;
+    }
+    .work-slider-item img { width:100%; height:100%; object-fit:cover; display:block; }
+    .slider-btn {
+      position:absolute; top:50%; transform:translateY(-50%);
+      background:rgba(0,0,0,.55); color:#fff; border:none;
+      width:2.4rem; height:2.4rem; font-size:1.1rem;
+      cursor:pointer; z-index:2; display:flex; align-items:center; justify-content:center;
+      transition:background .2s;
+    }
+    .slider-btn:hover { background:rgba(0,0,0,.85); }
+    .slider-prev { left:.6rem; }
+    .slider-next { right:.6rem; }
+
+    /* ── Press quotes ── */
+    .work-press { margin-top:2rem; }
+    .work-press h4 { font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:#888; margin-bottom:1rem; }
+    .work-press blockquote {
+      margin:0 0 1.2rem; padding:.8rem 0 .8rem 1.2rem;
+      border-left:2px solid rgba(255,255,255,.15);
+      font-style:italic; font-size:.95rem; color:#ccc;
+    }
+    .work-press blockquote cite {
+      display:block; font-style:normal;
+      font-size:.78rem; color:#777; margin-top:.4rem; letter-spacing:.04em;
+    }
+
+    /* ── Supporter logos ── */
+    .supporter-logos { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; margin-top:.6rem; }
+    .supporter-logo { height:36px; width:auto; max-width:90px; object-fit:contain; opacity:.75; filter:grayscale(30%); }
+    .supporter-logo:hover { opacity:1; }
+
+    /* ── Past works grid ── */
+    .past-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap:3rem;
+      margin-top:2.5rem;
+    }
+    .past-video-card { display:flex; flex-direction:column; }
+    .past-video-wrap {
+      position:relative; width:100%; padding-top:56.25%; background:#000;
+    }
+    .past-video-wrap iframe {
+      position:absolute; inset:0; width:100%; height:100%; border:0;
+    }
+    .past-card-body { padding:1.1rem 0; }
+    .past-card-body h3 { margin:0 0 .3rem; font-size:1.05rem; font-weight:400; }
+    .past-card-meta { font-size:.8rem; color:#888; letter-spacing:.04em; margin:.2rem 0 .8rem; }
+    .past-card-note { font-size:.82rem; color:#777; font-style:italic; margin-top:.5rem; }
+
+    /* ── Credits two-column layout ── */
+    .credits-two-col { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .credits-music p { font-size:.82rem; margin:.6rem 0; line-height:1.6; }
+    @media(max-width:600px) { .credits-two-col { grid-template-columns:1fr; } }
+
+    /* ── Full Works list ── */
+    .fw-list { display:flex; flex-direction:column; gap:4rem; margin-top:1rem; }
+    .fw-entry { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; }
+    @media(max-width:700px) { .fw-entry { grid-template-columns:1fr; } }
+    .fw-video-wrap { position:relative; width:100%; padding-top:56.25%; background:#000; }
+    .fw-video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .fw-entry-body h3 { font-size:1.3rem; font-weight:300; margin:0 0 .5rem; }
+    .fw-entry-meta { font-size:.85rem; color:#888; margin:.3rem 0 1.2rem; }
+    .fw-link-btn {
+      background:none; border:1px solid rgba(255,255,255,.3); color:#ccc;
+      padding:.5rem 1rem; font-size:.8rem; letter-spacing:.08em;
+      cursor:pointer; text-transform:uppercase; transition:all .2s;
+    }
+    .fw-link-btn:hover { border-color:#fff; color:#fff; }
+  </style>
 </head>
 <body>
 
@@ -24,10 +190,10 @@
     <li><a onclick="showPage('about')"   id="nav-about">About</a></li>
     <li><a onclick="showPage('film')"    id="nav-film">Dance on Film</a></li>
     <li><a onclick="showPage('stage')"   id="nav-stage">Dance on Stage</a></li>
-    <li><a onclick="showPage('past')"    id="nav-past">Past Works</a></li>
-    <li><a onclick="showPage('archive')" id="nav-archive-link" style="color:#bbb;">
+    <li><a onclick="showPage('past')"      id="nav-past">Past Works</a></li>
+    <li><a onclick="showPage('fullworks')" id="nav-fullworks" style="color:#bbb;">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:5px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-      Archive
+      Full Works
     </a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
@@ -41,21 +207,15 @@
      ============================================================ -->
 <div class="page active" id="page-home">
   <div class="hero">
-  <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
-  <iframe
-    src="https://youtu.be/EEvSzZvO_rQ?autoplay=1&mute=1&loop=1&playlist=EEvSzZvO_rQ&controls=0&rel=0"
-    style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:0;"
-    allowfullscreen>
-  </iframe>
-</div>
+    <!-- SLIDESHOW -->
+    <div class="hero-slideshow" id="heroSlideshow">
+      <div class="hero-slide active" style="background-image:url('images/all/artistic.webp')"></div>
+      <div class="hero-slide" style="background-image:url('images/all/artistic2.webp')"></div>
+    </div>
     <div class="hero-overlay"></div>
     <div class="hero-text">
-      <h1>Hiroki Ichinose</h1>
-      <p>Choreographer & Artist &nbsp;·&nbsp; Movement Direction and Choreography &amp; Stage and Film</p>
-    </div>
-    <div class="scroll-cue">
-      <div class="scroll-cue-line"></div>
-      <span>Scroll</span>
+      <h1>HIROKI ICHINOSE</h1>
+      <p class="hero-tagline">choreography&nbsp;&nbsp;|&nbsp;&nbsp;movement direction&nbsp;&nbsp;|&nbsp;&nbsp;performer</p>
     </div>
   </div>
 </div>
@@ -90,16 +250,7 @@
       </div>
 
       <div class="media-block">
-        <!--
-          TO ADD YOUR PORTRAIT PHOTO:
-          <img src="images/about/headshot.webp" alt="Hiroki Ichinose" />
-
-      
-        -->
-        <div class="play-circle">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <span class="media-block-label">Portrait — images/about/artistic2.jpg</span>
+        <img src="images/about/headshot.webp" alt="Hiroki Ichinose" style="width:100%;height:100%;object-fit:cover;display:block;" />
       </div>
     </div>
 
@@ -107,38 +258,42 @@
 
     <div class="dancer-section">
       <span class="section-eyebrow">As a dancer</span>
-      <h2 class="section-heading" style="font-size:28px;margin-bottom:2.5rem;">Performance practice</h2>
-      <div class="dancer-grid">
-      <div class="dancer-section">
-      <span class="section-eyebrow">As a dancer</span>
-      <h2 class="section-heading" style="font-size:28px;margin-bottom:2.5rem;">Performance practice</h2>
+      <h2 class="section-heading" style="font-size:28px;margin-bottom:2.5rem;">Dance Experience</h2>
 
-      <div class="dancer-grid" style="margin-bottom:4rem;">
+      <div class="dancer-grid" style="margin-bottom:3rem;">
         <div>
           <p>
-            A permanent artist with GoteborgsOperans Danskompani since 2018, Hiroki has performed
-            creations by some of the world's leading choreographers — among them Crystal Pite,
-            Sharon Eyal, Alexander Ekman, Hofesh Shechter, and Damien Jalet. He has also worked
-            as a guest artist with Grand Théâtre de Genève/Eastman and Iceland Dance Company,
-            and previously as a soloist with Ballet Staatstheater Nuremberg.
+            A permanent artist with GoteborgsOperans Danskompani since 2018, Hiroki has performed creations by some of the world's leading choreographers — among them Crystal Pite, Sharon Eyal, Alexander Ekman, Hofesh Shechter, and Damien Jalet. He has also worked as a guest artist with Grand Théâtre de Genève/Eastman and Iceland Dance Company, and previously as a soloist with Ballet Staatstheater Nuremberg.
           </p>
           <p>
-            His performing life feeds directly into his choreographic practice — an understanding
-            of the body as both instrument and subject, shaped by years of working at the
-            intersection of physical rigor and artistic inquiry.
+            His performing life feeds directly into his choreographic practice — an understanding of the body as both instrument and subject, shaped by years of working at the intersection of physical rigor and artistic inquiry.
           </p>
         </div>
-        <div class="media-block-wide">
-          <!--
-            TO ADD PERFORMANCE FOOTAGE:
-            <video autoplay muted loop playsinline>
-              <iframe title="vimeo-player" src="https://player.vimeo.com/video/1039232539?h=58e5c7ad7f" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
-            </video>
-          -->
-          <div class="play-circle">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        <!-- Vimeo: Dance Performances -->
+        <div class="media-block-wide" style="padding:0;background:#000;overflow:hidden;">
+          <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe
+              src="https://player.vimeo.com/video/1039232539"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              title="Dance Performances — Hiroki Ichinose">
+            </iframe>
           </div>
-          <span class="media-block-label">Performance footage — videos/dancer.mp4</span>
+        </div>
+      </div>
+
+      <!-- YouTube: Dance on Camera -->
+      <div style="margin-bottom:4rem;">
+        <span class="section-eyebrow" style="margin-bottom:1.2rem;display:block;">Dance on Camera</span>
+        <div style="padding:56.25% 0 0 0;position:relative;background:#000;">
+          <iframe
+            src="https://www.youtube.com/embed/EEvSzZvO_rQ"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="Dance on Camera — Hiroki Ichinose">
+          </iframe>
         </div>
       </div>
 
@@ -306,50 +461,62 @@
     <h1 class="section-heading">Dance on Film</h1>
     <p class="section-intro">Screen works — films made for the camera, site-specific video, and collaborative projects with filmmakers and artists.</p>
 
-    <div class="gallery-grid">
+    <div class="stage-grid">
 
-      <div class="gallery-item" onclick="showWork('red-fate')">
-        <!--
-          TO ADD THUMBNAIL IMAGE:
-          <img class="gallery-item-media" src="images/film/red-fate.jpg" alt="Red Fate" />
-        -->
-        <div class="gallery-item-placeholder">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <!-- LAY HIM FILM -->
+      <div class="stage-card" onclick="showWork('lay-him-film')">
+        <div class="stage-card-video">
+          <div class="stage-video-wrap">
+            <iframe src="https://www.youtube.com/embed/i2dE9lAwQak?rel=0&modestbranding=1"
+              title="Lay Him Quietly — The Film" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="gallery-item-overlay">
+        <div class="stage-card-info">
+          <h3>Lay Him Quietly — The Film</h3>
+          <p>2026 &nbsp;&middot;&nbsp; Work in Progress</p>
+        </div>
+      </div>
+
+      <!-- RED FATE -->
+      <div class="stage-card" onclick="showWork('red-fate')">
+        <div class="stage-card-video">
+          <div class="stage-video-wrap">
+            <iframe src="https://www.youtube.com/embed/cqoXQ_JgWjM?rel=0&modestbranding=1"
+              title="Red Fate" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="stage-card-info">
           <h3>Red Fate</h3>
-          <p>2024 &nbsp;&middot;&nbsp; Dance Film</p>
+          <p>Dance Film &nbsp;&middot;&nbsp; Orsolina28 / CHANEL</p>
         </div>
       </div>
 
-      <div class="gallery-item" onclick="showWork('upcoming-ane-brun')">
-        <div class="gallery-item-placeholder" style="background:#efefed;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <!-- HOLD ME -->
+      <div class="stage-card" onclick="showWork('hold-me')">
+        <div class="stage-card-image">
+          <img src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="stage-card-wip">Upcoming</div>
         </div>
-        <div class="gallery-item-overlay">
-          <h3>Untitled — Ane Brun</h3>
-          <p>Premiering August 26, 2027</p>
-        </div>
-      </div>
-
-      <div class="gallery-item" style="background:#eaeae8;">
-        <!--  Add more film works here  -->
-        <div class="gallery-item-placeholder" style="background:#eaeae8;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>Year &nbsp;&middot;&nbsp; Duration</p>
+        <div class="stage-card-info">
+          <h3>Hold Me</h3>
+          <p>August 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
         </div>
       </div>
 
-      <div class="gallery-item" style="background:#e8e8e6;">
-        <div class="gallery-item-placeholder" style="background:#e8e8e6;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <!-- SLUSH -->
+      <div class="stage-card" onclick="showWork('slush')">
+        <div class="stage-card-image">
+          <img src="images/film/iceland/slush.webp" alt="Slush" style="width:100%;height:100%;object-fit:cover;"
+            onerror="this.src='images/film/iceland/slush.jpg'" />
+          <div class="stage-card-wip">Upcoming</div>
         </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>Year &nbsp;&middot;&nbsp; Duration</p>
+        <div class="stage-card-info">
+          <h3>Slush</h3>
+          <p>Fall 2026 &nbsp;&middot;&nbsp; Bjorgvin Sigurdarson</p>
         </div>
       </div>
 
@@ -357,7 +524,262 @@
   </div>
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     FILM: LAY HIM QUIETLY — THE FILM
+     ============================================================ -->
+<div class="page work-detail" id="page-lay-him-film">
+  <div class="work-hero-video">
+    <div class="work-hero-video-wrap">
+      <iframe src="https://www.youtube.com/embed/i2dE9lAwQak?rel=0&modestbranding=1"
+        title="Lay Him Quietly — The Film" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('film')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Film
+    </button>
+    <div class="work-title-block">
+      <h1>Lay Him Quietly — The Film</h1>
+      <span class="work-type">Dance Film &nbsp;&middot;&nbsp; Work in Progress &nbsp;&middot;&nbsp; Fall 2026</span>
+    </div>
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p>Lay Him Quietly (The Film) is a work in progress to be released in Fall 2026, as an extension of the stage work. An intimate cinematic rendering of the original live performance, the film carries forward its core emotional landscape — the quiet burdens of identity, love, and self — into the language of the camera.</p>
+        </div>
+        <div class="work-slider">
+          <div class="work-slider-track" id="lhf-slider">
+            <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh1.webp" alt="Lay Him Quietly Film" /></div>
+            <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh2.webp" alt="Lay Him Quietly Film" /></div>
+            <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh3.webp" alt="Lay Him Quietly Film" /></div>
+            <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh4.webp" alt="Lay Him Quietly Film" /></div>
+          </div>
+          <button class="slider-btn slider-prev" onclick="slideMove('lhf-slider',-1)">&#8592;</button>
+          <button class="slider-btn slider-next" onclick="slideMove('lhf-slider',1)">&#8594;</button>
+        </div>
+      </div>
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <dl>
+            <dt>Choreography / Direction</dt><dd>Hiroki Ichinose</dd>
+            <dt>Director of Photography</dt><dd>Lucas Wallenberg</dd>
+            <dt>Dancers</dt><dd>Ninos Josef &amp; Hiroki Ichinose</dd>
+            <dt>Music Composition</dt><dd>Ivo Mateus</dd>
+            <dt>Featuring</dt><dd>Ane Brun "Dirty Windshield" — Recording made especially for this work</dd>
+            <dt>Colorist</dt><dd>Daniel Pherson</dd>
+            <dt>Grip</dt><dd>Marcus Faltmark</dd>
+            <dt>Additional Vocals</dt><dd>Ursula Urgeles</dd>
+            <dt>Dramaturg</dt><dd>Victor Ketelslegers</dd>
+            <dt>Co-produced by</dt><dd>Dansiöst, Riksteatern Norrköping, Kulturradet</dd>
+            <dt>Support</dt><dd>Embassy of Sweden in the United States</dd>
+            <dt>Special Thanks</dt><dd>Caj Muller and the entire technical team at Ostgotateatern</dd>
+          </dl>
+        </div>
+        <div class="work-supporters">
+          <h4>Supported by</h4>
+          <div class="supporter-logos">
+            <img class="supporter-logo" src="images/stage/layhim/laypng/dansiostcopy.png" alt="Dansiöst" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/kulturradetcopy.png" alt="Kulturrådet" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/regionosterlandcopy.png" alt="Region Östergötland" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/ostgotateatern.png" alt="Ostgotateatern" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/riksteatern.png" alt="Riksteatern" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/embassy.png" alt="Embassy of Sweden" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     FILM: RED FATE
+     ============================================================ -->
+<div class="page work-detail" id="page-red-fate">
+  <div class="work-hero-video">
+    <div class="work-hero-video-wrap">
+      <iframe src="https://www.youtube.com/embed/cqoXQ_JgWjM?rel=0&modestbranding=1"
+        title="Red Fate" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('film')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Film
+    </button>
+    <div class="work-title-block">
+      <h1>Red Fate</h1>
+      <span class="work-type">Dance Film &nbsp;&middot;&nbsp; Orsolina28 Art Foundation &nbsp;&middot;&nbsp; CHANEL</span>
+    </div>
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p>RED FATE began as RED, a stage work by choreographer Hiroki Ichinose, which premiered at Orsolina28. Filmmaker Natasha Mynhier reimagined it as a dance film shot on location in Moncalvo, Italy.</p>
+          <p>Both artists — he Japanese American, she Singaporean American — draw on their multicultural roots to reflect on the women who shaped them and partnerships formed when cultures meet. Featuring acclaimed dancers Madoka Kariya and Victor Ketelslegers, alongside Ichinose, the film entwines the Japanese legend of Akai Ito (the Red String of Fate) with a narrative of entanglement, loss of self, and the resilience found in balance rather than control.</p>
+          <p>In bringing the stage work to cinema, the film crafts an emotional meditation on fate, female empowerment, and modern partnership.</p>
+        </div>
+
+        <!-- Second video -->
+        <div style="margin-top:2.5rem;">
+          <div class="work-hero-video-wrap">
+            <iframe src="https://www.youtube.com/embed/AK-ZpCXzvbA?rel=0&modestbranding=1"
+              title="Red Fate — additional" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Photo slider -->
+        <div class="work-slider">
+          <div class="work-slider-track" id="rf-slider">
+            <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" /></div>
+            <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf2.webp" alt="Red Fate" /></div>
+            <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf3.webp" alt="Red Fate" /></div>
+            <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf4.webp" alt="Red Fate" /></div>
+          </div>
+          <button class="slider-btn slider-prev" onclick="slideMove('rf-slider',-1)">&#8592;</button>
+          <button class="slider-btn slider-next" onclick="slideMove('rf-slider',1)">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <div class="credits-two-col">
+            <dl>
+              <dt>Director</dt><dd>Natasha Mynheir</dd>
+              <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
+              <dt>Dancers</dt><dd>Madoka Kariya, Victor Ketelslegers, Hiroki Ichinose</dd>
+              <dt>Director of Photography</dt><dd>Brooke Mueller</dd>
+              <dt>Production</dt><dd>37/LAINES production</dd>
+              <dt>Co-produced by</dt><dd>Orsolina28 Art Foundation</dd>
+              <dt>Support</dt><dd>CHANEL</dd>
+              <dt>Executive Producers</dt><dd>Hiroki Ichinose, Madoka Kariya</dd>
+              <dt>Editor</dt><dd>Eli James</dd>
+              <dt>Original Music</dt><dd>Nicoletta Nomicou</dd>
+              <dt>Costumes</dt><dd>CHANEL</dd>
+              <dt>Colorist</dt><dd>Walter Volpatto</dd>
+              <dt>Visual Effects</dt><dd>Byron Nash</dd>
+              <dt>Art Director</dt><dd>Isabelle Najera</dd>
+              <dt>Special Thanks</dt><dd>Simony Monteiro, Mario Alberto Zambrano, and all staff at Orsolina28 Art Foundation</dd>
+            </dl>
+            <dl class="credits-music">
+              <dt>Music</dt>
+              <dd>
+                <p><em>"RED FATE"</em><br>Written &amp; produced by Nicoletta Nomicou<br>Vocals: Nicoletta Nomicou<br>Violin &amp; Viola: Stefan L Smith</p>
+                <p><em>"Fates Apart"</em><br>Written by Nicoletta Nomicou<br>Piano: Nicoletta Nomicou<br>Cello: Alex Mansou<br>Score Mixer: Noah Hubbell</p>
+                <p><em>"Who Knows Where the Time Goes (Live)"</em><br>Written by Sandy Denny<br>Performed by Moses Sumney<br>Used by permission of the artist</p>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="work-supporters">
+          <h4>Supported by</h4>
+          <div class="supporter-logos">
+            <img class="supporter-logo" src="images/film/redfate/rfpng/chanel.svg.png" alt="CHANEL" />
+            <img class="supporter-logo" src="images/film/redfate/rfpng/orsolina.png" alt="Orsolina28" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     FILM: HOLD ME
+     ============================================================ -->
+<div class="page work-detail" id="page-hold-me">
+  <div class="work-hero" style="height:55vh;">
+    <img src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me"
+      style="width:100%;height:100%;object-fit:cover;display:block;" />
+    <div class="hero-overlay" style="background:rgba(0,0,0,.3);"></div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('film')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Film
+    </button>
+    <div class="work-title-block">
+      <h1>Hold Me</h1>
+      <span class="work-type">Music Video &nbsp;&middot;&nbsp; Ane Brun &nbsp;&middot;&nbsp; August 2026</span>
+    </div>
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p class="work-upcoming-label">Upcoming — August 2026</p>
+          <p style="margin-top:1rem;">An upcoming project in collaboration with Ane Brun, premiering August 2026.</p>
+        </div>
+        <div style="margin-top:2.5rem;">
+          <img src="images/film/holdme/hmpng/ballon.png" alt="Balloon Ranger"
+            style="max-height:48px;opacity:.75;filter:grayscale(20%);" />
+        </div>
+      </div>
+      <div class="work-sidebar"></div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     FILM: SLUSH
+     ============================================================ -->
+<div class="page work-detail" id="page-slush">
+  <div class="work-hero" style="height:55vh;">
+    <img src="images/film/iceland/slush.webp" alt="Slush"
+      onerror="this.src='images/film/iceland/slush.jpg'"
+      style="width:100%;height:100%;object-fit:cover;display:block;" />
+    <div class="hero-overlay" style="background:rgba(0,0,0,.3);"></div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('film')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Film
+    </button>
+    <div class="work-title-block">
+      <h1>Slush</h1>
+      <span class="work-type">Dance Film &nbsp;&middot;&nbsp; Coming Fall 2026</span>
+    </div>
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p class="work-upcoming-label">Coming Fall 2026</p>
+          <p style="margin-top:1rem;">A new dance film with Bjorgvin Sigurdarson. Coming Fall 2026.</p>
+        </div>
+      </div>
+      <div class="work-sidebar"></div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
   </footer>
 </div>
 
@@ -369,41 +791,63 @@
   <div class="section-inner">
     <span class="section-eyebrow">Work</span>
     <h1 class="section-heading">Dance on Stage</h1>
-    <p class="section-intro">Live works made for theatres, site-specific spaces, and festivals — solo and ensemble pieces, and large-scale productions.</p>
+    <p class="section-intro">Live works made for theatres, site-specific spaces, and festivals.</p>
 
-    <div class="gallery-grid">
+    <div class="stage-grid">
 
-      <div class="gallery-item" onclick="showWork('red')">
-        <!--
-          TO ADD THUMBNAIL:
-          <img class="gallery-item-media" src="images/stage/red.jpg" alt="Red" />
-        -->
-        <div class="gallery-item-placeholder">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <!-- LAY HIM QUIETLY -->
+      <div class="stage-card" onclick="showWork('lay-him-quietly')">
+        <div class="stage-card-video">
+          <div class="stage-video-wrap">
+            <iframe src="https://www.youtube.com/embed/ia7qDYI0R5I?rel=0&modestbranding=1"
+              title="Lay Him Quietly" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="gallery-item-overlay">
-          <h3>Red</h3>
-          <p>Orsolina28 Art Foundation</p>
-        </div>
-      </div>
-
-      <div class="gallery-item" onclick="showWork('lay-him-quietly')">
-        <div class="gallery-item-placeholder" style="background:#efefed;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="gallery-item-overlay">
+        <div class="stage-card-info">
           <h3>Lay Him Quietly</h3>
-          <p>2026 &nbsp;&middot;&nbsp; Ostgotateatern</p>
+          <p>2026 &nbsp;&middot;&nbsp; Riksteatern / Ostgotateatern</p>
         </div>
       </div>
 
-      <div class="gallery-item" style="background:#eaeae8;">
-        <div class="gallery-item-placeholder" style="background:#eaeae8;">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <!-- RED -->
+      <div class="stage-card" onclick="showWork('red')">
+        <div class="stage-card-video">
+          <div class="stage-video-wrap">
+            <iframe src="https://www.youtube.com/embed/cvHRvl8ZslY?rel=0&modestbranding=1"
+              title="RED" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="gallery-item-overlay">
-          <h3>Piece Title</h3>
-          <p>Year &nbsp;&middot;&nbsp; Venue</p>
+        <div class="stage-card-info">
+          <h3>RED</h3>
+          <p>Orsolina28 Art Foundation &nbsp;&middot;&nbsp; CHANEL</p>
+        </div>
+      </div>
+
+      <!-- US MOVING ON -->
+      <div class="stage-card" onclick="showWork('us-moving-on')">
+        <div class="stage-card-image">
+          <img src="images/stage/us/moving-placeholder.jpg" alt="Us Moving On" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="stage-card-wip">Work in Progress</div>
+        </div>
+        <div class="stage-card-info">
+          <h3>Us Moving On</h3>
+          <p>2026 &nbsp;&middot;&nbsp; Iceland Dance Company</p>
+        </div>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="stage-card" onclick="showWork('search')">
+        <div class="stage-card-image">
+          <img src="images/stage/search/s1.webp" alt="Search for something I didn't know I needed" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="stage-card-wip">Work in Progress</div>
+        </div>
+        <div class="stage-card-info">
+          <h3>Search for Something I Didn't Know I Needed</h3>
+          <p>Maui, Hawai'i</p>
         </div>
       </div>
 
@@ -417,434 +861,15 @@
 
 
 <!-- ============================================================
-     PAST WORKS
-     ============================================================ -->
-<div class="page" id="page-past">
-  <div class="section-inner">
-    <span class="section-eyebrow">Archive</span>
-    <h1 class="section-heading">Past Works</h1>
-    <p class="section-intro">An archive of earlier pieces — formative works that shaped the practice.</p>
-
-    <div class="past-list">
-
-      <div class="past-item" onclick="showWork('together-we-cry')">
-        <div class="past-thumb">
-          <!--
-            TO ADD THUMBNAIL:
-            <img src="images/past/together-we-cry.jpg" alt="Together We Cry" />
-          -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="past-info">
-          <h3>Together We Cry</h3>
-          <p class="past-meta">GoteborgsOperans Danskompani &nbsp;&middot;&nbsp; World of Volvo</p>
-          <p>An immersive, time-limited experience exploring how emotion is performed, consumed, and aestheticized in the digital age.</p>
-        </div>
-      </div>
-
-      <div class="past-item" onclick="showWork('margot')">
-        <div class="past-thumb">
-          <!--
-            TO ADD THUMBNAIL:
-            <img src="images/past/margot.jpg" alt="Margot" />
-          -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <div class="past-info">
-          <h3>Margot</h3>
-          <p class="past-meta">GoteborgsOperans Danskompani Studio</p>
-          <p>Created for GoteborgsOperans Danskompani studio sharing performance. Collaboration with Victor Ketelslegers.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <footer>
-    <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
-  </footer>
-</div>
-
-
-<!-- ============================================================
-     FULL ARCHIVE (password protected)
-     ============================================================ -->
-<div class="page" id="page-archive">
-
-  <div class="lock-screen" id="lock-screen">
-    <div class="lock-card">
-      <div class="lock-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="11" width="18" height="11" rx="2"/>
-          <path d="M7 11V7a5 5 0 0110 0v4"/>
-        </svg>
-      </div>
-      <h2>Full archive</h2>
-      <p>Complete recordings of all works.<br>Enter the password to access.</p>
-      <input type="password" id="pw-input" placeholder="Password" autocomplete="current-password" />
-      <button onclick="checkPassword()">Enter</button>
-      <p class="lock-error" id="pw-error">Incorrect password — please try again.</p>
-    </div>
-  </div>
-
-  <div id="archive-content" style="display:none;">
-    <div class="archive-inner">
-      <div class="archive-header">
-        <h1>Full archive</h1>
-        <button class="archive-lock-btn" onclick="lockArchive()">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="11" width="18" height="11" rx="2"/>
-            <path d="M7 11V7a5 5 0 0110 0v4"/>
-          </svg>
-          Lock
-        </button>
-      </div>
-
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterArchive('all', this)">All works</button>
-        <button class="filter-btn" onclick="filterArchive('film', this)">Film</button>
-        <button class="filter-btn" onclick="filterArchive('stage', this)">Stage</button>
-        <button class="filter-btn" onclick="filterArchive('past', this)">Past</button>
-      </div>
-
-      <div class="archive-grid">
-
-        <div class="archive-item" data-cat="film">
-          <div class="archive-thumb">
-            <!--  <img src="images/film/red-fate.jpg" alt="Red Fate" />  -->
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <h3>Red Fate</h3>
-          <p>Dance Film &nbsp;&middot;&nbsp; 2024</p>
-        </div>
-
-        <div class="archive-item" data-cat="film">
-          <div class="archive-thumb" style="background:#efefed;">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <h3>Untitled — Ane Brun</h3>
-          <p>Dance Film &nbsp;&middot;&nbsp; Premiering 2027</p>
-        </div>
-
-        <div class="archive-item" data-cat="stage">
-          <div class="archive-thumb" style="background:#eaeae8;">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <h3>Red</h3>
-          <p>Stage &nbsp;&middot;&nbsp; Orsolina28</p>
-        </div>
-
-        <div class="archive-item" data-cat="stage">
-          <div class="archive-thumb" style="background:#e8e8e6;">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <h3>Lay Him Quietly</h3>
-          <p>Stage &nbsp;&middot;&nbsp; 2026</p>
-        </div>
-
-        <div class="archive-item" data-cat="past">
-          <div class="archive-thumb" style="background:#f2f2f0;">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <h3>Together We Cry</h3>
-          <p>Past work &nbsp;&middot;&nbsp; GoteborgsOperans</p>
-        </div>
-
-        <div class="archive-item" data-cat="past">
-          <div class="archive-thumb" style="background:#ebebea;">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <h3>Margot</h3>
-          <p>Past work &nbsp;&middot;&nbsp; GoteborgsOperans</p>
-        </div>
-
-      </div>
-    </div>
-    <footer>
-      <p>&copy; 2025 Hiroki Ichinose</p>
-      <p style="color:#ccc;">Private archive — restricted access</p>
-    </footer>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     WORK DETAIL: RED FATE
-     ============================================================ -->
-<div class="page work-detail" id="page-red-fate">
-  <div class="work-hero">
-    <!--
-      TO ADD TRAILER VIDEO:
-      <video autoplay muted loop playsinline>
-        <source src="videos/red-fate-trailer.mp4" type="video/mp4">
-      </video>
-
-      OR A STILL IMAGE:
-      <img src="images/film/red-fate-hero.jpg" alt="Red Fate" />
-    -->
-    <div class="work-hero-placeholder">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-      <p>Trailer — videos/red-fate-trailer.mp4</p>
-    </div>
-  </div>
-
-  <div class="work-detail-inner">
-    <button class="work-back" onclick="showPage('film')">
-      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-      Dance on Film
-    </button>
-
-    <div class="work-title-block">
-      <h1>Red Fate</h1>
-      <span class="work-type">Dance Film &nbsp;&middot;&nbsp; 2024</span>
-    </div>
-
-    <div class="work-body">
-      <div>
-        <div class="work-description">
-          <p>RED FATE began as RED, a stage work by choreographer Hiroki Ichinose, which premiered at Orsolina28. Filmmaker Natasha Mynhier reimagined it as a dance film shot on location in Moncalvo, Italy.</p>
-          <p>Both artists — he Japanese American, she Singaporean American — draw on their multicultural roots to reflect on the women who shaped them and partnerships formed when cultures meet. Featuring acclaimed dancers Madoka Kariya and Victor Ketelslegers, alongside Ichinose, the film entwines the Japanese legend of Akai Ito (the Red String of Fate) with a narrative of entanglement, loss of self, and the resilience found in balance rather than control.</p>
-          <p>In bringing the stage work to cinema, the film crafts an emotional meditation on fate, female empowerment, and modern partnership.</p>
-        </div>
-
-        <div class="work-press">
-          <!-- Add press quotes here if available -->
-        </div>
-
-        <div class="work-images">
-          <h4>Images</h4>
-          <div class="work-image-grid">
-            <!--
-              TO ADD IMAGES replace each placeholder with:
-              <div class="work-image-grid-item"><img src="images/film/red-fate-1.jpg" alt="Red Fate" /></div>
-            -->
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-sidebar">
-        <div class="work-credits">
-          <h4>Credits</h4>
-          <dl>
-            <dt>Director</dt><dd>Natasha Mynheir</dd>
-            <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
-            <dt>Dancers</dt><dd>Madoka Kariya, Victor Ketelslegers, Hiroki Ichinose</dd>
-            <dt>Director of Photography</dt><dd>Brooke Mueller</dd>
-            <dt>Executive Producers</dt><dd>Hiroki Ichinose, Madoka Kariya</dd>
-            <dt>Editor</dt><dd>Eli James</dd>
-            <dt>Original Music</dt><dd>Nicoletta Nomicou</dd>
-            <dt>Costumes</dt><dd>CHANEL</dd>
-            <dt>Colorist</dt><dd>Walter Volpatto</dd>
-            <dt>Visual Effects</dt><dd>Byron Nash</dd>
-            <dt>Art Director</dt><dd>Isabelle Najera</dd>
-            <dt>Production</dt><dd>37/LAINES production</dd>
-            <dt>Music</dt>
-            <dd>
-              "RED FATE" — written &amp; produced by Nicoletta Nomicou. Vocals: Nicoletta Nomicou. Violin &amp; Viola: Stefan L Smith.<br><br>
-              "Fates Apart" — written by Nicoletta Nomicou. Piano: Nicoletta Nomicou. Cello: Alex Mansou. Score Mixer: Noah Hubbell.<br><br>
-              "Who Knows Where the Time Goes (Live)" — written by Sandy Denny. Performed by Moses Sumney. Used by permission of the artist.
-            </dd>
-          </dl>
-        </div>
-
-        <div class="work-supporters">
-          <h4>Supported by</h4>
-          <div class="supporter-logos">
-            <!--
-              TO ADD LOGOS:
-              <img class="supporter-logo" src="images/logos/chanel.png" alt="CHANEL" />
-              <img class="supporter-logo" src="images/logos/orsolina28.png" alt="Orsolina28 Art Foundation" />
-            -->
-            <div class="supporter-logo-placeholder">CHANEL</div>
-            <div class="supporter-logo-placeholder">Orsolina28 Art Foundation</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
-  </footer>
-</div>
-
-
-<!-- ============================================================
-     WORK DETAIL: UPCOMING — ANE BRUN
-     ============================================================ -->
-<div class="page work-detail" id="page-upcoming-ane-brun">
-  <div class="work-hero">
-    <!--
-      TO ADD IMAGE OR TRAILER:
-      <img src="images/film/ane-brun-hero.jpg" alt="Upcoming project with Ane Brun" />
-    -->
-    <div class="work-hero-placeholder">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-      <p>Image — images/film/ane-brun-hero.jpg</p>
-    </div>
-  </div>
-
-  <div class="work-detail-inner">
-    <button class="work-back" onclick="showPage('film')">
-      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-      Dance on Film
-    </button>
-
-    <div class="work-title-block">
-      <span class="upcoming-badge">Upcoming</span>
-      <h1>Untitled</h1>
-      <span class="work-type">Dance Film &nbsp;&middot;&nbsp; Premiering August 26, 2027</span>
-    </div>
-
-    <div class="work-body">
-      <div class="work-description">
-        <p>A new dance film in collaboration with artist Ane Brun. Full details to be announced.</p>
-        <!--
-          TO ADD MORE INFO: replace the paragraph above with your description
-          TO ADD THE BALLOON RANGER LOGO:
-          <img src="images/logos/balloon-ranger.png" alt="Balloon Ranger" style="height:40px; margin-top:2rem; opacity:0.7;" />
-        -->
-      </div>
-      <div class="work-sidebar">
-        <div class="work-supporters">
-          <h4>In collaboration with</h4>
-          <div class="supporter-logos">
-            <!--
-              <img class="supporter-logo" src="images/logos/balloon-ranger.png" alt="Balloon Ranger" />
-            -->
-            <div class="supporter-logo-placeholder">Balloon Ranger</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
-  </footer>
-</div>
-
-
-<!-- ============================================================
-     WORK DETAIL: RED (stage)
-     ============================================================ -->
-<div class="page work-detail" id="page-red">
-  <div class="work-hero">
-    <!--
-      TO ADD TRAILER OR IMAGE:
-      <video autoplay muted loop playsinline><source src="videos/red-trailer.mp4" type="video/mp4"></video>
-      OR: <img src="images/stage/red-hero.jpg" alt="Red" />
-    -->
-    <div class="work-hero-placeholder">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-      <p>Trailer — videos/red-trailer.mp4</p>
-    </div>
-  </div>
-
-  <div class="work-detail-inner">
-    <button class="work-back" onclick="showPage('stage')">
-      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-      Dance on Stage
-    </button>
-
-    <div class="work-title-block">
-      <h1>Red</h1>
-      <span class="work-type">Stage Work &nbsp;&middot;&nbsp; Orsolina28 Art Foundation</span>
-    </div>
-
-    <div class="work-body">
-      <div>
-        <div class="work-description">
-          <p>Red is a choreographic work that explores the concept of destiny through the lens of Eastern and Western cultural paradigms, taking inspiration from the Japanese folk legend Akai Ito — "The Red String of Fate." In this story, an invisible red thread connects destined individuals across time and space; a metaphor that serves as the foundation for this work.</p>
-          <p>Rather than employing the thread as a simple narrative device, Red transforms it into a symbol of the invisible connections that link bodies, cultures, and temporalities. The choreography inhabits the space where gesture becomes story, and myth becomes a site of negotiation between collective memory and personal identity.</p>
-          <p>The work navigates themes of fate, autonomy, intergenerational responsibility, and belonging in a globalized world. Performed by Madoka Kariya (Nederlands Dans Theater), Hiroki Ichinose (GoteborgsOperans Danskompani), Victor Ketelslegers (GoteborgsOperans Danskompani), and featuring music by Moses Sumney.</p>
-          <p>The work was co-produced by Orsolina 28 Art Foundation and supported and costumed by CHANEL. It was reimagined into a dance film by director Natasha Mynheir, and excerpts have been presented at the New National Theater in Tokyo and Hyogo Performing Arts Center.</p>
-        </div>
-
-        <div class="work-press">
-          <h4>Press Highlights</h4>
-          <div class="press-quotes">
-            <div class="press-quote">
-              <blockquote>"The red thread of destiny led us to beauty."</blockquote>
-              <cite>ELLE Italia</cite>
-            </div>
-            <div class="press-quote">
-              <blockquote>"The creation of Ichinose, vibrant and subtly political, explores the contrasts between destiny and responsibility."</blockquote>
-              <cite>Marie Claire Italia</cite>
-            </div>
-            <div class="press-quote">
-              <blockquote>"A breathtaking choreographic exploration by Japanese-American artist Hiroki Ichinose."</blockquote>
-              <cite>Mia Le Journal</cite>
-            </div>
-          </div>
-        </div>
-
-        <div class="work-images">
-          <h4>Images</h4>
-          <div class="work-image-grid">
-            <!--
-              TO ADD IMAGES:
-              <div class="work-image-grid-item"><img src="images/stage/red-1.jpg" alt="Red" /></div>
-            -->
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-sidebar">
-        <div class="work-credits">
-          <h4>Credits</h4>
-          <dl>
-            <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
-            <dt>Artists</dt><dd>Madoka Kariya, Victor Ketelslegers, Hiroki Ichinose</dd>
-            <dt>Additional Collaborators</dt><dd>Natasha Mynheir, Brooke Mueller</dd>
-            <dt>Sound Mixing</dt><dd>Ivo Mateus</dd>
-            <dt>Music</dt><dd>Ebb Tide (Houston &amp; Dorsey), Piel (Arca), Who Knows Where the Time Goes (Moses Sumney)</dd>
-          </dl>
-        </div>
-
-        <div class="work-supporters">
-          <h4>Supported by</h4>
-          <div class="supporter-logos">
-            <!--
-              <img class="supporter-logo" src="images/logos/chanel.png" alt="CHANEL" />
-              <img class="supporter-logo" src="images/logos/orsolina28.png" alt="Orsolina28 Art Foundation" />
-            -->
-            <div class="supporter-logo-placeholder">CHANEL</div>
-            <div class="supporter-logo-placeholder">Orsolina28 Art Foundation</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
-  </footer>
-</div>
-
-
-<!-- ============================================================
-     WORK DETAIL: LAY HIM QUIETLY
+     STAGE: LAY HIM QUIETLY
      ============================================================ -->
 <div class="page work-detail" id="page-lay-him-quietly">
-  <div class="work-hero">
-    <!--
-      TO ADD TRAILER OR IMAGE:
-      <video autoplay muted loop playsinline><source src="videos/lay-him-quietly-trailer.mp4" type="video/mp4"></video>
-      OR: <img src="images/stage/lay-him-quietly-hero.jpg" alt="Lay Him Quietly" />
-    -->
-    <div class="work-hero-placeholder">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-      <p>Trailer — videos/lay-him-quietly-trailer.mp4</p>
+  <div class="work-hero-video">
+    <div class="work-hero-video-wrap">
+      <iframe src="https://www.youtube.com/embed/ia7qDYI0R5I?rel=0&modestbranding=1"
+        title="Lay Him Quietly" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     </div>
   </div>
 
@@ -856,30 +881,28 @@
 
     <div class="work-title-block">
       <h1>Lay Him Quietly</h1>
-      <span class="work-type">Stage Work &nbsp;&middot;&nbsp; Premiered May 6, 2026 &nbsp;&middot;&nbsp; Ostgotateatern Stora Teatern</span>
+      <span class="work-type">2026 &nbsp;&middot;&nbsp; Riksteatern / Ostgotateatern</span>
     </div>
 
     <div class="work-body">
       <div>
         <div class="work-description">
-          <p>Lay Him Quietly has emerged from a deeply personal place. While it is not an autobiography, it is undeniably shaped by how Ichinose moves through the world as a queer Asian male and by the experiences that have informed his understanding of self, identity, and connection.</p>
-          <p>This work holds fragments of memories, emotional landscapes, and moments that belong not only to him, but also to those who shaped him — and the histories carried within them are present here. It is an abstract weaving of relationships and intergenerational inheritances, of personal and collective experiences that live in the body.</p>
-          <p>These include the quiet burdens we carry — societal expectations, internalized narratives, and the subtle ways we learn to guard ourselves, often at the expense of our ability to love fully and accept who we are. For Ichinose, Lay Him Quietly is rooted in emotional states such as doubt, anger, tenderness, and suffocation — whether imposed by others or created within ourselves.</p>
-          <p>It asks how we sit with these feelings, how we express them, and how we continue to move through the world while carrying them. Like our emotions, life is often contradictory and unresolved. It asks us to soften, to release our defenses, and to meet ourselves with compassion.</p>
-          <p>Premiered May 6, 2026 at Ostgotateatern Stora Teatern as part of Riksteatern's REACT International Theater Festival.</p>
+          <p>Lay Him Quietly has emerged from a deeply personal place. While it is not an autobiography, it is undeniably shaped by how I move through the world as a queer Asian male and by the experiences that have informed my understanding of self, identity, and connection. This work holds fragments of memories, emotional landscapes, and moments that belong not only to me, but also to those who shaped me, and the histories carried within them are present here.</p>
+          <p>It is an abstract weaving of relationships and intergenerational inheritances, of personal and collective experiences that live in the body. These include the quiet burdens we carry, such as societal expectations, internalized narratives, and the subtle ways we learn to guard ourselves, often at the expense of our ability to love fully and accept who we are. I recognize how these forces have shaped the ways I express love.</p>
+          <p>For me, Lay Him Quietly is rooted in emotional states such as doubt, anger, tenderness, and suffocation, whether imposed by others or created within ourselves. It asks how we sit with these feelings, how we express them, and how we continue to move through the world while carrying them. Like our emotions, life is often contradictory and unresolved. It asks us to soften, to release our defenses, and to meet ourselves with compassion. Perhaps, in doing so, we can begin to lay down what we have been holding, our fears, our histories, and our uncertainties, and allow ourselves the space to forgive, to feel, and to move forward.</p>
+          <p class="work-premiere">Premiered May 6, 2026 at Ostgotateatern Stora Teatern as part of Riksteatern's REACT International Theater Festival</p>
         </div>
 
-        <div class="work-images">
-          <h4>Images</h4>
-          <div class="work-image-grid">
-            <!--
-              TO ADD IMAGES:
-              <div class="work-image-grid-item"><img src="images/stage/lay-him-quietly-1.jpg" alt="Lay Him Quietly" /></div>
-            -->
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+        <!-- Photo slider -->
+        <div class="work-slider">
+          <div class="work-slider-track" id="lh-slider">
+            <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" /></div>
+            <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh2.webp" alt="Lay Him Quietly" /></div>
+            <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh3.webp" alt="Lay Him Quietly" /></div>
+            <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh4.webp" alt="Lay Him Quietly" /></div>
           </div>
+          <button class="slider-btn slider-prev" onclick="slideMove('lh-slider',-1)">&#8592;</button>
+          <button class="slider-btn slider-next" onclick="slideMove('lh-slider',1)">&#8594;</button>
         </div>
       </div>
 
@@ -892,34 +915,27 @@
             <dt>Dancers</dt><dd>Ninos Josef &amp; Hiroki Ichinose</dd>
             <dt>Music Composition</dt><dd>Ivo Mateus</dd>
             <dt>Costumes</dt><dd>Anh Sommar</dd>
-            <dt>Featured Music</dt><dd>"Dirty Windshield" by Ane Brun — recording made especially for this work</dd>
+            <dt>Featuring</dt><dd>Ane Brun "Dirty Windshield" — Recording made especially for this work</dd>
             <dt>Colorist</dt><dd>Daniel Pherson</dd>
             <dt>Grip</dt><dd>Marcus Faltmark</dd>
             <dt>Additional Vocals</dt><dd>Ursula Urgeles</dd>
             <dt>Light Design</dt><dd>Lin Persson</dd>
             <dt>Dramaturg</dt><dd>Victor Ketelslegers</dd>
             <dt>Co-produced by</dt><dd>Dansiöst, Riksteatern Norrköping, Kulturradet</dd>
+            <dt>Support</dt><dd>Embassy of Sweden in the United States</dd>
+            <dt>Special Thanks</dt><dd>Caj Muller and the entire technical team at Ostgotateatern</dd>
           </dl>
         </div>
 
         <div class="work-supporters">
           <h4>Supported by</h4>
           <div class="supporter-logos">
-            <!--
-              TO ADD LOGOS:
-              <img class="supporter-logo" src="images/logos/dansiost.png" alt="Dansiöst" />
-              <img class="supporter-logo" src="images/logos/kulturradet.png" alt="Kulturradet" />
-              <img class="supporter-logo" src="images/logos/riksteatern.png" alt="Riksteatern Norrköping" />
-              <img class="supporter-logo" src="images/logos/region-ostergotland.png" alt="Region Östergötland" />
-              <img class="supporter-logo" src="images/logos/embassy-sweden.png" alt="Embassy of Sweden in Washington" />
-              <img class="supporter-logo" src="images/logos/ostgotateatern.png" alt="Ostgotateatern" />
-            -->
-            <div class="supporter-logo-placeholder">Dansiöst</div>
-            <div class="supporter-logo-placeholder">Kulturradet</div>
-            <div class="supporter-logo-placeholder">Riksteatern Norrköping</div>
-            <div class="supporter-logo-placeholder">Region Östergötland</div>
-            <div class="supporter-logo-placeholder">Embassy of Sweden</div>
-            <div class="supporter-logo-placeholder">Ostgotateatern</div>
+            <img class="supporter-logo" src="images/stage/layhim/laypng/dansiostcopy.png" alt="Dansiöst" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/kulturradetcopy.png" alt="Kulturrådet" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/regionosterlandcopy.png" alt="Region Östergötland" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/ostgotateatern.png" alt="Ostgotateatern" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/riksteatern.png" alt="Riksteatern" />
+            <img class="supporter-logo" src="images/stage/layhim/laypng/embassy.png" alt="Embassy of Sweden" />
           </div>
         </div>
       </div>
@@ -928,55 +944,61 @@
 
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
   </footer>
 </div>
 
 
 <!-- ============================================================
-     WORK DETAIL: TOGETHER WE CRY
+     STAGE: RED
      ============================================================ -->
-<div class="page work-detail" id="page-together-we-cry">
-  <div class="work-hero">
-    <!--
-      TO ADD VIDEO OR IMAGE:
-      <video autoplay muted loop playsinline><source src="videos/together-we-cry.mp4" type="video/mp4"></video>
-      OR: <img src="images/past/together-we-cry-hero.jpg" alt="Together We Cry" />
-    -->
-    <div class="work-hero-placeholder">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-      <p>Video — videos/together-we-cry.mp4</p>
+<div class="page work-detail" id="page-red">
+  <div class="work-hero-video">
+    <div class="work-hero-video-wrap">
+      <iframe src="https://www.youtube.com/embed/cvHRvl8ZslY?rel=0&modestbranding=1"
+        title="RED" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     </div>
   </div>
 
   <div class="work-detail-inner">
-    <button class="work-back" onclick="showPage('past')">
+    <button class="work-back" onclick="showPage('stage')">
       <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-      Past Works
+      Dance on Stage
     </button>
 
     <div class="work-title-block">
-      <h1>Together We Cry</h1>
-      <span class="work-type">GoteborgsOperans Danskompani &nbsp;&middot;&nbsp; World of Volvo</span>
+      <h1>RED</h1>
+      <span class="work-type">Orsolina28 Art Foundation &nbsp;&middot;&nbsp; CHANEL</span>
     </div>
 
     <div class="work-body">
       <div>
         <div class="work-description">
-          <p>An immersive, time-limited experience exploring how emotion is performed, consumed, and aestheticized in the digital age. The work questions whether public digital expressions of vulnerability foster authentic connection or merely transforms emotion into aesthetic content in pursuit of visibility and validation.</p>
+          <p>Red is a choreographic work that explores the concept of destiny through the lens of Eastern and Western cultural paradigms, taking inspiration from the Japanese folk legend Akai Ito ("The Red String of Fate"). In this story, an invisible red thread connects destined individuals across time and space; a metaphor that serves as the foundation for this work.</p>
+          <p>Rather than employing the thread as a simple narrative device, Red transforms it into a symbol of the invisible connections that link bodies, cultures, and temporalities. The choreography inhabits the space where gesture becomes story, and myth becomes a site of negotiation between collective memory and personal identity. The work navigates themes of fate, autonomy, intergenerational responsibility, and belonging in a globalized world.</p>
+          <p>Performed by Madoka Kariya (Nederlands Dans Theater), Hiroki Ichinose (GöteborgsOperans Danskompani), Victor Ketelslegers (GöteborgsOperans Danskompani) and featuring music by Moses Sumney. The work was co-produced by Orsolina28 Art Foundation and supported and costumed by CHANEL. The work was reimagined into a dance film by director Natasha Mynheir and excerpts have been presented at the New National Theater in Tokyo and Hyogo Performing Arts Center.</p>
         </div>
 
-        <div class="work-images">
-          <h4>Images</h4>
-          <div class="work-image-grid">
-            <!--
-              TO ADD IMAGES:
-              <div class="work-image-grid-item"><img src="images/past/twc-1.jpg" alt="Together We Cry" /></div>
-            -->
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+        <!-- Press highlights -->
+        <div class="work-press">
+          <h4>Press Highlights</h4>
+          <blockquote>"The red thread of destiny led us to beauty."<cite>— ELLE Italia</cite></blockquote>
+          <blockquote>"The creation of Ichinose, vibrant and subtly political, explores the contrasts between destiny and responsibility."<cite>— Marie Claire Italia</cite></blockquote>
+          <blockquote>"A breathtaking choreographic exploration by Japanese-American artist Hiroki Ichinose."<cite>— Mia Le Journal</cite></blockquote>
+        </div>
+
+        <!-- Photo slider -->
+        <div class="work-slider">
+          <div class="work-slider-track" id="red-slider">
+            <div class="work-slider-item"><img src="images/stage/red/redselects/r1.webp" alt="RED" /></div>
+            <div class="work-slider-item"><img src="images/stage/red/redselects/r2.webp" alt="RED" /></div>
+            <div class="work-slider-item"><img src="images/stage/red/redselects/r3.webp" alt="RED" /></div>
+            <div class="work-slider-item"><img src="images/stage/red/redselects/r4.webp" alt="RED" /></div>
           </div>
+          <button class="slider-btn slider-prev" onclick="slideMove('red-slider',-1)">&#8592;</button>
+          <button class="slider-btn slider-next" onclick="slideMove('red-slider',1)">&#8594;</button>
         </div>
       </div>
 
@@ -985,21 +1007,20 @@
           <h4>Credits</h4>
           <dl>
             <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
-            <dt>Dancers</dt><dd>Valentin Durand, Da Young Kim, Iris Telting</dd>
-            <dt>Music</dt><dd>"I Want to Know What Love Is" — Amason</dd>
-            <dt>Production</dt><dd>A collaboration between GoteborgsOperans Danskompani &amp; World of Volvo</dd>
+            <dt>Artists</dt><dd>Madoka Kariya, Victor Ketelslegers, Hiroki Ichinose</dd>
+            <dt>Supported by</dt><dd>CHANEL</dd>
+            <dt>Co-produced by</dt><dd>Orsolina28 Art Foundation</dd>
+            <dt>Additional Collaborators</dt><dd>Natasha Mynheir, Brooke Mueller</dd>
+            <dt>Sound Mixing</dt><dd>Ivo Mateus</dd>
+            <dt>Music</dt><dd>Ebb Tide (Houston &amp; Dorsey), Piel (Arca), Who Knows Where the Time Goes (Moses Sumney)</dd>
           </dl>
         </div>
 
         <div class="work-supporters">
-          <h4>In collaboration with</h4>
+          <h4>Supported by</h4>
           <div class="supporter-logos">
-            <!--
-              <img class="supporter-logo" src="images/logos/world-of-volvo.png" alt="World of Volvo" />
-              <img class="supporter-logo" src="images/logos/goteborgsoperans.png" alt="GoteborgsOperans Danskompani" />
-            -->
-            <div class="supporter-logo-placeholder">World of Volvo</div>
-            <div class="supporter-logo-placeholder">GoteborgsOperans Danskompani</div>
+            <img class="supporter-logo" src="images/stage/red/redpng/chanel.svg.png" alt="CHANEL" />
+            <img class="supporter-logo" src="images/stage/red/redpng/orsolina.png" alt="Orsolina28" />
           </div>
         </div>
       </div>
@@ -1008,56 +1029,50 @@
 
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
   </footer>
 </div>
 
 
 <!-- ============================================================
-     WORK DETAIL: MARGOT
+     STAGE: SEARCH FOR SOMETHING I DIDN'T KNOW I NEEDED
      ============================================================ -->
-<div class="page work-detail" id="page-margot">
+<div class="page work-detail" id="page-search">
   <div class="work-hero">
-    <!--
-      TO ADD VIDEO OR IMAGE:
-      <video autoplay muted loop playsinline><source src="videos/margot.mp4" type="video/mp4"></video>
-      OR: <img src="images/past/margot-hero.jpg" alt="Margot" />
-    -->
-    <div class="work-hero-placeholder">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-      <p>Video — videos/margot.mp4</p>
-    </div>
+    <img src="images/stage/search/s1.webp" alt="Search for Something I Didn't Know I Needed"
+      style="width:100%;height:100%;object-fit:cover;display:block;" />
+    <div class="hero-overlay" style="background:rgba(0,0,0,.25);"></div>
   </div>
 
   <div class="work-detail-inner">
-    <button class="work-back" onclick="showPage('past')">
+    <button class="work-back" onclick="showPage('stage')">
       <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-      Past Works
+      Dance on Stage
     </button>
 
     <div class="work-title-block">
-      <h1>Margot</h1>
-      <span class="work-type">GoteborgsOperans Danskompani Studio</span>
+      <h1>Search for Something I Didn't Know I Needed</h1>
+      <span class="work-type">Maui, Hawai'i &nbsp;&middot;&nbsp; Work in Progress</span>
     </div>
 
     <div class="work-body">
       <div>
         <div class="work-description">
-          <p>Created for GoteborgsOperans Danskompani studio sharing performance. A collaboration with Victor Ketelslegers.</p>
-          <!--  Add more description here if you have it  -->
+          <p>This work is a love letter to my 16-year-old self, an offering of permission to choose, and love.</p>
+          <p>After years of moving between places, spending a decade building a dance career across Europe and the U.S., I began to wonder what it meant to return home. Born and raised on Maui, I once felt called to leave and search beyond the island.</p>
+          <p>In coming home to create my first work here, I am reminded that community endures, and that home remains ready to receive you with open arms.</p>
         </div>
 
-        <div class="work-images">
-          <h4>Images</h4>
-          <div class="work-image-grid">
-            <!--
-              TO ADD IMAGES:
-              <div class="work-image-grid-item"><img src="images/past/margot-1.jpg" alt="Margot" /></div>
-            -->
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
-            <div class="work-image-grid-item"><div class="work-image-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div></div>
+        <!-- Photo slider -->
+        <div class="work-slider">
+          <div class="work-slider-track" id="search-slider">
+            <div class="work-slider-item"><img src="images/stage/search/s1.webp" alt="Search" /></div>
+            <div class="work-slider-item"><img src="images/stage/search/s2.webp" alt="Search" /></div>
+            <div class="work-slider-item"><img src="images/stage/search/s3.webp" alt="Search" /></div>
+            <div class="work-slider-item"><img src="images/stage/search/s4.webp" alt="Search" /></div>
           </div>
+          <button class="slider-btn slider-prev" onclick="slideMove('search-slider',-1)">&#8592;</button>
+          <button class="slider-btn slider-next" onclick="slideMove('search-slider',1)">&#8594;</button>
         </div>
       </div>
 
@@ -1065,20 +1080,9 @@
         <div class="work-credits">
           <h4>Credits</h4>
           <dl>
-            <dt>Created by</dt><dd>Hiroki Ichinose</dd>
-            <dt>Collaboration</dt><dd>Victor Ketelslegers</dd>
-            <dt>Production</dt><dd>GoteborgsOperans Danskompani</dd>
+            <dt>Choreography</dt><dd>Hiroki Ichinose</dd>
+            <dt>Dancers</dt><dd>Karli Jo List, Ella Craft, Emily McKeon, Elise Monson, Katie Whiticar</dd>
           </dl>
-        </div>
-
-        <div class="work-supporters">
-          <h4>In collaboration with</h4>
-          <div class="supporter-logos">
-            <!--
-              <img class="supporter-logo" src="images/logos/goteborgsoperans.png" alt="GoteborgsOperans Danskompani" />
-            -->
-            <div class="supporter-logo-placeholder">GoteborgsOperans Danskompani</div>
-          </div>
         </div>
       </div>
     </div>
@@ -1086,11 +1090,303 @@
 
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hello@hirokiichinose.com">hello@hirokiichinose.com</a>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
   </footer>
 </div>
 
 
+<!-- ============================================================
+     STAGE: US MOVING ON
+     ============================================================ -->
+<div class="page work-detail" id="page-us-moving-on">
+  <div class="work-hero" style="height:55vh;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Abandoned_storage_building%2C_Packard_Plant%2C_Detroit.jpg/1920px-Abandoned_storage_building%2C_Packard_Plant%2C_Detroit.jpg"
+      alt="Us Moving On"
+      style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(60%);" />
+    <div class="hero-overlay" style="background:rgba(0,0,0,.35);"></div>
+  </div>
+
+  <div class="work-detail-inner">
+    <button class="work-back" onclick="showPage('stage')">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      Dance on Stage
+    </button>
+
+    <div class="work-title-block">
+      <h1>Us Moving On</h1>
+      <span class="work-type">Iceland Dance Company &nbsp;&middot;&nbsp; Work in Progress</span>
+    </div>
+
+    <div class="work-body">
+      <div>
+        <div class="work-description">
+          <p class="work-upcoming-label">Upcoming New Work for Iceland Dance Company — FALL 2026</p>
+        </div>
+
+        <div style="margin-top:2.5rem;">
+          <img src="images/stage/us/idc.avif" alt="Iceland Dance Company"
+            style="max-width:260px;display:block;opacity:.85;" />
+        </div>
+      </div>
+
+      <div class="work-sidebar"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     PAST WORKS
+     ============================================================ -->
+<div class="page" id="page-past">
+  <div class="section-inner">
+    <span class="section-eyebrow">Archive</span>
+    <h1 class="section-heading">Past Works</h1>
+    <p class="section-intro">Earlier pieces that shaped the practice.</p>
+
+    <div class="past-grid">
+
+      <!-- MARGOT -->
+      <div class="past-video-card">
+        <div class="past-video-wrap">
+          <iframe src="https://player.vimeo.com/video/1056154231?rel=0"
+            title="Margot" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="past-card-body">
+          <h3>Margot</h3>
+          <p class="past-card-meta">GöteborgsOperans Danskompani Studio &nbsp;&middot;&nbsp; FRIDAY SHARINGS</p>
+          <p>Choreography/Direction: Hiroki Ichinose<br>
+          Performance/Collaborator: Victor Polster<br>
+          Music: <em>You're Still The One</em> — Okay Kaya &nbsp;·&nbsp; <em>Caro Mio Ben</em> — Cecilia Bartoli</p>
+          <p class="past-card-note">Presented at an informal studio sharing at GöteborgsOperans, Sweden as part of FRIDAY SHARINGS.</p>
+        </div>
+      </div>
+
+      <!-- WATERED SKIES -->
+      <div class="past-video-card">
+        <div class="past-video-wrap">
+          <iframe src="https://player.vimeo.com/video/756217640?rel=0"
+            title="Watered Skies" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="past-card-body">
+          <h3>Watered Skies</h3>
+          <p class="past-card-meta">Dance Film</p>
+          <p>A dance film created in collaboration with Frida Dam Seidel.</p>
+        </div>
+      </div>
+
+      <!-- TOGETHER WE CRY -->
+      <div class="past-video-card">
+        <div class="past-video-wrap">
+          <iframe src="https://www.youtube.com/embed/uFEQOMC0pis?rel=0&modestbranding=1"
+            title="Together We Cry" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div class="past-card-body">
+          <h3>Together We Cry</h3>
+          <p class="past-card-meta">GöteborgsOperans Danskompani &nbsp;&middot;&nbsp; World of Volvo</p>
+          <p>An immersive, time-limited experience exploring how emotion is performed, consumed, and aestheticized in the digital age. The work questions whether public digital expressions of vulnerability foster authentic connection or merely transform emotion into aesthetic content in pursuit of visibility and validation.</p>
+          <p>Dancers: Valentin Durand, Da Young Kim, Iris Telting<br>
+          Created for a collaboration between GöteborgsOperans Danskompani &amp; World of Volvo.</p>
+        </div>
+      </div>
+
+      <!-- A LITTLE LOST -->
+      <div class="past-video-card">
+        <div class="past-video-wrap">
+          <iframe src="https://player.vimeo.com/video/661521354?rel=0"
+            title="A Little Lost" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="past-card-body">
+          <h3>A Little Lost</h3>
+          <p class="past-card-meta">Dance Film</p>
+          <p>A dance film created in collaboration with Frida Dam Seidel.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Hiroki Ichinose</p>
+    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
+  </footer>
+</div>
+
+
+<!-- ============================================================
+     FULL WORKS (password protected)
+     ============================================================ -->
+<div class="page" id="page-fullworks">
+
+  <div class="lock-screen" id="fw-lock-screen">
+    <div class="lock-card">
+      <div class="lock-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+      </div>
+      <h2>Full Works</h2>
+      <p>For inquiries please email<br><a href="mailto:hirokimanaloaichinose@gmail.com" style="color:#bbb;">hirokimanaloaichinose@gmail.com</a></p>
+      <input type="password" id="fw-pw-input" placeholder="Password" autocomplete="current-password"
+        onkeydown="if(event.key==='Enter') checkFWPassword()" />
+      <button onclick="checkFWPassword()">Enter</button>
+      <p class="lock-error" id="fw-pw-error" style="display:none;">Incorrect password — please try again.</p>
+    </div>
+  </div>
+
+  <div id="fw-content" style="display:none;">
+    <div class="section-inner">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;">
+        <div>
+          <span class="section-eyebrow">Private</span>
+          <h1 class="section-heading" style="margin:0;">Full Works</h1>
+        </div>
+        <button class="work-back" onclick="lockFW()" style="margin:0;">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Lock
+        </button>
+      </div>
+
+      <div class="fw-list">
+
+        <!-- RED — Stage -->
+        <div class="fw-entry">
+          <div class="fw-video-wrap">
+            <iframe src="https://www.youtube.com/embed/M9W6vaoDDB4?rel=0&modestbranding=1"
+              title="RED" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="fw-entry-body">
+            <h3>RED</h3>
+            <p class="fw-entry-meta">Stage Work &nbsp;&middot;&nbsp; Orsolina28 Art Foundation</p>
+            <button class="fw-link-btn" onclick="showWork('red')">
+              View project page &nbsp;&#8594;
+            </button>
+          </div>
+        </div>
+
+        <!-- HOLD ME -->
+        <div class="fw-entry">
+          <div class="fw-video-wrap">
+            <iframe src="https://www.youtube.com/embed/nEfsaKwMrgI?rel=0&modestbranding=1"
+              title="Hold Me" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="fw-entry-body">
+            <h3>Hold Me</h3>
+            <p class="fw-entry-meta">Rehearsal video — Upcoming music video for Ane Brun, premiering August 2026.</p>
+            <button class="fw-link-btn" onclick="showWork('hold-me')">
+              View project page &nbsp;&#8594;
+            </button>
+          </div>
+        </div>
+
+        <!-- LAY HIM QUIETLY — Stage -->
+        <div class="fw-entry">
+          <div class="fw-video-wrap">
+            <iframe src="https://www.youtube.com/embed/Nv_0GqsEffA?rel=0&modestbranding=1"
+              title="Lay Him Quietly" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="fw-entry-body">
+            <h3>Lay Him Quietly</h3>
+            <p class="fw-entry-meta">Stage Work &nbsp;&middot;&nbsp; Riksteatern / Ostgotateatern</p>
+            <button class="fw-link-btn" onclick="showWork('lay-him-quietly')">
+              View project page &nbsp;&#8594;
+            </button>
+          </div>
+        </div>
+
+        <!-- LAY HIM QUIETLY — Film -->
+        <div class="fw-entry">
+          <div class="fw-video-wrap">
+            <iframe src="https://www.youtube.com/embed/mJCPP3EUzdg?rel=0&modestbranding=1"
+              title="Lay Him Quietly Film" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="fw-entry-body">
+            <h3>Lay Him Quietly — The Film</h3>
+            <p class="fw-entry-meta">Dance Film &nbsp;&middot;&nbsp; *Work in progress to be completed in Fall 2026</p>
+            <button class="fw-link-btn" onclick="showWork('lay-him-film')">
+              View project page &nbsp;&#8594;
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2025 Hiroki Ichinose</p>
+      <p style="color:#555;font-size:.8rem;">Private — restricted access</p>
+    </footer>
+  </div>
+</div>
+
+
 <script src="js/main.js"></script>
+<script>
+// Hero slideshow
+(function(){
+  var slides = document.querySelectorAll('.hero-slide');
+  if(!slides.length) return;
+  var current = 0;
+  setInterval(function(){
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+})();
+
+// Photo slider
+function slideMove(trackId, dir) {
+  var track = document.getElementById(trackId);
+  if (!track) return;
+  var items = track.querySelectorAll('.work-slider-item');
+  var total = items.length;
+  var current = parseInt(track.dataset.current || '0');
+  current = (current + dir + total) % total;
+  track.dataset.current = current;
+  track.style.transform = 'translateX(-' + (current * 100) + '%)';
+}
+
+// Full Works password
+function checkFWPassword() {
+  var input = document.getElementById('fw-pw-input');
+  var err   = document.getElementById('fw-pw-error');
+  if (input && input.value === 'ichinose') {
+    document.getElementById('fw-lock-screen').style.display = 'none';
+    document.getElementById('fw-content').style.display = 'block';
+    err.style.display = 'none';
+  } else {
+    err.style.display = 'block';
+  }
+}
+function lockFW() {
+  document.getElementById('fw-lock-screen').style.display = '';
+  document.getElementById('fw-content').style.display = 'none';
+  var input = document.getElementById('fw-pw-input');
+  if (input) input.value = '';
+  showPage('home');
+}
+
+// Universal showWork
+function showWork(id) {
+  showPage(id);
+}
+</script>
 </body>
 </html>
