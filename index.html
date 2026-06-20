@@ -133,38 +133,69 @@
       font-size:.78rem; color:#777; margin-top:.4rem; letter-spacing:.04em;
     }
 
-    /* ── Horizontal project list ── */
-    .horiz-list { margin-top:2.5rem; border-top:1px solid rgba(255,255,255,.1); }
-    .horiz-row {
-      display:grid;
-      grid-template-columns:140px 1fr auto;
-      align-items:center;
-      gap:2rem;
-      padding:1.2rem 0;
+    /* ── Banner project list ── */
+    .banner-list { margin-top:2rem; display:flex; flex-direction:column; gap:0; }
+    .banner-row {
+      cursor:pointer; overflow:hidden;
       border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .banner-row:first-child { border-top:1px solid rgba(255,255,255,.08); }
+    .banner-img-wrap {
+      width:100%; overflow:hidden;
+    }
+    .banner-img {
+      width:100%; height:380px; display:block;
+      object-fit:cover; object-position:center 30%;
+      transition:transform .6s ease, filter .5s ease;
+      filter:brightness(.82);
+    }
+    .banner-row:hover .banner-img { transform:scale(1.03); filter:brightness(.6); }
+    .banner-caption {
+      padding:1.2rem 0 1.5rem;
+      display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+      border-top:none;
+    }
+    .banner-caption-left { display:flex; flex-direction:column; gap:.3rem; }
+    .banner-caption h3 { margin:0; font-size:1.25rem; font-weight:300; color:#fff; letter-spacing:.06em; }
+    .banner-caption p  { margin:0; font-size:.82rem; color:#888; letter-spacing:.04em; }
+    .banner-badge {
+      display:inline-block; font-size:.65rem; letter-spacing:.12em;
+      text-transform:uppercase; color:#aaa; border:1px solid rgba(255,255,255,.2);
+      padding:.15rem .5rem; margin-top:.2rem; align-self:flex-start;
+    }
+    .banner-arrow { color:#444; font-size:1.2rem; flex-shrink:0; transition:color .2s, transform .2s; }
+    .banner-row:hover .banner-arrow { color:#fff; transform:translateX(4px); }
+    @media(max-width:700px) { .banner-img { height:240px; } }
+
+    /* ── CV CTA block ── */
+    .cv-cta {
+      margin-bottom:3rem;
+      padding:2.5rem 2.8rem;
+      border:1px solid rgba(255,255,255,.18);
+      display:flex; align-items:center; justify-content:space-between; gap:2rem;
       cursor:pointer;
-      transition:background .2s, padding .2s;
+      transition:background .25s, border-color .25s;
     }
-    .horiz-row:hover { background:rgba(255,255,255,.03); padding-left:.8rem; padding-right:.8rem; }
-    .horiz-thumb {
-      position:relative;
-      width:140px; height:90px;
-      overflow:hidden; flex-shrink:0;
+    .cv-cta:hover { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.45); }
+    .cv-cta-left { display:flex; flex-direction:column; gap:.4rem; }
+    .cv-cta-label {
+      font-size:.7rem; letter-spacing:.2em; text-transform:uppercase;
+      color:#888; font-family:'Cormorant Garamond','Georgia',serif;
     }
-    .horiz-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-    .horiz-badge {
-      position:absolute; bottom:.4rem; left:.4rem;
-      background:rgba(0,0,0,.65); color:#ccc;
-      font-size:.65rem; letter-spacing:.1em;
-      padding:.2rem .45rem; text-transform:uppercase;
+    .cv-cta-heading {
+      margin:0; font-size:2.8rem; font-weight:300;
+      letter-spacing:.18em; color:#fff;
+      font-family:'Cormorant Garamond','Georgia',serif;
     }
-    .horiz-info h3 { margin:0 0 .25rem; font-size:1rem; font-weight:400; color:#fff; }
-    .horiz-info p  { margin:0; font-size:.8rem; color:#888; letter-spacing:.03em; }
-    .horiz-arrow   { color:#555; font-size:1.1rem; flex-shrink:0; transition:color .2s; }
-    .horiz-row:hover .horiz-arrow { color:#fff; }
+    .cv-cta-sub { margin:0; font-size:.82rem; color:#777; letter-spacing:.05em; }
+    .cv-cta-arrow {
+      font-size:2.2rem; color:#555; flex-shrink:0;
+      transition:color .2s, transform .25s;
+    }
+    .cv-cta:hover .cv-cta-arrow { color:#fff; transform:translateX(6px); }
     @media(max-width:600px) {
-      .horiz-row { grid-template-columns:100px 1fr auto; gap:1rem; }
-      .horiz-thumb { width:100px; height:65px; }
+      .cv-cta { padding:1.8rem; }
+      .cv-cta-heading { font-size:2rem; }
     }
 
     /* ── CV page two-col ── */
@@ -314,7 +345,7 @@
       <!-- Wide performance video -->
       <div style="padding:56.25% 0 0 0;position:relative;background:#000;margin-bottom:4rem;">
         <iframe
-          src="https://www.youtube.com/embed/suNWipGhVbg"
+          src="https://www.youtube.com/embed/suNWipGhVbg?autoplay=1&mute=1&rel=0"
           style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -330,7 +361,7 @@
         </p>
         <div style="padding:56.25% 0 0 0;position:relative;background:#000;">
           <iframe
-            src="https://www.youtube.com/embed/EEvSzZvO_rQ"
+            src="https://www.youtube.com/embed/EEvSzZvO_rQ?autoplay=1&mute=1&rel=0"
             style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -339,11 +370,14 @@
         </div>
       </div>
 
-      <!-- CV button -->
-      <div style="margin-bottom:3rem;">
-        <button class="fw-link-btn" onclick="showPage('cv')" style="font-size:.85rem;padding:.7rem 1.6rem;letter-spacing:.12em;">
-          CV &nbsp;&#8594;
-        </button>
+      <!-- CV link -->
+      <div class="cv-cta" onclick="showPage('cv')">
+        <div class="cv-cta-left">
+          <span class="cv-cta-label">Curriculum Vitae</span>
+          <h2 class="cv-cta-heading">CV</h2>
+          <p class="cv-cta-sub">Dance experience &nbsp;&middot;&nbsp; education &nbsp;&middot;&nbsp; awards &amp; accolades</p>
+        </div>
+        <span class="cv-cta-arrow">&#8594;</span>
       </div>
 
     </div>
@@ -510,54 +544,54 @@
     <span class="section-eyebrow">Work</span>
     <h1 class="section-heading">Dance on Film</h1>
 
-    <div class="horiz-list">
+    <div class="banner-list">
 
-      <div class="horiz-row" onclick="showWork('lay-him-film')">
-        <div class="horiz-thumb">
-          <img src="images/film/layhimfilm/lhselects/lh1.webp" alt="Lay Him Quietly — The Film" />
-          <div class="horiz-badge">Work in Progress</div>
+      <div class="banner-row" onclick="showWork('lay-him-film')">
+        <div class="banner-img-wrap"><img class="banner-img" src="images/film/layhimfilm/lhselects/lh1.webp" alt="Lay Him Quietly — The Film" /></div>
+        <div class="banner-caption">
+          <div class="banner-caption-left">
+            <h3>Lay Him Quietly — The Film</h3>
+            <p>2026</p>
+            <span class="banner-badge">Work in Progress</span>
+          </div>
+          <span class="banner-arrow">&#8594;</span>
         </div>
-        <div class="horiz-info">
-          <h3>Lay Him Quietly — The Film</h3>
-          <p>2026 &nbsp;&middot;&nbsp; <em>Work in Progress</em></p>
-        </div>
-        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <div class="horiz-row" onclick="showWork('red-fate')">
-        <div class="horiz-thumb">
-          <img src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" />
+      <div class="banner-row" onclick="showWork('red-fate')">
+        <div class="banner-img-wrap"><img class="banner-img" src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" /></div>
+        <div class="banner-caption">
+          <div class="banner-caption-left">
+            <h3>Red Fate</h3>
+            <p>Dance Film &nbsp;&middot;&nbsp; Orsolina28 / CHANEL</p>
+          </div>
+          <span class="banner-arrow">&#8594;</span>
         </div>
-        <div class="horiz-info">
-          <h3>Red Fate</h3>
-          <p>Dance Film &nbsp;&middot;&nbsp; Orsolina28 / CHANEL</p>
-        </div>
-        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <div class="horiz-row" onclick="showWork('hold-me')">
-        <div class="horiz-thumb">
-          <img src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" />
-          <div class="horiz-badge">Upcoming</div>
+      <div class="banner-row" onclick="showWork('hold-me')">
+        <div class="banner-img-wrap"><img class="banner-img" src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" /></div>
+        <div class="banner-caption">
+          <div class="banner-caption-left">
+            <h3>Hold Me</h3>
+            <p>August 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
+            <span class="banner-badge">Upcoming</span>
+          </div>
+          <span class="banner-arrow">&#8594;</span>
         </div>
-        <div class="horiz-info">
-          <h3>Hold Me</h3>
-          <p>August 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
-        </div>
-        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <div class="horiz-row" onclick="showWork('slush')">
-        <div class="horiz-thumb">
-          <img src="images/film/iceland/slush.webp" alt="Slush"
-            onerror="this.src='images/film/iceland/slush.jpg'" />
-          <div class="horiz-badge">Upcoming</div>
+      <div class="banner-row" onclick="showWork('slush')">
+        <div class="banner-img-wrap"><img class="banner-img" src="images/film/iceland/slush.webp" alt="Slush"
+          onerror="this.src='images/film/iceland/slush.jpg'" /></div>
+        <div class="banner-caption">
+          <div class="banner-caption-left">
+            <h3>Slush</h3>
+            <p>Fall 2026 &nbsp;&middot;&nbsp; Bjorgvin Sigurdarson</p>
+            <span class="banner-badge">Upcoming</span>
+          </div>
+          <span class="banner-arrow">&#8594;</span>
         </div>
-        <div class="horiz-info">
-          <h3>Slush</h3>
-          <p>Fall 2026 &nbsp;&middot;&nbsp; Bjorgvin Sigurdarson</p>
-        </div>
-        <span class="horiz-arrow">&#8594;</span>
       </div>
 
     </div>
@@ -576,7 +610,7 @@
 <div class="page work-detail" id="page-lay-him-film">
   <div class="work-hero-video">
     <div class="work-hero-video-wrap">
-      <iframe src="https://www.youtube.com/embed/i2dE9lAwQak?rel=0&modestbranding=1"
+      <iframe src="https://www.youtube.com/embed/i2dE9lAwQak?rel=0&modestbranding=1&autoplay=1&mute=1"
         title="Lay Him Quietly — The Film" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
@@ -653,7 +687,7 @@
 <div class="page work-detail" id="page-red-fate">
   <div class="work-hero-video">
     <div class="work-hero-video-wrap">
-      <iframe src="https://www.youtube.com/embed/cqoXQ_JgWjM?rel=0&modestbranding=1"
+      <iframe src="https://www.youtube.com/embed/cqoXQ_JgWjM?rel=0&modestbranding=1&autoplay=1&mute=1"
         title="Red Fate" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
@@ -680,7 +714,7 @@
         <!-- Second video -->
         <div style="margin-top:2.5rem;">
           <div class="work-hero-video-wrap">
-            <iframe src="https://www.youtube.com/embed/AK-ZpCXzvbA?rel=0&modestbranding=1"
+            <iframe src="https://www.youtube.com/embed/AK-ZpCXzvbA?rel=0&modestbranding=1&autoplay=1&mute=1"
               title="Red Fate — additional" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
@@ -835,52 +869,51 @@
     <span class="section-eyebrow">Work</span>
     <h1 class="section-heading">Dance on Stage</h1>
 
-    <div class="horiz-list">
+    <div class="banner-list">
 
-      <div class="horiz-row" onclick="showWork('lay-him-quietly')">
-        <div class="horiz-thumb">
-          <img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" />
+      <div class="banner-row" onclick="showWork('lay-him-quietly')">
+        <div class="banner-img-wrap"><img class="banner-img" src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" /></div>
+        <div class="banner-caption">
+          <div class="banner-caption-left">
+            <h3>Lay Him Quietly</h3>
+            <p>2026</p>
+          </div>
+          <span class="banner-arrow">&#8594;</span>
         </div>
-        <div class="horiz-info">
-          <h3>Lay Him Quietly</h3>
-          <p>2026</p>
-        </div>
-        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <div class="horiz-row" onclick="showWork('red')">
-        <div class="horiz-thumb">
-          <img src="images/stage/red/redselects/r1.webp" alt="RED" />
+      <div class="banner-row" onclick="showWork('red')">
+        <div class="banner-img-wrap"><img class="banner-img" src="images/stage/red/redselects/r1.webp" alt="RED" /></div>
+        <div class="banner-caption">
+          <div class="banner-caption-left">
+            <h3>RED</h3>
+            <p>Orsolina28 Art Foundation &nbsp;&middot;&nbsp; CHANEL</p>
+          </div>
+          <span class="banner-arrow">&#8594;</span>
         </div>
-        <div class="horiz-info">
-          <h3>RED</h3>
-          <p>Orsolina28 Art Foundation &nbsp;&middot;&nbsp; CHANEL</p>
-        </div>
-        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <div class="horiz-row" onclick="showWork('us-moving-on')">
-        <div class="horiz-thumb">
-          <img src="images/stage/us/idc.avif" alt="Us Moving On" />
-          <div class="horiz-badge">Work in Progress</div>
+      <div class="banner-row" onclick="showWork('us-moving-on')">
+        <div class="banner-img-wrap"><img class="banner-img" src="images/stage/us/idc.avif" alt="Us Moving On" /></div>
+        <div class="banner-caption">
+          <div class="banner-caption-left">
+            <h3>Us Moving On</h3>
+            <p>2026 &nbsp;&middot;&nbsp; Iceland Dance Company</p>
+            <span class="banner-badge">Work in Progress</span>
+          </div>
+          <span class="banner-arrow">&#8594;</span>
         </div>
-        <div class="horiz-info">
-          <h3>Us Moving On</h3>
-          <p>2026 &nbsp;&middot;&nbsp; Iceland Dance Company &nbsp;&middot;&nbsp; <em>Work in Progress</em></p>
-        </div>
-        <span class="horiz-arrow">&#8594;</span>
       </div>
 
-      <div class="horiz-row" onclick="showWork('search')">
-        <div class="horiz-thumb">
-          <img src="images/stage/search/s1.webp" alt="Search" />
-          <div class="horiz-badge">Work in Progress</div>
+      <div class="banner-row" onclick="showWork('search')">
+        <div class="banner-img-wrap"><img class="banner-img" src="images/stage/search/s1.webp" alt="Search for Something I Didn't Know I Needed" /></div>
+        <div class="banner-caption">
+          <div class="banner-caption-left">
+            <h3>Search for Something I Didn't Know I Needed</h3>
+            <p>Work for Adaptations Dance Theater</p>
+          </div>
+          <span class="banner-arrow">&#8594;</span>
         </div>
-        <div class="horiz-info">
-          <h3>Search for Something I Didn't Know I Needed</h3>
-          <p>Maui, Hawai'i &nbsp;&middot;&nbsp; <em>Work in Progress</em></p>
-        </div>
-        <span class="horiz-arrow">&#8594;</span>
       </div>
 
     </div>
@@ -896,7 +929,7 @@
 <div class="page work-detail" id="page-lay-him-quietly">
   <div class="work-hero-video">
     <div class="work-hero-video-wrap">
-      <iframe src="https://www.youtube.com/embed/ia7qDYI0R5I?rel=0&modestbranding=1"
+      <iframe src="https://www.youtube.com/embed/ia7qDYI0R5I?rel=0&modestbranding=1&autoplay=1&mute=1"
         title="Lay Him Quietly" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
@@ -985,7 +1018,7 @@
 <div class="page work-detail" id="page-red">
   <div class="work-hero-video">
     <div class="work-hero-video-wrap">
-      <iframe src="https://www.youtube.com/embed/cvHRvl8ZslY?rel=0&modestbranding=1"
+      <iframe src="https://www.youtube.com/embed/cvHRvl8ZslY?rel=0&modestbranding=1&autoplay=1&mute=1"
         title="RED" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
@@ -1082,7 +1115,7 @@
 
     <div class="work-title-block">
       <h1>Search for Something I Didn't Know I Needed</h1>
-      <span class="work-type">Maui, Hawai'i &nbsp;&middot;&nbsp; Work in Progress</span>
+      <span class="work-type">Commissioned by Adaptations Dance Theater</span>
     </div>
 
     <div class="work-body">
@@ -1143,7 +1176,7 @@
 
     <div class="work-title-block">
       <h1>Us Moving On</h1>
-      <span class="work-type">Adaptations Dance Theater &nbsp;&middot;&nbsp; Work in Progress</span>
+      <span class="work-type">Adaptations Dance Theater</span>
     </div>
 
     <div class="work-body">
@@ -1214,7 +1247,7 @@
       <!-- TOGETHER WE CRY -->
       <div class="past-video-card">
         <div class="past-video-wrap">
-          <iframe src="https://www.youtube.com/embed/uFEQOMC0pis?rel=0&modestbranding=1"
+          <iframe src="https://www.youtube.com/embed/uFEQOMC0pis?rel=0&modestbranding=1&autoplay=1&mute=1"
             title="Together We Cry" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
