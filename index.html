@@ -167,6 +167,45 @@
     .banner-row:hover .banner-arrow { color:#fff; transform:translateX(4px); }
     @media(max-width:700px) { .banner-img { height:240px; } }
 
+    /* ── Banner overlay title ── */
+    .banner-img-wrap { position:relative; }
+    .banner-overlay-text {
+      position:absolute; inset:0;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center; color:#fff; z-index:2;
+      padding:1.5rem 2rem;
+      pointer-events:none;
+    }
+    .banner-overlay-title {
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:clamp(2.2rem, 6vw, 5rem);
+      font-weight:300; letter-spacing:.18em;
+      line-height:1.05; margin:0 0 .4rem;
+      text-transform:uppercase;
+      text-shadow: 0 2px 18px rgba(0,0,0,.7), 0 1px 4px rgba(0,0,0,.5);
+    }
+    .banner-overlay-season {
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:clamp(1rem, 2.2vw, 1.6rem);
+      font-weight:300; letter-spacing:.22em;
+      text-transform:uppercase; margin:0;
+      text-shadow: 0 1px 8px rgba(0,0,0,.7);
+      opacity:.92;
+    }
+    .banner-overlay-sub {
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:clamp(.75rem, 1.4vw, 1rem);
+      font-weight:300; letter-spacing:.16em;
+      text-transform:uppercase; margin:.35rem 0 0;
+      text-shadow: 0 1px 6px rgba(0,0,0,.7);
+      opacity:.78;
+    }
+    @media(max-width:700px) {
+      .banner-overlay-title { font-size:clamp(1.5rem,8vw,2.8rem); }
+      .banner-overlay-season { font-size:clamp(.85rem,3.5vw,1.1rem); }
+    }
+
     /* ── CV CTA block ── */
     .cv-cta {
       margin-bottom:3rem;
@@ -547,11 +586,17 @@
     <div class="banner-list">
 
       <div class="banner-row" onclick="showWork('lay-him-film')">
-        <div class="banner-img-wrap"><img class="banner-img" src="images/film/layhimfilm/lhselects/lh1.webp" alt="Lay Him Quietly — The Film" /></div>
+        <div class="banner-img-wrap">
+          <img class="banner-img" src="images/film/layhimfilm/lhselects/lh1.webp" alt="Lay Him Quietly — The Film" />
+          <div class="banner-overlay-text">
+            <p class="banner-overlay-title">Lay Him Quietly Film</p>
+            <p class="banner-overlay-season">Coming Fall 2026</p>
+          </div>
+        </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>Lay Him Quietly — The Film</h3>
-            <p>2026</p>
+            <p>Coming Fall 2026</p>
             <span class="banner-badge">Work in Progress</span>
           </div>
           <span class="banner-arrow">&#8594;</span>
@@ -559,22 +604,36 @@
       </div>
 
       <div class="banner-row" onclick="showWork('red-fate')">
-        <div class="banner-img-wrap"><img class="banner-img" src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" /></div>
+        <div class="banner-img-wrap">
+          <img class="banner-img" src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" />
+          <div class="banner-overlay-text">
+            <p class="banner-overlay-title">Red Fate</p>
+            <p class="banner-overlay-season">Spring 2026</p>
+            <p class="banner-overlay-sub">Supported by Orsolina28 Art Foundation + CHANEL</p>
+          </div>
+        </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>Red Fate</h3>
-            <p>Dance Film &nbsp;&middot;&nbsp; Orsolina28 / CHANEL</p>
+            <p>Spring 2026 &nbsp;&middot;&nbsp; Orsolina28 Art Foundation + CHANEL</p>
           </div>
           <span class="banner-arrow">&#8594;</span>
         </div>
       </div>
 
       <div class="banner-row" onclick="showWork('hold-me')">
-        <div class="banner-img-wrap"><img class="banner-img" src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" /></div>
+        <div class="banner-img-wrap">
+          <img class="banner-img" src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" />
+          <div class="banner-overlay-text">
+            <p class="banner-overlay-title">Hold Me</p>
+            <p class="banner-overlay-season">Summer 2026</p>
+            <p class="banner-overlay-sub">New Music Video for Ane Brun</p>
+          </div>
+        </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>Hold Me</h3>
-            <p>August 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
+            <p>Summer 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
             <span class="banner-badge">Upcoming</span>
           </div>
           <span class="banner-arrow">&#8594;</span>
@@ -582,8 +641,15 @@
       </div>
 
       <div class="banner-row" onclick="showWork('slush')">
-        <div class="banner-img-wrap"><img class="banner-img" src="images/film/iceland/slush.webp" alt="Slush"
-          onerror="this.src='images/film/iceland/slush.jpg'" /></div>
+        <div class="banner-img-wrap">
+          <img class="banner-img" src="images/film/iceland/slush.webp" alt="Slush"
+            onerror="this.src='images/film/iceland/slush.jpg'" />
+          <div class="banner-overlay-text">
+            <p class="banner-overlay-title">Slush</p>
+            <p class="banner-overlay-season">Fall 2026</p>
+            <p class="banner-overlay-sub">In collaboration with Bjorgvin Sigurdarson</p>
+          </div>
+        </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>Slush</h3>
@@ -872,33 +938,53 @@
     <div class="banner-list">
 
       <div class="banner-row" onclick="showWork('lay-him-quietly')">
-        <div class="banner-img-wrap"><img class="banner-img" src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" /></div>
+        <div class="banner-img-wrap">
+          <img class="banner-img" src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" />
+          <div class="banner-overlay-text">
+            <p class="banner-overlay-title">Lay Him Quietly</p>
+            <p class="banner-overlay-season">Spring 2026</p>
+          </div>
+        </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>Lay Him Quietly</h3>
-            <p>2026</p>
+            <p>Spring 2026</p>
           </div>
           <span class="banner-arrow">&#8594;</span>
         </div>
       </div>
 
       <div class="banner-row" onclick="showWork('red')">
-        <div class="banner-img-wrap"><img class="banner-img" src="images/stage/red/redselects/r1.webp" alt="RED" /></div>
+        <div class="banner-img-wrap">
+          <img class="banner-img" src="images/stage/red/redselects/r1.webp" alt="RED" />
+          <div class="banner-overlay-text">
+            <p class="banner-overlay-title">RED</p>
+            <p class="banner-overlay-season">Summer 2025</p>
+            <p class="banner-overlay-sub">Supported by Orsolina28 Art Foundation + CHANEL</p>
+          </div>
+        </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>RED</h3>
-            <p>Orsolina28 Art Foundation &nbsp;&middot;&nbsp; CHANEL</p>
+            <p>Summer 2025 &nbsp;&middot;&nbsp; Orsolina28 Art Foundation &nbsp;&middot;&nbsp; CHANEL</p>
           </div>
           <span class="banner-arrow">&#8594;</span>
         </div>
       </div>
 
       <div class="banner-row" onclick="showWork('us-moving-on')">
-        <div class="banner-img-wrap"><img class="banner-img" src="images/stage/us/idc.avif" alt="Us Moving On" /></div>
+        <div class="banner-img-wrap">
+          <img class="banner-img" src="images/stage/us/idc.avif" alt="Us Moving On" />
+          <div class="banner-overlay-text">
+            <p class="banner-overlay-title">Us Moving On</p>
+            <p class="banner-overlay-season">Fall 2026</p>
+            <p class="banner-overlay-sub">New creation for Iceland Dance Company</p>
+          </div>
+        </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>Us Moving On</h3>
-            <p>2026 &nbsp;&middot;&nbsp; Iceland Dance Company</p>
+            <p>Fall 2026 &nbsp;&middot;&nbsp; Iceland Dance Company</p>
             <span class="banner-badge">Work in Progress</span>
           </div>
           <span class="banner-arrow">&#8594;</span>
@@ -906,11 +992,18 @@
       </div>
 
       <div class="banner-row" onclick="showWork('search')">
-        <div class="banner-img-wrap"><img class="banner-img" src="images/stage/search/s1.webp" alt="Search for Something I Didn't Know I Needed" /></div>
+        <div class="banner-img-wrap">
+          <img class="banner-img" src="images/stage/search/s1.webp" alt="Search for Something I Didn't Know I Needed" />
+          <div class="banner-overlay-text">
+            <p class="banner-overlay-title">Search for Something I Didn't Know I Needed</p>
+            <p class="banner-overlay-season">Spring 2026</p>
+            <p class="banner-overlay-sub">Creation for Adaptations Dance Theater</p>
+          </div>
+        </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>Search for Something I Didn't Know I Needed</h3>
-            <p>Work for Adaptations Dance Theater</p>
+            <p>Spring 2026 &nbsp;&middot;&nbsp; Adaptations Dance Theater</p>
           </div>
           <span class="banner-arrow">&#8594;</span>
         </div>
