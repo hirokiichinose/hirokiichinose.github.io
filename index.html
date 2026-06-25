@@ -95,21 +95,24 @@
       color:#bbb; text-transform:uppercase;
     }
 
-    /* ── Photo slider — full width banner ── */
+    /* ── Photo slider — full bleed banner ── */
     .work-slider {
       position:relative; overflow:hidden;
-      margin-top:3rem;
-      width:100%;
+      width:100%; margin:0;
     }
     .work-slider-track {
       display:flex;
       transition:transform .5s ease;
     }
     .work-slider-item {
-      min-width:100%; height:520px; overflow:hidden;
+      min-width:100%; height:620px; overflow:hidden; flex-shrink:0;
     }
     .work-slider-item img { width:100%; height:100%; object-fit:cover; display:block; }
-    @media(max-width:700px) { .work-slider-item { height:260px; } }
+    @media(max-width:700px) { .work-slider-item { height:300px; } }
+    /* ── Three-col credits ── */
+    .credits-three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.2rem 2rem; }
+    @media(max-width:800px) { .credits-three-col { grid-template-columns:1fr 1fr; } }
+    @media(max-width:500px) { .credits-three-col { grid-template-columns:1fr; } }
     .slider-btn {
       position:absolute; top:50%; transform:translateY(-50%);
       background:rgba(0,0,0,.55); color:#fff; border:none;
@@ -680,34 +683,86 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
         <div class="work-description">
           <p>Lay Him Quietly (The Film) is a work in progress to be released in Fall 2026, as an extension of the stage work. An intimate cinematic rendering of the original live performance, the film carries forward its core emotional landscape — the quiet burdens of identity, love, and self — into the language of the camera.</p>
         </div>
-        <div class="work-slider">
-          <div class="work-slider-track" id="lhf-slider">
+        
+      </div>
+
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <div class="credits-two-col">
+            <dl>
+              <dt>Director</dt><dd>Natasha Mynheir</dd>
+              <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
+              <dt>Dancers</dt><dd>Madoka Kariya, Victor Ketelslegers, Hiroki Ichinose</dd>
+              <dt>Director of Photography</dt><dd>Brooke Mueller</dd>
+              <dt>Production</dt><dd>37/LAINES production</dd>
+              <dt>Co-produced by</dt><dd>Orsolina28 Art Foundation</dd>
+              <dt>Support</dt><dd>CHANEL</dd>
+              <dt>Executive Producers</dt><dd>Hiroki Ichinose, Madoka Kariya</dd>
+              <dt>Editor</dt><dd>Eli James</dd>
+              <dt>Original Music</dt><dd>Nicoletta Nomicou</dd>
+              <dt>Costumes</dt><dd>CHANEL</dd>
+              <dt>Colorist</dt><dd>Walter Volpatto</dd>
+              <dt>Visual Effects</dt><dd>Byron Nash</dd>
+              <dt>Art Director</dt><dd>Isabelle Najera</dd>
+              <dt>Special Thanks</dt><dd>Simony Monteiro, Mario Alberto Zambrano, and all staff at Orsolina28 Art Foundation</dd>
+            </dl>
+            <dl class="credits-music">
+              <dt>Music</dt>
+              <dd>
+                <p><em>"RED FATE"</em><br>Written &amp; produced by Nicoletta Nomicou<br>Vocals: Nicoletta Nomicou<br>Violin &amp; Viola: Stefan L Smith</p>
+                <p><em>"Fates Apart"</em><br>Written by Nicoletta Nomicou<br>Piano: Nicoletta Nomicou<br>Cello: Alex Mansou<br>Score Mixer: Noah Hubbell</p>
+                <p><em>"Who Knows Where the Time Goes (Live)"</em><br>Written by Sandy Denny<br>Performed by Moses Sumney<br>Used by permission of the artist</p>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="work-supporters">
+          <h4>Supported by</h4>
+          <div class="supporter-logos">
+            <img class="supporter-logo" src="images/film/redfate/rfpng/chanel.svg.png" alt="CHANEL" />
+            <img class="supporter-logo" src="images/film/redfate/rfpng/orsolina.png" alt="Orsolina28" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<div class="work-slider">
+          <div class="work-slider-track" id="lhf-slider-old">
             <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh1.webp" alt="Lay Him Quietly Film" /></div>
             <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh2.webp" alt="Lay Him Quietly Film" /></div>
             <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh3.webp" alt="Lay Him Quietly Film" /></div>
             <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh4.webp" alt="Lay Him Quietly Film" /></div>
           </div>
-          <button class="slider-btn slider-prev" onclick="slideMove('lhf-slider',-1)">&#8592;</button>
-          <button class="slider-btn slider-next" onclick="slideMove('lhf-slider',1)">&#8594;</button>
+          <button class="slider-btn slider-prev" onclick="slideMove('lhf-slider-old',-1)">&#8592;</button>
+          <button class="slider-btn slider-next" onclick="slideMove('lhf-slider-old',1)">&#8594;</button>
         </div>
       </div>
       <div class="work-sidebar">
         <div class="work-credits">
           <h4>Credits</h4>
-          <dl>
-            <dt>Choreography / Direction</dt><dd>Hiroki Ichinose</dd>
-            <dt>Director of Photography</dt><dd>Lucas Wallenberg</dd>
-            <dt>Dancers</dt><dd>Ninos Josef &amp; Hiroki Ichinose</dd>
-            <dt>Music Composition</dt><dd>Ivo Mateus</dd>
-            <dt>Featuring</dt><dd>Ane Brun "Dirty Windshield" — Recording made especially for this work</dd>
-            <dt>Colorist</dt><dd>Daniel Pherson</dd>
-            <dt>Grip</dt><dd>Marcus Faltmark</dd>
-            <dt>Additional Vocals</dt><dd>Ursula Urgeles</dd>
-            <dt>Dramaturg</dt><dd>Victor Ketelslegers</dd>
-            <dt>Co-produced by</dt><dd>Dansiöst, Riksteatern Norrköping, Kulturradet</dd>
-            <dt>Support</dt><dd>Embassy of Sweden in the United States</dd>
-            <dt>Special Thanks</dt><dd>Caj Muller and the entire technical team at Ostgotateatern</dd>
-          </dl>
+          <div class="credits-three-col">
+            <dl>
+              <dt>Choreography / Direction</dt><dd>Hiroki Ichinose</dd>
+              <dt>Director of Photography</dt><dd>Lucas Wallenberg</dd>
+              <dt>Dancers</dt><dd>Ninos Josef &amp; Hiroki Ichinose</dd>
+              <dt>Music Composition</dt><dd>Ivo Mateus</dd>
+            </dl>
+            <dl>
+              <dt>Featuring</dt><dd>Ane Brun "Dirty Windshield"<br><em>Recording made especially for this work</em></dd>
+              <dt>Colorist</dt><dd>Daniel Pherson</dd>
+              <dt>Grip</dt><dd>Marcus Faltmark</dd>
+              <dt>Additional Vocals</dt><dd>Ursula Urgeles</dd>
+            </dl>
+            <dl>
+              <dt>Dramaturg</dt><dd>Victor Ketelslegers</dd>
+              <dt>Co-produced by</dt><dd>Dansiöst, Riksteatern Norrköping, Kulturradet</dd>
+              <dt>Support</dt><dd>Embassy of Sweden in the United States</dd>
+              <dt>Special Thanks</dt><dd>Caj Muller and the entire technical team at Ostgotateatern</dd>
+            </dl>
+          </div>
         </div>
         <div class="work-supporters">
           <h4>Supported by</h4>
@@ -723,6 +778,18 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
       </div>
     </div>
   </div>
+
+  <div class="work-slider">
+    <div class="work-slider-track" id="lhf-slider">
+      <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh1.webp" alt="Lay Him Quietly Film" /></div>
+      <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh2.webp" alt="Lay Him Quietly Film" /></div>
+      <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh3.webp" alt="Lay Him Quietly Film" /></div>
+      <div class="work-slider-item"><img src="images/film/layhimfilm/lhselects/lh4.webp" alt="Lay Him Quietly Film" /></div>
+    </div>
+    <button class="slider-btn slider-prev" onclick="slideMove('lhf-slider',-1)">&#8592;</button>
+    <button class="slider-btn slider-next" onclick="slideMove('lhf-slider',1)">&#8594;</button>
+  </div>
+
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
     <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
@@ -769,48 +836,33 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
               allowfullscreen></iframe>
           </div>
         </div>
-
-        <!-- Photo slider -->
-        <div class="work-slider">
-          <div class="work-slider-track" id="rf-slider">
-            <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" /></div>
-            <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf2.webp" alt="Red Fate" /></div>
-            <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf3.webp" alt="Red Fate" /></div>
-            <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf4.webp" alt="Red Fate" /></div>
-          </div>
-          <button class="slider-btn slider-prev" onclick="slideMove('rf-slider',-1)">&#8592;</button>
-          <button class="slider-btn slider-next" onclick="slideMove('rf-slider',1)">&#8594;</button>
-        </div>
       </div>
 
       <div class="work-sidebar">
         <div class="work-credits">
           <h4>Credits</h4>
-          <div class="credits-two-col">
+          <div class="credits-three-col">
             <dl>
               <dt>Director</dt><dd>Natasha Mynheir</dd>
               <dt>Choreography</dt><dd>Hiroki Ichinose (in collaboration with the dancers)</dd>
               <dt>Dancers</dt><dd>Madoka Kariya, Victor Ketelslegers, Hiroki Ichinose</dd>
               <dt>Director of Photography</dt><dd>Brooke Mueller</dd>
               <dt>Production</dt><dd>37/LAINES production</dd>
+            </dl>
+            <dl>
               <dt>Co-produced by</dt><dd>Orsolina28 Art Foundation</dd>
               <dt>Support</dt><dd>CHANEL</dd>
               <dt>Executive Producers</dt><dd>Hiroki Ichinose, Madoka Kariya</dd>
               <dt>Editor</dt><dd>Eli James</dd>
               <dt>Original Music</dt><dd>Nicoletta Nomicou</dd>
               <dt>Costumes</dt><dd>CHANEL</dd>
+            </dl>
+            <dl>
               <dt>Colorist</dt><dd>Walter Volpatto</dd>
               <dt>Visual Effects</dt><dd>Byron Nash</dd>
               <dt>Art Director</dt><dd>Isabelle Najera</dd>
               <dt>Special Thanks</dt><dd>Simony Monteiro, Mario Alberto Zambrano, and all staff at Orsolina28 Art Foundation</dd>
-            </dl>
-            <dl class="credits-music">
-              <dt>Music</dt>
-              <dd>
-                <p><em>"RED FATE"</em><br>Written &amp; produced by Nicoletta Nomicou<br>Vocals: Nicoletta Nomicou<br>Violin &amp; Viola: Stefan L Smith</p>
-                <p><em>"Fates Apart"</em><br>Written by Nicoletta Nomicou<br>Piano: Nicoletta Nomicou<br>Cello: Alex Mansou<br>Score Mixer: Noah Hubbell</p>
-                <p><em>"Who Knows Where the Time Goes (Live)"</em><br>Written by Sandy Denny<br>Performed by Moses Sumney<br>Used by permission of the artist</p>
-              </dd>
+              <dt>Music</dt><dd>"RED FATE" by Nicoletta Nomicou · "Fates Apart" by Nicoletta Nomicou · "Who Knows Where the Time Goes (Live)" performed by Moses Sumney</dd>
             </dl>
           </div>
         </div>
@@ -824,6 +876,18 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
       </div>
     </div>
   </div>
+
+  <div class="work-slider">
+    <div class="work-slider-track" id="rf-slider">
+      <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf1.webp" alt="Red Fate" /></div>
+      <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf2.webp" alt="Red Fate" /></div>
+      <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf3.webp" alt="Red Fate" /></div>
+      <div class="work-slider-item"><img src="images/film/redfate/rfselects/rf4.webp" alt="Red Fate" /></div>
+    </div>
+    <button class="slider-btn slider-prev" onclick="slideMove('rf-slider',-1)">&#8592;</button>
+    <button class="slider-btn slider-next" onclick="slideMove('rf-slider',1)">&#8594;</button>
+  </div>
+
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
     <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
@@ -1032,41 +1096,34 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <p>For me, Lay Him Quietly is rooted in emotional states such as doubt, anger, tenderness, and suffocation, whether imposed by others or created within ourselves. It asks how we sit with these feelings, how we express them, and how we continue to move through the world while carrying them. Like our emotions, life is often contradictory and unresolved. It asks us to soften, to release our defenses, and to meet ourselves with compassion. Perhaps, in doing so, we can begin to lay down what we have been holding, our fears, our histories, and our uncertainties, and allow ourselves the space to forgive, to feel, and to move forward.</p>
           <p class="work-premiere">Premiered May 6, 2026 at Ostgotateatern Stora Teatern as part of Riksteatern's REACT International Theater Festival</p>
         </div>
-
-        <!-- Photo slider -->
-        <div class="work-slider">
-          <div class="work-slider-track" id="lh-slider">
-            <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" /></div>
-            <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh2.webp" alt="Lay Him Quietly" /></div>
-            <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh3.webp" alt="Lay Him Quietly" /></div>
-            <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh4.webp" alt="Lay Him Quietly" /></div>
-          </div>
-          <button class="slider-btn slider-prev" onclick="slideMove('lh-slider',-1)">&#8592;</button>
-          <button class="slider-btn slider-next" onclick="slideMove('lh-slider',1)">&#8594;</button>
-        </div>
       </div>
 
       <div class="work-sidebar">
         <div class="work-credits">
           <h4>Credits</h4>
-          <dl>
-            <dt>Choreography / Direction</dt><dd>Hiroki Ichinose</dd>
-            <dt>Director of Photography</dt><dd>Lucas Wallenberg</dd>
-            <dt>Dancers</dt><dd>Ninos Josef &amp; Hiroki Ichinose</dd>
-            <dt>Music Composition</dt><dd>Ivo Mateus</dd>
-            <dt>Costumes</dt><dd>Anh Sommar</dd>
-            <dt>Featuring</dt><dd>Ane Brun "Dirty Windshield" — Recording made especially for this work</dd>
-            <dt>Colorist</dt><dd>Daniel Pherson</dd>
-            <dt>Grip</dt><dd>Marcus Faltmark</dd>
-            <dt>Additional Vocals</dt><dd>Ursula Urgeles</dd>
-            <dt>Light Design</dt><dd>Lin Persson</dd>
-            <dt>Dramaturg</dt><dd>Victor Ketelslegers</dd>
-            <dt>Co-produced by</dt><dd>Dansiöst, Riksteatern Norrköping, Kulturradet</dd>
-            <dt>Support</dt><dd>Embassy of Sweden in the United States</dd>
-            <dt>Special Thanks</dt><dd>Caj Muller and the entire technical team at Ostgotateatern</dd>
-          </dl>
+          <div class="credits-three-col">
+            <dl>
+              <dt>Choreography / Direction</dt><dd>Hiroki Ichinose</dd>
+              <dt>Director of Photography</dt><dd>Lucas Wallenberg</dd>
+              <dt>Dancers</dt><dd>Ninos Josef &amp; Hiroki Ichinose</dd>
+              <dt>Music Composition</dt><dd>Ivo Mateus</dd>
+              <dt>Costumes</dt><dd>Anh Sommar</dd>
+            </dl>
+            <dl>
+              <dt>Featuring</dt><dd>Ane Brun "Dirty Windshield"<br><em>Recording made especially for this work</em></dd>
+              <dt>Colorist</dt><dd>Daniel Pherson</dd>
+              <dt>Grip</dt><dd>Marcus Faltmark</dd>
+              <dt>Additional Vocals</dt><dd>Ursula Urgeles</dd>
+            </dl>
+            <dl>
+              <dt>Light Design</dt><dd>Lin Persson</dd>
+              <dt>Dramaturg</dt><dd>Victor Ketelslegers</dd>
+              <dt>Co-produced by</dt><dd>Dansiöst, Riksteatern Norrköping, Kulturradet</dd>
+              <dt>Support</dt><dd>Embassy of Sweden in the United States</dd>
+              <dt>Special Thanks</dt><dd>Caj Muller and the entire technical team at Ostgotateatern</dd>
+            </dl>
+          </div>
         </div>
-
         <div class="work-supporters">
           <h4>Supported by</h4>
           <div class="supporter-logos">
@@ -1080,6 +1137,17 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="work-slider">
+    <div class="work-slider-track" id="lh-slider">
+      <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" /></div>
+      <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh2.webp" alt="Lay Him Quietly" /></div>
+      <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh3.webp" alt="Lay Him Quietly" /></div>
+      <div class="work-slider-item"><img src="images/stage/layhim/layselects/lh4.webp" alt="Lay Him Quietly" /></div>
+    </div>
+    <button class="slider-btn slider-prev" onclick="slideMove('lh-slider',-1)">&#8592;</button>
+    <button class="slider-btn slider-next" onclick="slideMove('lh-slider',1)">&#8594;</button>
   </div>
 
   <footer>
@@ -1128,18 +1196,6 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <blockquote>"The creation of Ichinose, vibrant and subtly political, explores the contrasts between destiny and responsibility."<cite>— Marie Claire Italia</cite></blockquote>
           <blockquote>"A breathtaking choreographic exploration by Japanese-American artist Hiroki Ichinose."<cite>— Mia Le Journal</cite></blockquote>
         </div>
-
-        <!-- Photo slider -->
-        <div class="work-slider">
-          <div class="work-slider-track" id="red-slider">
-            <div class="work-slider-item"><img src="images/stage/red/redselects/r1.webp" alt="RED" /></div>
-            <div class="work-slider-item"><img src="images/stage/red/redselects/r2.webp" alt="RED" /></div>
-            <div class="work-slider-item"><img src="images/stage/red/redselects/r3.webp" alt="RED" /></div>
-            <div class="work-slider-item"><img src="images/stage/red/redselects/r4.webp" alt="RED" /></div>
-          </div>
-          <button class="slider-btn slider-prev" onclick="slideMove('red-slider',-1)">&#8592;</button>
-          <button class="slider-btn slider-next" onclick="slideMove('red-slider',1)">&#8594;</button>
-        </div>
       </div>
 
       <div class="work-sidebar">
@@ -1155,7 +1211,6 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
             <dt>Music</dt><dd>Ebb Tide (Houston &amp; Dorsey), Piel (Arca), Who Knows Where the Time Goes (Moses Sumney)</dd>
           </dl>
         </div>
-
         <div class="work-supporters">
           <h4>Supported by</h4>
           <div class="supporter-logos">
@@ -1165,6 +1220,17 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="work-slider">
+    <div class="work-slider-track" id="red-slider">
+      <div class="work-slider-item"><img src="images/stage/red/redselects/r1.webp" alt="RED" /></div>
+      <div class="work-slider-item"><img src="images/stage/red/redselects/r2.webp" alt="RED" /></div>
+      <div class="work-slider-item"><img src="images/stage/red/redselects/r3.webp" alt="RED" /></div>
+      <div class="work-slider-item"><img src="images/stage/red/redselects/r4.webp" alt="RED" /></div>
+    </div>
+    <button class="slider-btn slider-prev" onclick="slideMove('red-slider',-1)">&#8592;</button>
+    <button class="slider-btn slider-next" onclick="slideMove('red-slider',1)">&#8594;</button>
   </div>
 
   <footer>
@@ -1202,18 +1268,6 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <p>After years of moving between places, spending a decade building a dance career across Europe and the U.S., I began to wonder what it meant to return home. Born and raised on Maui, I once felt called to leave and search beyond the island.</p>
           <p>In coming home to create my first work here, I am reminded that community endures, and that home remains ready to receive you with open arms.</p>
         </div>
-
-        <!-- Photo slider -->
-        <div class="work-slider">
-          <div class="work-slider-track" id="search-slider">
-            <div class="work-slider-item"><img src="images/stage/search/s1.webp" alt="Search" /></div>
-            <div class="work-slider-item"><img src="images/stage/search/s2.webp" alt="Search" /></div>
-            <div class="work-slider-item"><img src="images/stage/search/s3.webp" alt="Search" /></div>
-            <div class="work-slider-item"><img src="images/stage/search/s4.webp" alt="Search" /></div>
-          </div>
-          <button class="slider-btn slider-prev" onclick="slideMove('search-slider',-1)">&#8592;</button>
-          <button class="slider-btn slider-next" onclick="slideMove('search-slider',1)">&#8594;</button>
-        </div>
       </div>
 
       <div class="work-sidebar">
@@ -1222,10 +1276,23 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <dl>
             <dt>Choreography</dt><dd>Hiroki Ichinose</dd>
             <dt>Dancers</dt><dd>Karli Jo List, Ella Craft, Emily McKeon, Elise Monson, Katie Whiticar</dd>
+  <dt>Rehearsal Director</dt><dd>Hallie Hunt</dd>
+ 
           </dl>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="work-slider">
+    <div class="work-slider-track" id="search-slider">
+      <div class="work-slider-item"><img src="images/stage/search/s1.webp" alt="Search" /></div>
+      <div class="work-slider-item"><img src="images/stage/search/s2.webp" alt="Search" /></div>
+      <div class="work-slider-item"><img src="images/stage/search/s3.webp" alt="Search" /></div>
+      <div class="work-slider-item"><img src="images/stage/search/s4.webp" alt="Search" /></div>
+    </div>
+    <button class="slider-btn slider-prev" onclick="slideMove('search-slider',-1)">&#8592;</button>
+    <button class="slider-btn slider-next" onclick="slideMove('search-slider',1)">&#8594;</button>
   </div>
 
   <footer>
