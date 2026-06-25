@@ -95,20 +95,21 @@
       color:#bbb; text-transform:uppercase;
     }
 
-    /* ── Photo slider ── */
+    /* ── Photo slider — full width banner ── */
     .work-slider {
       position:relative; overflow:hidden;
-      margin-top:2.5rem;
-      border:1px solid rgba(255,255,255,.08);
+      margin-top:3rem;
+      width:100%;
     }
     .work-slider-track {
       display:flex;
       transition:transform .5s ease;
     }
     .work-slider-item {
-      min-width:100%; aspect-ratio:16/9; overflow:hidden;
+      min-width:100%; height:520px; overflow:hidden;
     }
     .work-slider-item img { width:100%; height:100%; object-fit:cover; display:block; }
+    @media(max-width:700px) { .work-slider-item { height:260px; } }
     .slider-btn {
       position:absolute; top:50%; transform:translateY(-50%);
       background:rgba(0,0,0,.55); color:#fff; border:none;
@@ -291,6 +292,7 @@
 <body>
 
 <!-- ============================================================
+<!-- ============================================================
      NAVIGATION
      ============================================================ -->
 <nav>
@@ -348,10 +350,10 @@
 
         </p>
         <p>
-         Recent and upcoming works include RED, a stage work and film adaptation supported by CHANEL and produced by Orsolina28 Art Foundation, and LAY HIM QUIETLY, a full-evening work integrating film and live performance, premiering through Riksteatern (Sweden’s national touring company) as part of their inaugural REACT International Theatre Festival. Ichinose was selected as a 2025 Orsolina28 Call for Creation Fellow and was named Dance Magazine’s “25 to Watch” in 2016. His work has been presented in Sweden, Italy, and Japan, including the New National Theatre Tokyo and Hyogo Performing Arts Center.
+         Recent and upcoming works include RED, a stage work and film adaptation supported by CHANEL and produced by Orsolina28 Art Foundation, and LAY HIM QUIETLY, a full-evening work integrating film and live performance, premiering through Riksteatern (Sweden’s national touring company) as part of their inaugural REACT International Theatre Festival. Ichinose was selected as a 2025 Orsolina28 Call for Creation Fellow and was named Dance Magazine’s “25 to Watch” in 2016, and awarded best Dancer for the Icelandic Griman Awards. His work has been presented in Sweden, Italy, and Japan, including the New National Theatre Tokyo and Hyogo Performing Arts Center.
         </p>
         <p>
-        Ichinose’s choreographic language is shaped by over a decade of creative processes with internationally renowned contemporary artists. He was a soloist with Staatstheater Nürnberg Ballet (2015–2018) and, most formatively, an artist with GöteborgsOperans Danskompani (2018–2025). He has also worked as a guest artist with Grand Théâtre de Genève / Eastman, Iceland Dance Company, Kyle Abraham / A.I.M, and Aszure Barton & Artists, among others. In parallel, he has collaborated as a choreographer and artist with musical artists including Ane Brun and Little Dragon.
+      In parallel, he has collaborated for music videos and live performances as a choreographer and dance artist with musical artists including Ane Brun and Little Dragon.
         </p>
         <div class="about-meta">
           <p>Based in &mdash; Paris, France/Gotheburg, Sweden</p>
@@ -374,10 +376,10 @@
 
       <div style="margin-bottom:2rem;">
         <p>
-          A permanent artist with GöteborgsOperans Danskompani since 2018, Hiroki has performed creations by some of the world's leading choreographers — among them Crystal Pite, Sharon Eyal, Alexander Ekman, Hofesh Shechter, and Damien Jalet. He has also worked as a guest artist with Grand Théâtre de Genève/Eastman and Iceland Dance Company, and previously as a soloist with Ballet Staatstheater Nuremberg.
+            Ichinose’s choreographic language is shaped by over a decade of creative processes with internationally renowned contemporary artists. He was a soloist with Staatstheater Nürnberg Ballet (2015–2018) and, most formatively, an artist with GöteborgsOperans Danskompani (2018–2025). He has also worked as a guest artist with Grand Théâtre de Genève / Eastman, Iceland Dance Company, Kyle Abraham / A.I.M, and Aszure Barton & Artists, among others.  
         </p>
         <p>
-          His performing life feeds directly into his choreographic practice — an understanding of the body as both instrument and subject, shaped by years of working at the intersection of physical rigor and artistic inquiry.
+         As a teaching artist, Hiroki brings extensive experience working with both pre-professional dancers and non-dancers. He has led masterclasses internationally and for students at New York University, University of Iceland and creation for Advance Dance Institute in Barcelona. Additionally he has taught repertory for open auditions at GöteborgsOperans Danskompani, teaching works by Hofesh Shechter and Johan Inger. He teaches both a improvisation based contemporary class as well as a ballet class designed for contemporary dancers.
         </p>
       </div>
 
@@ -390,23 +392,6 @@
           allowfullscreen
           title="Dance Performances — Hiroki Ichinose">
         </iframe>
-      </div>
-
-      <!-- Dance on Camera -->
-      <div style="margin-bottom:4rem;">
-        <span class="section-eyebrow" style="margin-bottom:.8rem;display:block;">Dance on Camera</span>
-        <p style="margin-bottom:1.5rem;max-width:640px;">
-          Alongside his stage practice, Hiroki is available for dance on camera, commercial, and film projects — bringing precision, physical intelligence, and years of experience working in front of the lens with some of the world's leading directors and choreographers.
-        </p>
-        <div style="padding:56.25% 0 0 0;position:relative;background:#000;">
-          <iframe
-            src="https://www.youtube.com/embed/EEvSzZvO_rQ?autoplay=1&mute=1&rel=0"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            title="Dance on Camera — Hiroki Ichinose">
-          </iframe>
-        </div>
       </div>
 
       <!-- CV link -->
@@ -1017,6 +1002,7 @@
   </footer>
 </div>
 
+<!-- ============================================================
      STAGE: LAY HIM QUIETLY
      ============================================================ -->
 <div class="page work-detail" id="page-lay-him-quietly">
