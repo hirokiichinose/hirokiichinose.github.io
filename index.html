@@ -252,25 +252,6 @@
     .supporter-logo { height:36px; width:auto; max-width:90px; object-fit:contain; opacity:.75; filter:grayscale(30%); }
     .supporter-logo:hover { opacity:1; }
 
-    /* ── Past works grid ── */
-    .past-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap:3rem;
-      margin-top:2.5rem;
-    }
-    .past-video-card { display:flex; flex-direction:column; }
-    .past-video-wrap {
-      position:relative; width:100%; padding-top:56.25%; background:#000;
-    }
-    .past-video-wrap iframe {
-      position:absolute; inset:0; width:100%; height:100%; border:0;
-    }
-    .past-card-body { padding:1.1rem 0; }
-    .past-card-body h3 { margin:0 0 .3rem; font-size:1.05rem; font-weight:400; }
-    .past-card-meta { font-size:.8rem; color:#888; letter-spacing:.04em; margin:.2rem 0 .8rem; }
-    .past-card-note { font-size:.82rem; color:#777; font-style:italic; margin-top:.5rem; }
-
     /* ── Credits two-column layout ── */
     .credits-two-col { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
     .credits-music p { font-size:.82rem; margin:.6rem 0; line-height:1.6; }
@@ -305,7 +286,6 @@
     <li><a onclick="showPage('about')"   id="nav-about">About</a></li>
     <li><a onclick="showPage('stage')"   id="nav-stage">Dance on Stage</a></li>
     <li><a onclick="showPage('film')"    id="nav-film">Dance on Film</a></li>
-    <li><a onclick="showPage('past')"      id="nav-past">Past Works</a></li>
     <li><a onclick="showPage('fullworks')" id="nav-fullworks" style="color:#bbb;">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:5px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
       Full Works
@@ -595,15 +575,14 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <img class="banner-img" src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" />
           <div class="banner-overlay-text">
             <p class="banner-overlay-title">Hold Me</p>
-            <p class="banner-overlay-season">Summer 2026</p>
+            <p class="banner-overlay-season">August 2026</p>
             <p class="banner-overlay-sub">New Music Video for Ane Brun</p>
           </div>
         </div>
         <div class="banner-caption">
           <div class="banner-caption-left">
             <h3>Hold Me</h3>
-            <p>Summer 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
-            <span class="banner-badge">Upcoming</span>
+            <p>August 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
           </div>
           <span class="banner-arrow">&#8594;</span>
         </div>
@@ -847,10 +826,13 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
      FILM: HOLD ME
      ============================================================ -->
 <div class="page work-detail" id="page-hold-me">
-  <div class="work-hero" style="height:55vh;">
-    <img src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me"
-      style="width:100%;height:100%;object-fit:cover;display:block;" />
-    <div class="hero-overlay" style="background:rgba(0,0,0,.3);"></div>
+  <div class="work-hero-video">
+    <div class="work-hero-video-wrap">
+      <iframe src="https://www.youtube.com/embed/udSqzqW0hVk?rel=0&modestbranding=1&autoplay=1&mute=1"
+        title="Hold Me — Ane Brun" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
   </div>
 
   <div class="work-detail-inner">
@@ -865,17 +847,67 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
     <div class="work-body">
       <div>
         <div class="work-description">
-          <p class="work-upcoming-label">Upcoming — August 2026</p>
-          <p style="margin-top:1rem;">An upcoming project in collaboration with Ane Brun, premiering August 2026.</p>
-        </div>
-        <div style="margin-top:2.5rem;">
-          <img src="images/film/holdme/hmpng/ballon.png" alt="Balloon Ranger"
-            style="max-height:48px;opacity:.75;filter:grayscale(20%);" />
+          <p>Three years ago, Norwegian singer/songwriter Ane Brun approached me with the idea of creating a song inspired by my choreography. At the time, I had been exploring duet material with two dancers from the Gothenburg Opera Danskompani, Viola Esmeralda Grappiollo and August Palayer. I made a skeleton of a duet to share with her.</p>
+          <p>Ane sat at her piano, watched a video of the choreography, and wrote a demo of what would become Hold Me. Over the following months, the music and movement continued to develop alongside one another, each shaping the other.</p>
+          <p>Three years later, we finally brought them together in this film.</p>
         </div>
       </div>
-      <div class="work-sidebar"></div>
+
+      <div class="work-sidebar">
+        <div class="work-credits">
+          <h4>Credits</h4>
+          <div class="credits-three-col">
+            <dl>
+              <dt>Choreographer, Producer &amp; Co-Director</dt><dd>Hiroki Ichinose</dd>
+              <dt>Director, Producer &amp; Editor</dt><dd>Elis Lindsten</dd>
+              <dt>Director of Photography</dt><dd>Lucas Wallenberg</dd>
+              <dt>1st AC</dt><dd>Charlie Jansen</dd>
+              <dt>Steadicam Operator</dt><dd>Nestor Salazar</dd>
+              <dt>Gaffer</dt><dd>Carl Erskine</dd>
+              <dt>Lighting Assistant</dt><dd>Simon Löfgren</dd>
+              <dt>2nd Unit DOP</dt><dd>Gustav Svante Larsson</dd>
+            </dl>
+            <dl>
+              <dt>Set Designer</dt><dd>Fanny Stierna</dd>
+              <dt>Set Design Assistant</dt><dd>Scilla Rajalin</dd>
+              <dt>VFX Artist</dt><dd>Theodor Hedlund</dd>
+              <dt>Colorist</dt><dd>Daniel Pherson</dd>
+              <dt>Graphic Designer</dt><dd>Martin Falck</dd>
+              <dt>PA</dt><dd>Maximus Aggenberg</dd>
+              <dt>PA</dt><dd>Luca Myhrberg</dd>
+              <dt>Dancers</dt><dd>Viola Esmeralda Grappiolo &amp; Auguste Palaye</dd>
+            </dl>
+            <dl>
+              <dt>Music and Lyrics by</dt><dd>Ane Brun and Ary</dd>
+              <dt>Produced by</dt><dd>Ane Brun and Ary</dd>
+              <dt>Mix and Master by</dt><dd>Prash "Engine-Earz" Mistry</dd>
+              <dt>Label</dt><dd>&copy; Balloon Ranger Recordings 2026</dd>
+              <dt>Publishing</dt><dd>Sony Music Publishing &nbsp;&middot;&nbsp; Kobalt Publishing</dd>
+              <dt>Thanks to</dt><dd>Light In A Room, Ljud och Bild Media, International Pictures, Cameraten, Sam Eklund, Annie Hagvil, Linus Hagström, Giulia Armellin, Frej Wells</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="work-supporters">
+          <h4>Released by</h4>
+          <div class="supporter-logos">
+            <img class="supporter-logo" src="images/film/holdme/hmpng/ballon.png" alt="Balloon Ranger Recordings" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="work-slider">
+    <div class="work-slider-track" id="hm-slider">
+      <div class="work-slider-item"><img src="images/film/holdme/hmselects/hm1.webp" alt="Hold Me" /></div>
+      <div class="work-slider-item"><img src="images/film/holdme/hmselects/hm2.webp" alt="Hold Me" /></div>
+      <div class="work-slider-item"><img src="images/film/holdme/hmselects/hm3.webp" alt="Hold Me" /></div>
+      <div class="work-slider-item"><img src="images/film/holdme/hmselects/hm4.webp" alt="Hold Me" /></div>
+    </div>
+    <button class="slider-btn slider-prev" onclick="slideMove('hm-slider',-1)">&#8592;</button>
+    <button class="slider-btn slider-next" onclick="slideMove('hm-slider',1)">&#8594;</button>
+  </div>
+
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
     <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
@@ -937,7 +969,7 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <img class="banner-img" src="images/stage/red/redselects/r1.webp" alt="RED" />
           <div class="banner-overlay-text">
             <p class="banner-overlay-title">RED</p>
-            <p class="banner-overlay-season">Summer 2025</p>
+            <p class="banner-overlay-season">Premiered June 2025</p>
             <p class="banner-overlay-sub">Supported by Orsolina28 Art Foundation + CHANEL</p>
           </div>
         </div>
@@ -955,7 +987,7 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <img class="banner-img" src="images/stage/layhim/layselects/lh1.webp" alt="Lay Him Quietly" />
           <div class="banner-overlay-text">
             <p class="banner-overlay-title">Lay Him Quietly</p>
-            <p class="banner-overlay-season">Spring 2026</p>
+            <p class="banner-overlay-season">Premiered May 2026</p>
           </div>
         </div>
         <div class="banner-caption">
@@ -972,7 +1004,7 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <img class="banner-img" src="images/stage/us/usmovingon.webp" alt="Us Moving On" />
           <div class="banner-overlay-text">
             <p class="banner-overlay-title">Us Moving On</p>
-            <p class="banner-overlay-season">Fall 2026</p>
+            <p class="banner-overlay-season">Premiering Oct 2026</p>
             <p class="banner-overlay-sub">New creation for Iceland Dance Company</p>
           </div>
         </div>
@@ -991,7 +1023,7 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <img class="banner-img" src="images/stage/search/s1.webp" alt="Search for Something I Didn't Know I Needed" />
           <div class="banner-overlay-text">
             <p class="banner-overlay-title">Search for Something I Didn't Know I Needed</p>
-            <p class="banner-overlay-season">Spring 2026</p>
+            <p class="banner-overlay-season">Premiered Feb 2026</p>
             <p class="banner-overlay-sub">Creation for Adaptations Dance Theater</p>
           </div>
         </div>
@@ -1288,88 +1320,6 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
     </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Hiroki Ichinose</p>
-    <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
-  </footer>
-</div>
-
-
-<!-- ============================================================
-     PAST WORKS
-     ============================================================ -->
-<div class="page" id="page-past">
-  <div class="section-inner">
-    <span class="section-eyebrow">Archive</span>
-    <h1 class="section-heading">Past Works</h1>
-    <p class="section-intro">Earlier pieces that shaped the practice.</p>
-
-    <div class="past-grid">
-
-      <!-- MARGOT -->
-      <div class="past-video-card">
-        <div class="past-video-wrap">
-          <iframe src="https://player.vimeo.com/video/1056154231?rel=0"
-            title="Margot" frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="past-card-body">
-          <h3>Margot</h3>
-          <p class="past-card-meta">GöteborgsOperans Danskompani Studio &nbsp;&middot;&nbsp; FRIDAY SHARINGS</p>
-          <p>Choreography/Direction: Hiroki Ichinose<br>
-          Performance/Collaborator: Victor Polster<br>
-          Music: <em>You're Still The One</em> — Okay Kaya &nbsp;·&nbsp; <em>Caro Mio Ben</em> — Cecilia Bartoli</p>
-          <p class="past-card-note">Presented at an informal studio sharing at GöteborgsOperans, Sweden as part of FRIDAY SHARINGS.</p>
-        </div>
-      </div>
-
-      <!-- WATERED SKIES -->
-      <div class="past-video-card">
-        <div class="past-video-wrap">
-          <iframe src="https://player.vimeo.com/video/756217640?rel=0"
-            title="Watered Skies" frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="past-card-body">
-          <h3>Watered Skies</h3>
-          <p class="past-card-meta">Dance Film</p>
-          <p>A dance film created in collaboration with Frida Dam Seidel.</p>
-        </div>
-      </div>
-
-      <!-- TOGETHER WE CRY -->
-      <div class="past-video-card">
-        <div class="past-video-wrap">
-          <iframe src="https://www.youtube.com/embed/uFEQOMC0pis?rel=0&modestbranding=1&autoplay=1&mute=1"
-            title="Together We Cry" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-        <div class="past-card-body">
-          <h3>Together We Cry</h3>
-          <p class="past-card-meta">GöteborgsOperans Danskompani &nbsp;&middot;&nbsp; World of Volvo</p>
-          <p>An immersive, time-limited experience exploring how emotion is performed, consumed, and aestheticized in the digital age. The work questions whether public digital expressions of vulnerability foster authentic connection or merely transform emotion into aesthetic content in pursuit of visibility and validation.</p>
-          <p>Dancers: Valentin Durand, Da Young Kim, Iris Telting<br>
-          Created for a collaboration between GöteborgsOperans Danskompani &amp; World of Volvo.</p>
-        </div>
-      </div>
-
-      <!-- A LITTLE LOST -->
-      <div class="past-video-card">
-        <div class="past-video-wrap">
-          <iframe src="https://player.vimeo.com/video/661521354?rel=0"
-            title="A Little Lost" frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="past-card-body">
-          <h3>A Little Lost</h3>
-          <p class="past-card-meta">Dance Film</p>
-          <p>A dance film created in collaboration with Frida Dam Seidel.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
     <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
