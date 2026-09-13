@@ -271,6 +271,148 @@
       cursor:pointer; text-transform:uppercase; transition:all .2s;
     }
     .fw-link-btn:hover { border-color:#fff; color:#fff; }
+
+    /* ── Events hero banner ── */
+    .events-hero {
+      position:relative; width:100%;
+      height:72vh; min-height:420px;
+      overflow:hidden; background:#000;
+    }
+    .events-hero img {
+      width:100%; height:100%; display:block;
+      object-fit:cover; object-position:center 25%;
+    }
+    .events-hero-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to bottom,
+        rgba(0,0,0,.5) 0%,
+        rgba(0,0,0,.28) 40%,
+        rgba(0,0,0,.88) 100%);
+    }
+    .events-hero-text {
+      position:absolute; inset:0; z-index:2;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center; color:#fff; padding:0 1.5rem;
+    }
+    .events-hero-eyebrow {
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:.72rem; letter-spacing:.28em;
+      text-transform:uppercase; color:#ddd;
+      margin:0 0 .9rem; opacity:.8;
+    }
+    .events-hero-title {
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:clamp(2.1rem, 6vw, 4.6rem);
+      font-weight:300; letter-spacing:.2em;
+      text-transform:uppercase; line-height:1.1; margin:0;
+      text-shadow:0 2px 18px rgba(0,0,0,.7);
+    }
+    .events-hero-sub {
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:clamp(.82rem, 1.6vw, 1.1rem);
+      font-weight:300; letter-spacing:.16em;
+      margin:.9rem 0 0; opacity:.82;
+      text-shadow:0 1px 8px rgba(0,0,0,.6);
+    }
+    .events-scroll-cue {
+      position:absolute; bottom:2rem; left:50%;
+      transform:translateX(-50%); z-index:2;
+      color:rgba(255,255,255,.6); font-size:1.4rem; line-height:1;
+      animation:eventsCue 2.4s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes eventsCue {
+      0%,100% { transform:translate(-50%,0);    opacity:.5; }
+      50%     { transform:translate(-50%,8px);  opacity:.95; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      .events-scroll-cue { animation:none; }
+    }
+    @media(max-width:720px) {
+      .events-hero { height:58vh; min-height:340px; }
+      .events-scroll-cue { bottom:1.2rem; }
+    }
+
+    /* ── Upcoming events ── */
+    .events-intro {
+      max-width:640px; font-size:.92rem; color:#999;
+      line-height:1.7; margin:0 0 .5rem;
+    }
+    .events-list {
+      margin-top:2.5rem;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .event-row {
+      display:grid;
+      grid-template-columns:120px 1fr auto;
+      gap:2rem;
+      align-items:start;
+      padding:2.1rem 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .event-date {
+      font-family:'Cormorant Garamond','Georgia',serif;
+      padding-top:.15rem;
+    }
+    .event-month {
+      display:block; font-size:.72rem; letter-spacing:.22em;
+      text-transform:uppercase; color:#8a8a8a;
+    }
+    .event-day {
+      display:block; font-size:2rem; font-weight:300;
+      color:#fff; line-height:1.15; letter-spacing:.04em;
+    }
+    .event-year {
+      display:block; font-size:.75rem; letter-spacing:.16em; color:#666;
+    }
+    .event-info h3 {
+      margin:0 0 .4rem; font-size:1.3rem; font-weight:300;
+      color:#fff; letter-spacing:.06em;
+    }
+    .event-venue { margin:0; font-size:.9rem; color:#bbb; letter-spacing:.03em; }
+    .event-detail { margin:.45rem 0 0; font-size:.82rem; color:#888; line-height:1.65; }
+    .event-extra {
+      margin:.75rem 0 0; font-size:.78rem; color:#777; letter-spacing:.04em; line-height:1.7;
+    }
+    .event-extra span {
+      display:block; font-size:.68rem; letter-spacing:.16em;
+      text-transform:uppercase; color:#666; margin-bottom:.25rem;
+    }
+    .event-badge {
+      display:inline-block; font-size:.62rem; letter-spacing:.14em;
+      text-transform:uppercase; color:#aaa;
+      border:1px solid rgba(255,255,255,.2);
+      padding:.18rem .5rem; margin-bottom:.6rem;
+    }
+    .event-action { align-self:center; }
+    .event-link {
+      display:inline-block; text-decoration:none; white-space:nowrap;
+      border:1px solid rgba(255,255,255,.3); color:#ccc;
+      padding:.55rem 1.1rem; font-size:.72rem;
+      letter-spacing:.12em; text-transform:uppercase;
+      transition:border-color .2s, color .2s;
+    }
+    .event-link:hover { border-color:#fff; color:#fff; }
+    .event-tba {
+      display:inline-block; white-space:nowrap;
+      border:1px solid rgba(255,255,255,.1); color:#666;
+      padding:.55rem 1.1rem; font-size:.72rem;
+      letter-spacing:.12em; text-transform:uppercase;
+    }
+    .events-group-label {
+      margin:4rem 0 0; padding-bottom:.9rem;
+      font-size:.72rem; letter-spacing:.24em;
+      text-transform:uppercase; color:#7a7a7a;
+      font-family:'Cormorant Garamond','Georgia',serif;
+    }
+    @media(max-width:720px) {
+      .event-row { grid-template-columns:1fr; gap:.9rem; padding:1.8rem 0; }
+      .event-date { display:flex; align-items:baseline; gap:.5rem; padding-top:0; }
+      .event-month, .event-year { font-size:.72rem; }
+      .event-day { font-size:1.4rem; }
+      .event-action { align-self:start; }
+    }
   </style>
 </head>
 <body>
@@ -286,6 +428,7 @@
     <li><a onclick="showPage('about')"   id="nav-about">About</a></li>
     <li><a onclick="showPage('stage')"   id="nav-stage">Dance on Stage</a></li>
     <li><a onclick="showPage('film')"    id="nav-film">Dance on Film</a></li>
+    <li><a onclick="showPage('events')"  id="nav-events">Events</a></li>
     <li><a onclick="showPage('fullworks')" id="nav-fullworks" style="color:#bbb;">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:5px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
       Full Works
@@ -583,26 +726,6 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
           <div class="banner-caption-left">
             <h3>Hold Me</h3>
             <p>August 2026 &nbsp;&middot;&nbsp; Ane Brun</p>
-          </div>
-          <span class="banner-arrow">&#8594;</span>
-        </div>
-      </div>
-
-      <div class="banner-row" onclick="showWork('slush')">
-        <div class="banner-img-wrap">
-          <img class="banner-img" src="images/film/iceland/slush.webp" alt="Slush"
-            onerror="this.src='images/film/iceland/slush.jpg'" />
-          <div class="banner-overlay-text">
-            <p class="banner-overlay-title">Slush</p>
-            <p class="banner-overlay-season">Fall 2026</p>
-            <p class="banner-overlay-sub">In collaboration with Bjorgvin Sigurdarson</p>
-          </div>
-        </div>
-        <div class="banner-caption">
-          <div class="banner-caption-left">
-            <h3>Slush</h3>
-            <p>Fall 2026 &nbsp;&middot;&nbsp; Bjorgvin Sigurdarson</p>
-            <span class="banner-badge">Upcoming</span>
           </div>
           <span class="banner-arrow">&#8594;</span>
         </div>
@@ -916,43 +1039,149 @@ As a teaching artist, Hiroki brings extensive experience working with both pre-p
 
 
 <!-- ============================================================
-     FILM: SLUSH
+     EVENTS — upcoming performances
      ============================================================ -->
-<div class="page work-detail" id="page-slush">
-  <div class="work-hero" style="height:55vh;">
-    <img src="images/film/iceland/slush.webp" alt="Slush"
-      onerror="this.src='images/film/iceland/slush.jpg'"
-      style="width:100%;height:100%;object-fit:cover;display:block;" />
-    <div class="hero-overlay" style="background:rgba(0,0,0,.3);"></div>
+<div class="page" id="page-events">
+
+  <!-- Hero banner -->
+  <div class="events-hero">
+    <img src="images/about/hiroki.webp" alt="Hiroki Ichinose" />
+    <div class="events-hero-overlay"></div>
+    <div class="events-hero-text">
+      <p class="events-hero-eyebrow">Calendar</p>
+      <h1 class="events-hero-title">Upcoming Events</h1>
+      <p class="events-hero-sub">2026 &nbsp;&middot;&nbsp; 2027</p>
+    </div>
+    <span class="events-scroll-cue">&#8595;</span>
   </div>
 
-  <div class="work-detail-inner">
-    <button class="work-back" onclick="showPage('film')">
-      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-      Dance on Film
-    </button>
-    <div class="work-title-block">
-      <h1>Slush</h1>
-      <span class="work-type">Dance Film &nbsp;&middot;&nbsp; Coming Fall 2026</span>
-    </div>
-    <div class="work-body">
-      <div>
-        <div class="work-description">
-          <p class="work-upcoming-label">Coming Fall 2026</p>
-          <p style="margin-top:1rem;">A new dance film with Bjorgvin Sigurdarson. Coming Fall 2026.</p>
+  <div class="section-inner">
+    <p class="events-intro">
+      Performances, premieres, and works in development. For press, tickets, or booking
+      inquiries please <a href="mailto:hirokimanaloaichinose@gmail.com" style="color:#bbb;">get in touch</a>.
+    </p>
+
+    <div class="events-list">
+
+      <!-- LAY HIM QUIETLY — Dance Place, Washington DC -->
+      <div class="event-row">
+        <div class="event-date">
+          <span class="event-month">Sep</span>
+          <span class="event-day">23 / 24</span>
+          <span class="event-year">2026</span>
+        </div>
+        <div class="event-info">
+          <h3>Lay Him Quietly</h3>
+          <p class="event-venue">Dance Place &nbsp;&middot;&nbsp; Washington, DC</p>
+          <p class="event-detail">Presented in co-production with the Embassy of Sweden.</p>
+        </div>
+        <div class="event-action">
+          <a class="event-link" href="https://www.danceplace.org/performances/the-embassy-of-sweden/"
+             target="_blank" rel="noopener">Tickets &nbsp;&#8594;</a>
         </div>
       </div>
-      <div class="work-sidebar"></div>
+
+      <!-- US MOVING ON — Iceland Dance Company -->
+      <div class="event-row">
+        <div class="event-date">
+          <span class="event-month">Oct</span>
+          <span class="event-day">30</span>
+          <span class="event-year">2026</span>
+        </div>
+        <div class="event-info">
+          <span class="event-badge">Premiere</span>
+          <h3>Us Moving On</h3>
+          <p class="event-venue">Iceland Dance Company &nbsp;&middot;&nbsp; Reykjavík</p>
+          <p class="event-detail">New creation for the company.</p>
+          <p class="event-extra">
+            <span>Additional performances</span>
+            Nov 14 &nbsp;&middot;&nbsp; Nov 21 &nbsp;&middot;&nbsp; Nov 27 &nbsp;&middot;&nbsp; Dec 5, 2026
+          </p>
+        </div>
+        <div class="event-action">
+          <a class="event-link" href="https://id.is/en/" target="_blank" rel="noopener">Tickets &nbsp;&#8594;</a>
+        </div>
+      </div>
+
+      <!-- RED — Flock International Dance Festival -->
+      <div class="event-row">
+        <div class="event-date">
+          <span class="event-month">Oct</span>
+          <span class="event-day">31</span>
+          <span class="event-year">2026</span>
+        </div>
+        <div class="event-info">
+          <h3>RED</h3>
+          <p class="event-venue">Flock International Dance Festival &nbsp;&middot;&nbsp; Schwäbisch Hall, Germany</p>
+          <p class="event-detail">Freilichtspiele Schwäbisch Hall.</p>
+        </div>
+        <div class="event-action">
+          <a class="event-link" href="https://www.freilichtspiele-hall.de/flocks-international-dance-festival.html"
+             target="_blank" rel="noopener">Tickets &nbsp;&#8594;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="events-group-label">In Development</p>
+
+    <div class="events-list" style="margin-top:0;">
+
+      <!-- ANE BRUN — new music video -->
+      <div class="event-row">
+        <div class="event-date">
+          <span class="event-month">Oct</span>
+          <span class="event-day">2026</span>
+        </div>
+        <div class="event-info">
+          <h3>New Music Video</h3>
+          <p class="event-venue">Ane Brun</p>
+        </div>
+        <div class="event-action">
+          <span class="event-tba">Release TBA</span>
+        </div>
+      </div>
+
+      <!-- SALT2 -->
+      <div class="event-row">
+        <div class="event-date">
+          <span class="event-month">Spring</span>
+          <span class="event-day">2027</span>
+        </div>
+        <div class="event-info">
+          <h3>New Creation</h3>
+          <p class="event-venue">SALT2</p>
+        </div>
+        <div class="event-action">
+          <span class="event-tba">Dates TBA</span>
+        </div>
+      </div>
+
+      <!-- BALLETCOLLECTIVE -->
+      <div class="event-row">
+        <div class="event-date">
+          <span class="event-month">Fall</span>
+          <span class="event-day">2027</span>
+        </div>
+        <div class="event-info">
+          <h3>New Creation</h3>
+          <p class="event-venue">BalletCollective &nbsp;&middot;&nbsp; New York</p>
+          <p class="event-detail">Commission for Developing Choreographers.</p>
+        </div>
+        <div class="event-action">
+          <span class="event-tba">Dates TBA</span>
+        </div>
+      </div>
+
     </div>
   </div>
+
   <footer>
     <p>&copy; 2025 Hiroki Ichinose</p>
     <a href="mailto:hirokimanaloaichinose@gmail.com">hirokimanaloaichinose@gmail.com</a>
   </footer>
 </div>
 
-
-<!-- ============================================================
 
 <!-- ============================================================
      DANCE ON STAGE — gallery
